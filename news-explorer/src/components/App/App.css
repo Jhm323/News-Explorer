@@ -1,4 +1,4 @@
-/* Font imports using @font-face */
+/* Font imports */
 @font-face {
   font-family: "Roboto";
   src: url("./fonts/Roboto-Regular.woff2") format("woff2"),
@@ -68,23 +68,28 @@ body {
   background-color: var(--color-background);
 }
 
-/* App component styles */
-.app {
+/* App components */
+.page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.app__main {
-  flex: 1;
+.page__content {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
+/* .page__main {
+  flex: 1;
+} */
+
 /* Container for consistent max-width */
-.container {
+/* .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-small);
-}
+} */
 
 /* Responsive breakpoints */
 @media screen and (max-width: 768px) {

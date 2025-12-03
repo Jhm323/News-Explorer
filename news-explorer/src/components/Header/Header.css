@@ -1,5 +1,6 @@
 .header {
-  background-color: #ffffff;
+  background-color: rgb(157, 112, 112);
+  /* opacity: 20%; */
   border-bottom: 1px solid #d1d2d6;
   position: sticky;
   top: 0;
@@ -20,7 +21,7 @@
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
-  color: #1a1b22;
+  color: white;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
@@ -29,9 +30,14 @@
   opacity: 0.8;
 }
 
-.header__nav {
+.header__right {
   display: flex;
   align-items: center;
+  gap: 32px;
+}
+
+.header__nav {
+  display: flex;
   gap: 32px;
 }
 
@@ -41,6 +47,7 @@
   color: #1a1b22;
   text-decoration: none;
   transition: color 0.3s ease;
+
   position: relative;
 }
 
@@ -53,12 +60,12 @@
   border-bottom: 3px solid #1a1b22;
   padding-bottom: 1px;
 }
-
+/* 
 .header__auth {
   display: flex;
   align-items: center;
   gap: 24px;
-}
+} */
 
 .header__signin-btn {
   background: transparent;
@@ -77,13 +84,13 @@
   color: #ffffff;
 }
 
-.header__user {
+/* .header__user {
   display: flex;
   align-items: center;
   gap: 16px;
-}
+} */
 
-.header__username {
+/* .header__username {
   font-size: 18px;
   line-height: 24px;
   color: #1a1b22;
@@ -101,9 +108,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-}
+} */
 
-.header__logout-btn:hover {
+/* .header__logout-btn:hover {
   color: #1a1b22;
 }
 
@@ -113,9 +120,9 @@
   background-image: url("../images/logout-icon.svg");
   background-size: contain;
   background-repeat: no-repeat;
-}
+} */
 
-.header__mobile-menu {
+/* .header__mobile-menu {
   display: none;
   background: transparent;
   border: none;
@@ -131,10 +138,10 @@
   background-image: url("../images/menu-icon.svg");
   background-size: contain;
   background-repeat: no-repeat;
-}
+} */
 
 /* Saved News Page Header Styles */
-.header_theme_dark {
+/* .header_theme_dark {
   background-color: #1a1b22;
   border-bottom: 1px solid #2f3136;
 }
@@ -171,7 +178,7 @@
 
 .header_theme_dark .header__logout-btn:hover {
   color: #b6bcbf;
-}
+} */
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
