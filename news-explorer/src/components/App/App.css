@@ -24,9 +24,17 @@
 }
 
 /* Global reset */
-* {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -80,16 +88,16 @@ body {
   margin: 0 auto;
 }
 
-/* .page__main {
+.page__main {
   flex: 1;
-} */
+}
 
 /* Container for consistent max-width */
-/* .container {
+.container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--spacing-small);
-} */
+}
 
 /* Responsive breakpoints */
 @media screen and (max-width: 768px) {
