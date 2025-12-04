@@ -1,26 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation() {
+function Navigation({ className = "" }) {
   return (
-    <nav className="navigation">
-      <Link to="/" className="navigation__logo">
-        NewsExplorer
-      </Link>
-      <ul className="navigation__links">
-        <li>
-          <Link to="/" className="navigation__link">
+    <nav className={`navigation ${className}`.trim()}>
+      <ul className="navigation__list">
+        <li className="navigation__item">
+          <NavLink to="/" className="navigation__link">
             Home
-          </Link>
+          </NavLink>
         </li>
-        <li>
-          <Link to="/saved-news" className="navigation__link">
+        <li className="navigation__item">
+          <NavLink to="/saved-news" className="navigation__link">
             Saved articles
-          </Link>
-        </li>
-        <li>
-          <button className="navigation__button">Sign in</button>
+          </NavLink>
         </li>
       </ul>
     </nav>
