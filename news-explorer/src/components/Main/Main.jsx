@@ -17,3 +17,11 @@
 // }
 
 // export default Main;
+
+import React from "react";
+
+function Main() {
+  return <main className="main">{/* ...content... */}</main>;
+}
+
+export default Main;

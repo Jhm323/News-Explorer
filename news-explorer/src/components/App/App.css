@@ -1,114 +1,30 @@
-/* Font imports */
-@font-face {
-  font-family: "Roboto";
-  src: url("./fonts/Roboto-Regular.woff2") format("woff2"),
-    url("./fonts/Roboto-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
+/* App component layout (component-scoped) */
 
-@font-face {
-  font-family: "Roboto";
-  src: url("./fonts/Roboto-Medium.woff2") format("woff2"),
-    url("./fonts/Roboto-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("./fonts/Roboto-Bold.woff2") format("woff2"),
-    url("./fonts/Roboto-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Global reset */
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Root variables for consistent styling */
-:root {
-  --color-primary: #1a1b22;
-  --color-secondary: #b6bcbf;
-  --color-accent: #2f71e5;
-  --color-white: #ffffff;
-  --color-background: #f5f6f7;
-  --color-error: #ff0000;
-
-  --font-family: "Roboto", Arial, sans-serif;
-  --font-size-base: 16px;
-  --font-size-small: 14px;
-  --font-size-large: 18px;
-
-  --spacing-small: 16px;
-  --spacing-medium: 24px;
-  --spacing-large: 32px;
-
-  --border-radius: 8px;
-  --max-width: 1232px;
-}
-
-/* Dark theme variables */
-[data-theme="dark"] {
-  --color-primary: #ffffff;
-  --color-background: #1a1b22;
-  --color-white: #2a2c36;
-}
-
-/* Base styles */
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: 1.5;
-  color: var(--color-primary);
-  background-color: var(--color-background);
-}
-
-/* App components */
 .page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.page__content {
-  max-width: 1440px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 .page__main {
   flex: 1;
+  width: 100%;
 }
 
-/* Container for consistent max-width */
-.container {
-  max-width: var(--max-width);
+/* Content wrapper used to constrain main content but keep header full-bleed */
+.page__content {
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 var(--spacing-small);
+  padding: 0; /* keep zero so header can stretch edge-to-edge */
 }
 
-/* Responsive breakpoints */
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 0 var(--spacing-small);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  :root {
-    --font-size-base: 14px;
-    --spacing-small: 12px;
-  }
+/* Optional utility helpers used by app components */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }

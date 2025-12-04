@@ -9,12 +9,18 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
+      <div className="page">
         <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/saved-news" element={<SavedNews />} />
-        </Routes>
+
+        <main className="page__main">
+          <div className="page__content">
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/saved-news" element={<SavedNews />} />
+            </Routes>
+          </div>
+        </main>
+
         <Footer />
       </div>
     </BrowserRouter>

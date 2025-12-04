@@ -68,3 +68,12 @@
 // }
 
 // export default SavedNews;
+
+import React from "react";
+import "./SavedNews.css"; // if you have styles
+
+function SavedNews() {
+  return <main className="saved-news">{/* saved news content */}</main>;
+}
+
+export default SavedNews;
