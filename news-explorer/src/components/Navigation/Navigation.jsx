@@ -7,12 +7,26 @@ function Navigation({ className = "" }) {
     <nav className={`navigation ${className}`.trim()}>
       <ul className="navigation__list">
         <li className="navigation__item">
-          <NavLink to="/" className="navigation__link">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "navigation__link navigation__link_active"
+                : "navigation__link"
+            }
+          >
             Home
           </NavLink>
         </li>
         <li className="navigation__item">
-          <NavLink to="/saved-news" className="navigation__link">
+          <NavLink
+            to="/saved-news"
+            className={({ isActive }) =>
+              isActive
+                ? "navigation__link navigation__link_active"
+                : "navigation__link"
+            }
+          >
             Saved articles
           </NavLink>
         </li>
