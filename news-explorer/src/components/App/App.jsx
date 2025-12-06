@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
+import About from "../About/About";
 import "./App.css";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
                 ))}
               </section>
             )}
+            <About />
 
             <Routes>
               <Route path="/" element={<Main />} />
