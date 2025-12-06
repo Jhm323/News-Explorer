@@ -16,7 +16,7 @@
 }
 
 .about__title {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-family-secondary);
   font-size: 60px;
   font-weight: 400;
   line-height: 64px;
@@ -24,12 +24,25 @@
   margin: 0 0 24px 0;
 }
 
-.about__text {
-  font-family: "Roboto", sans-serif;
+.about__author {
+  font-family: var(--font-family-secondary);
   font-size: 18px;
   line-height: 24px;
   color: #1a1b22;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
   margin: 0 0 24px 0;
+}
+
+.about__author-avatar {
+  background-image: url("../../vendor/page__image-cell-phone.jpg");
+  width: 464px;
+  height: 464px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* Tablet styles */
