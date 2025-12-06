@@ -4,8 +4,26 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  background-image: url("../../vendor/page__image-cell-phone.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% -59%;
+
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page > * {
+  position: relative;
+  z-index: 2;
 }
 
 .page__main {
@@ -17,6 +35,7 @@
 .page__content {
   width: 100%;
   max-width: 1440px;
+  max-height: 576px;
   margin: 0 auto;
   padding: 0; /* keep zero so header can stretch edge-to-edge */
 }

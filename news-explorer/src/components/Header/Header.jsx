@@ -24,7 +24,7 @@ function Header() {
           aria-controls="header-side-menu"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className="header__mobile-menu-icon">=</span>
+          <span className="header__mobile-menu-icon"></span>
         </button>
       </div>
 

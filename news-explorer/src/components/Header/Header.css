@@ -4,25 +4,25 @@
   position: sticky;
   top: 0;
   left: 0;
-  background-color: rgb(157, 112, 112);
   z-index: 100;
   border-bottom: 1px solid #d1d2d6;
+  background: #c4c4c403;
 }
 
 .header__content {
-  box-sizing: border-box;
   max-width: 1440px;
   width: 100%;
   min-height: 80px;
-  box-sizing: border-box;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .header__logo {
+  font-family: var(--font-family-secondary);
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -54,9 +54,10 @@
 .header__nav-link {
   max-width: 49px;
   max-width: 24px;
-  font-family: "roboto", Arial, sans-serif;
+  font-family: var(--font-family-primary);
   font-size: 18px;
   line-height: 24px;
+  font-weight: 500;
   text-decoration: none;
   transition: color 0.3s ease;
   position: relative;
@@ -88,11 +89,12 @@
   justify-content: center;
   box-sizing: border-box;
   background: transparent;
-  border: 1px solid #ffffff;
+  border: 1px solid #d1d2d6;
   border-radius: 100px;
-  font-family: "roboto", Arial, sans-serif;
+  font-family: var(--font-family-primary);
   font-size: 18px;
   line-height: 24px;
+  font-weight: 500;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -155,9 +157,8 @@
 }
 
 .header__mobile-menu-icon {
+  background-image: url("../../vendor/header__mobile-menu-icon.png");
   color: white;
-  font-size: 24px;
-  line-height: 24px;
   width: 24px;
   height: 24px;
   display: inline-block;
@@ -289,13 +290,6 @@
     display: block;
     margin: 0 auto;
   }
-
-  .header__mobile-menu-icon {
-    color: white;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0 auto;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -303,7 +297,6 @@
     width: 100vw;
     position: sticky;
     top: 0;
-    background-color: rgb(157, 112, 112);
     z-index: 100;
     border-bottom: 1px solid #d1d2d6;
   }
@@ -342,13 +335,6 @@
     display: block;
     margin: 0 auto;
   }
-
-  .header__mobile-menu-icon {
-    color: white;
-    font-size: 24px;
-    line-height: 24px;
-    margin: 0 auto;
-  }
 }
 
 @media screen and (max-width: 320px) {
@@ -356,7 +342,6 @@
     width: 100vw;
     position: sticky;
     top: 0;
-    background-color: rgb(157, 112, 112);
     z-index: 100;
     border-bottom: 1px solid #d1d2d6;
   }

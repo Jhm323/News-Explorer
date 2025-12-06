@@ -19,17 +19,19 @@ function SearchForm({ onSearch }) {
         account.
       </p>
       <form className="search-form__form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="search-form__input"
-          placeholder="Enter topic"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          required
-        />
-        <button type="submit" className="search-form__button">
-          Search
-        </button>
+        <div className="search-form__controls">
+          <input
+            type="text"
+            className="search-form__input"
+            placeholder="Enter topic"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            required
+          />
+          <button type="submit" className="search-form__button">
+            Search
+          </button>
+        </div>
       </form>
     </section>
   );
