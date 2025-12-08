@@ -1,11 +1,14 @@
 import React from "react";
+import aboutImg from "../../vendor/avatarImg.jpg";
 import "./About.css";
 
 function About() {
   return (
     <div className="about">
       <div className="about__author">
-        <img src="author.jpg" alt="Author" className="about__author-avatar" />
+        <div className="about__author-avatar">
+          <img src={aboutImg} alt="Author" />
+        </div>
         <div className="about__author-info">
           <h2 className="about__author-title">About the Author</h2>
           <div className="about__author-text">
