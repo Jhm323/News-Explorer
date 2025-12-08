@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
-import Footer from "../Footer/Footer";
 import SearchForm from "../SearchForm/SearchForm";
 import About from "../About/About";
+import Footer from "../Footer/Footer";
 import "./App.css";
 
 function App() {

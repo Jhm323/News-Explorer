@@ -1,9 +1,7 @@
-/* App component layout (component-scoped) */
-
 .page {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   background-image: url("../../vendor/page__image-cell-phone.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,19 +29,17 @@
   width: 100%;
 }
 
-/* Content wrapper used to constrain main content but keep header full-bleed */
 .page__content {
   width: 100%;
   max-width: 1440px;
-  max-height: 576px;
   margin: 0 auto;
-  padding: 0; /* keep zero so header can stretch edge-to-edge */
+  padding: 0;
 }
 
-/* Optional utility helpers used by app components */
+/* app components helper */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0;
 }

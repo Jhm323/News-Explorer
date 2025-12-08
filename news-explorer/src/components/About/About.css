@@ -1,7 +1,7 @@
 .about {
   max-width: 1440px;
   width: 100%;
-  height: 624px;
+  min-height: 624px;
   margin: 48px auto 0 auto;
   /* padding: 32px 24px; */
   background: #ffffff;
