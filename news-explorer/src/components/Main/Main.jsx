@@ -71,14 +71,14 @@ function Main({
       {/* Top section with search */}
       <section className="main__top">
         <div className="main__top-content">
-          <h1 className="main__top-title">What's going on in the world?</h1>
-          <p className="main__top-subtitle">
-            Find the latest news on any topic and save them in your personal
-            account.
-          </p>
-          <div className="main__top-search-wrapper">
-            <SearchForm onSearchSubmit={handleSearchSubmit} />
+          <div className="main__top-textbox">
+            <h1 className="main__top-title">What's going on in the world?</h1>
+            <p className="main__top-subtitle">
+              Find the latest news on any topic and save them in your personal
+              account.
+            </p>
           </div>
+          <SearchForm onSearchSubmit={handleSearchSubmit} />
         </div>
       </section>
 

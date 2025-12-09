@@ -2,13 +2,12 @@
   max-width: 1440px;
   width: 100%;
   min-height: 624px;
-  margin: 48px auto 0 auto;
-  /* padding: 32px 24px; */
   background: #ffffff;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   overflow: hidden;
+  margin: 0 auto 0 auto;
 }
 
 .about__author {
@@ -75,7 +74,7 @@
 @media screen and (max-width: 1024px) {
   .about {
     height: auto;
-    margin: 32px auto 0 auto;
+    margin: 0 auto 0 auto;
   }
 
   .about__author {
@@ -95,10 +94,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .about {
-    /* padding: 56px 0; */
-  }
-
   .about__author {
     padding: 40px;
   }

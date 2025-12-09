@@ -13,11 +13,6 @@ function SearchForm({ onSearch }) {
 
   return (
     <section className="search-form">
-      {/* <h1 className="search-form__title">What's going on in the world?</h1>
-      <p className="search-form__subtitle">
-        Find the latest news on any topic and save them in your personal
-        account.
-      </p> */}
       <form className="search-form__form" onSubmit={handleSubmit}>
         <div className="search-form__controls">
           <input
