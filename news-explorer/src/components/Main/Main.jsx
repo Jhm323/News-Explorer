@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./Main.css";
 
 import SearchForm from "../SearchForm/SearchForm";
-// import NewsCard from "../NewsCard/NewsCard";
+import NewsCardsList from "../NewsCardsList/NewsCardsList";
 import About from "../About/About";
-// import Preloader from "../Preloader/Preloader";
 
 function Main({
   searchResults,
@@ -68,7 +67,6 @@ function Main({
 
   return (
     <main className="main">
-      {/* Top section with search */}
       <section className="main__top">
         <div className="main__top-content">
           <div className="main__top-textbox">
@@ -82,40 +80,19 @@ function Main({
         </div>
       </section>
 
-      {/* Search results section */}
       {searchPerformed && (
         <section className="main__results">
-          {isLoading ? (
-            <Preloader />
-          ) : hasSearchError ? (
-            <div className="main__results-error">
-              <div className="main__results-error-icon"></div>
-              <h3 className="main__results-error-title">
-                Sorry, something went wrong during the request.
-              </h3>
-              <p className="main__results-error-text">
-                There may be a connection issue or the server may be down.
-                Please try again later.
-              </p>
-            </div>
-          ) : searchResults.length === 0 ? (
-            <div className="main__results-not-found">
-              <div className="main__results-not-found-icon"></div>
-              <h3 className="main__results-not-found-title">Nothing found</h3>
-              <p className="main__results-not-found-text">
-                Sorry, but nothing matched your search terms.
-              </p>
-            </div>
-          ) : (
-            <NewsCard
-              articles={searchResults}
-              savedArticles={savedArticles}
-              onArticleAction={handleArticleAction}
-              isLoggedIn={isLoggedIn}
-              searchKeyword={searchKeyword}
-              showSaveButton={true}
-            />
-          )}
+          <NewsCardsList
+            articles={searchResults}
+            savedArticles={savedArticles}
+            onArticleAction={handleArticleAction}
+            isLoggedIn={isLoggedIn}
+            searchKeyword={searchKeyword}
+            isLoading={isLoading}
+            hasSearchError={hasSearchError}
+            hasSearched={searchPerformed}
+            showSaveButton={true}
+          />
         </section>
       )}
 
