@@ -36,9 +36,8 @@ function NewsCardsList({
 
   return (
     <section className="news-cards">
+      <h2 className="news-cards__title">Search results</h2>
       <div className="news-cards__container">
-        <h2 className="news-cards__title">Search results</h2>
-
         <div className="news-cards__list">
           {articles.slice(0, visibleCount).map((article) => (
             <NewsCard
@@ -52,12 +51,11 @@ function NewsCardsList({
             />
           ))}
         </div>
-
-        {visibleCount < articles.length && (
-          <button className="news-cards__more-button" onClick={handleShowMore}>
-            Show more
-          </button>
-        )}
+        {/* {visibleCount < articles.length && ( */}
+        <button className="news-cards__more-button" onClick={handleShowMore}>
+          Show more
+        </button>
+        {/* )} */}
       </div>
     </section>
   );

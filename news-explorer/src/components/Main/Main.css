@@ -43,9 +43,8 @@
 }
 
 .main__results {
-  max-width: 800px;
-  margin: 0 auto 48px auto;
-  padding: 0 16px;
+  margin: 0 0 48px 0;
+  /* padding: 0 16px; */
 }
 
 .main__results-error,

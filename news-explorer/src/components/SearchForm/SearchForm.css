@@ -75,7 +75,7 @@
 /* Submit button */
 .search-form__button {
   position: absolute;
-  right: 0;
+  right: -1px;
   top: 0;
   height: 64px;
   min-width: 168px;
@@ -94,20 +94,17 @@
   transition: background-color 0.3s ease;
 }
 
-.search-form__submit-button:hover {
+.search-form__button:hover {
   background-color: #347eff;
+  cursor: pointer;
 }
 
-.search-form__submit-button:active {
+.search-form__button:active {
   background-color: #2a65cc;
+  cursor: pointer;
 }
 
-.search-form__submit-button:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: -4px;
-}
-
-.search-form__submit-button:disabled {
+.search-form__button:disabled {
   background-color: #b6bcbf;
   cursor: not-allowed;
 }

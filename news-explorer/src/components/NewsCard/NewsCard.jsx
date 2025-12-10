@@ -30,7 +30,10 @@ function NewsCard({
     <article className="news-card">
       <div className="news-card__image-container">
         <img
-          src={article.urlToImage || "/images/placeholder-image.jpg"}
+          src={
+            article.urlToImage ||
+            "https://via.placeholder.com/400x200?text=News+Image"
+          }
           alt={article.title}
           className="news-card__image"
         />

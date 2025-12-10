@@ -76,7 +76,7 @@ function Main({
               account.
             </p>
           </div>
-          <SearchForm onSearchSubmit={handleSearchSubmit} />
+          <SearchForm onSearch={handleSearchSubmit} />
         </div>
       </section>
 
