@@ -1,11 +1,13 @@
 .news-card {
-  width: 400px;
-  height: 576px;
+  /* width: 400px;
+  height: 576px; */
+  height: auto;
+  min-height: 0;
   position: relative;
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: 400px;
+  flex-direction: column;
   background-color: var(--color-background-primary);
   border-radius: 16px;
   overflow: hidden;
@@ -304,7 +306,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+    /* -webkit-line-clamp: 4; */
     font-size: 16px;
     line-height: 22px;
     margin: 0;

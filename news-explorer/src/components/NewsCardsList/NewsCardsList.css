@@ -1,7 +1,7 @@
 .news-cards {
   width: 100%;
-  min-width: 100%;
-  height: 974px;
+  /* min-width: 100%; */
+  /* height: 974px;  */
   background: #f5f6f7;
   margin: 0;
   padding: 80px 104px;
@@ -95,11 +95,6 @@
 }
 
 /* Responsiveness */
-@media (max-width: 1040px) {
-  .news-cards {
-    height: auto;
-  }
-}
 
 @media (max-width: 768px) {
   .news-cards__title {
@@ -116,8 +111,8 @@
   }
 
   .news-cards {
-    width: 100%;
-    height: auto;
+    height: auto; /* Ensure the section grows with content */
+    min-height: 0;
     padding: 40px;
   }
 
