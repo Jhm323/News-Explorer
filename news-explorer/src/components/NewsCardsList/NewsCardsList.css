@@ -14,6 +14,7 @@
   font-family: var(--font-family-secondary);
   font-size: 40px;
   line-height: 46px;
+  font-weight: 400;
   margin: 0 0 64px;
   text-align: left;
   align-self: flex-start;
@@ -28,10 +29,9 @@
 
 .news-cards__list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   width: 100%;
-  display: contents; /* Allows grid children to be direct grid items */
 }
 
 .news-cards__error {
@@ -48,7 +48,7 @@
 .news-cards__no-results {
   text-align: center;
   padding: 60px 20px;
-  color: #666;
+  color: #7f5f5f;
   font-size: 18px;
   background-color: #f5f6f7;
   border-radius: 8px;
@@ -94,27 +94,38 @@
   color: #666;
 }
 
+/* Responsiveness */
 @media (max-width: 1040px) {
   .news-cards {
     height: auto;
   }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
+  .news-cards__title {
+    margin-bottom: 32px;
+  }
+
   .news-cards__list {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
+    justify-items: center;
+    gap: 8px;
+    margin: 0 auto;
   }
 
   .news-cards {
+    width: 100%;
     height: auto;
     padding: 40px;
   }
 
-  .news-cards__container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 0 16px;
+  .news-card__content {
+    max-width: 340px;
+    width: 100%;
+    height: 250px;
+    margin: 0 auto;
   }
 
   .news-cards__more-button {
@@ -132,6 +143,11 @@
 }
 
 @media (max-width: 480px) {
+  .news-cards__list {
+    height: 100%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .news-cards {
     max-width: 100%;
     height: auto;

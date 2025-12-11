@@ -39,7 +39,7 @@ function Main({
       // ];
 
       setTimeout(() => {
-        setSearchResults(sampleArticles);
+        setSearchResults(SAMPLE_ARTICLES);
         setIsLoading(false);
       }, 1500);
     } catch (error) {

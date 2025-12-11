@@ -1,47 +1,52 @@
 export const SAMPLE_ARTICLES = [
   {
-    source: { name: "CNN" },
-    title: "Breaking: Major Technology Breakthrough Announced",
+    source: { name: "NBC News" },
+    title: "First Giant Panda Cub Born",
     description:
-      "Scientists have made a significant discovery that could revolutionize the tech industry. This breakthrough promises to change how we interact with technology.",
+      "Satrio Wiratama, nicknamed Rio, was born Nov. 27 at a conservation park in West Java province. He is stable and showing healthy early signs, the park said.",
     publishedAt: "2024-01-15T10:30:00Z",
-    urlToImage: "https://via.placeholder.com/400x200?text=Tech+News",
-    url: "https://example.com/tech-breakthrough",
+    urlToImage:
+      "https://www.nbcnews.com/world/asia/first-giant-panda-cub-born-indonesia-squeals-squirms-park-video-rcna247957",
+    url: "https://www.nbcnews.com/world/asia/first-giant-panda-cub-born-indonesia-squeals-squirms-park-video-rcna247957",
   },
   {
-    source: { name: "BBC" },
-    title: "Global Climate Summit Reaches Historic Agreement",
+    source: { name: "NBC News" },
+    title: "Bear Takes Up Residence in Home's Crawlspace",
     description:
-      "World leaders have come together to sign a landmark climate agreement that sets ambitious targets for carbon reduction over the next decade.",
+      "The bear that moved into a home’s crawlspace more than a week ago in Altadena is not budging despite numerous attempts by the homeowners to keep him out.",
     publishedAt: "2024-01-14T15:45:00Z",
-    urlToImage: "https://via.placeholder.com/400x200?text=Climate+News",
-    url: "https://example.com/climate-agreement",
+    urlToImage:
+      "https://www.nbcnews.com/video/bear-living-under-california-home-shows-no-signs-of-leaving-253414469771",
+    url: "https://www.nbcnews.com/video/bear-living-under-california-home-shows-no-signs-of-leaving-253414469771",
   },
   {
-    source: { name: "Reuters" },
-    title: "Stock Markets Hit Record Highs Amid Economic Recovery",
+    source: { name: "NBC News" },
+    title: "Want to clone your dog? Don't expect an exact replica",
     description:
-      "Financial markets continue their upward trajectory as economic indicators show strong signs of recovery across multiple sectors.",
+      'Arthur Murray says his dogs Stella and Mella are "100% physically identical." Their personalities? Less similar.',
     publishedAt: "2024-01-13T08:20:00Z",
-    urlToImage: "https://via.placeholder.com/400x200?text=Finance+News",
-    url: "https://example.com/market-highs",
+    urlToImage:
+      "https://www.nbcnews.com/science/science-news/want-clone-dog-dont-expect-exact-replica-rcna246942",
+    url: "https://www.nbcnews.com/science/science-news/want-clone-dog-dont-expect-exact-replica-rcna246942",
   },
   {
-    source: { name: "The Guardian" },
-    title: "New Archaeological Discovery Rewrites Ancient History",
+    source: { name: "Smithsonian's National Zoo" },
+    title: "For Migratory Species, Fences Don’t Make Good Neighbors ›",
     description:
-      "Archaeologists have uncovered artifacts that challenge our understanding of ancient civilizations and their technological capabilities.",
+      "Fences are creating serious problems for wildebeest herds, says a Smithsonian ecologist studying megafauna migrations in Africa.",
     publishedAt: "2024-01-12T12:15:00Z",
-    urlToImage: "https://via.placeholder.com/400x200?text=History+News",
-    url: "https://example.com/archaeology-discovery",
+    urlToImage:
+      "https://nationalzoo.si.edu/conservation-ecology-center/news/migratory-species-fences-dont-make-good-neighbors",
+    url: "https://nationalzoo.si.edu/conservation-ecology-center/news/migratory-species-fences-dont-make-good-neighbors",
   },
   {
-    source: { name: "Associated Press" },
-    title: "Space Mission Successfully Launches to Mars",
+    source: { name: "Smithsonian's National Zoo" },
+    title: "Asian Elephant Program Media Resources ›",
     description:
-      "The latest Mars exploration mission has successfully launched, carrying advanced scientific instruments to study the red planet's atmosphere.",
+      "Find comprehensive resources for media on the Asian elephant program at the Smithsonian's National Zoo and Conservation Biology Institute.",
     publishedAt: "2024-01-11T09:00:00Z",
-    urlToImage: "https://via.placeholder.com/400x200?text=Space+News",
-    url: "https://example.com/mars-mission",
+    urlToImage:
+      "https://nationalzoo.si.edu/news/asian-elephant-program-media-resources",
+    url: "https://nationalzoo.si.edu/news/asian-elephant-program-media-resources",
   },
 ];
