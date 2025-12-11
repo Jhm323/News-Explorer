@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Main.css";
 
+import { SAMPLE_ARTICLES } from "../../utils/constants";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCardsList from "../NewsCardsList/NewsCardsList";
 import About from "../About/About";
@@ -12,6 +13,8 @@ function Main({
   setSavedArticles,
   isLoggedIn,
 }) {
+  const [articles, setArticles] = useState(SAMPLE_ARTICLES);
+
   const [isLoading, setIsLoading] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -24,17 +27,16 @@ function Main({
     setHasSearchError(false);
 
     try {
-      const sampleArticles = [
-        {
-          id: 1,
-          title: "Sample Article Title",
-          description: "Sample article description...",
-          url: "https://example.com",
-          urlToImage: "https://example.com/image.jpg",
-          publishedAt: "2024-01-15T10:00:00Z",
-          source: { name: "Sample Source" },
-        },
-      ];
+      // const sampleArticles = [
+      //   {
+      //     id: 1,
+      //     title: "Endangered Rhino Born",
+      //     description: "Critically endangered rhino born at farm",
+      //     url: "https://www.bbc.com/news/videos/cdd52y8nm80o",
+      //     urlToImage: "https://www.bbc.com/news/videos/cdd52y8nm80o",
+      //     source: { name: "BBC News" },
+      //   },
+      // ];
 
       setTimeout(() => {
         setSearchResults(sampleArticles);
@@ -83,7 +85,8 @@ function Main({
       {searchPerformed && (
         <section className="main__results">
           <NewsCardsList
-            articles={searchResults}
+            articles={articles}
+            // articles={searchResults}
             savedArticles={savedArticles}
             onArticleAction={handleArticleAction}
             isLoggedIn={isLoggedIn}
