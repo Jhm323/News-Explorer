@@ -48,13 +48,13 @@ function NewsCard({
           </button>
         ) : (
           <button
-            className={`news-card__save-button ${
-              isSaved ? "news-card__save-button_active" : ""
+            className={`news-card__bookmark-button ${
+              isSaved ? "news-card__bookmark-button_active" : ""
             }`}
             onClick={handleSaveClick}
             aria-label={isSaved ? "Remove from saved" : "Save article"}
           >
-            <span className="news-card__save-icon"></span>
+            <span className="news-card__bookmark-icon"></span>
           </button>
         )}
 
@@ -67,7 +67,14 @@ function NewsCard({
         )}
       </div>
 
-      <div className="news-card__content">
+      {/* Make the entire content area a link */}
+      <a
+        className="news-card__content"
+        href={article.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Read full article"
+      >
         <time className="news-card__date">
           {formatDate(article.publishedAt)}
         </time>
@@ -76,16 +83,6 @@ function NewsCard({
         <span className="news-card__source">
           {article.source?.name || "Unknown Source"}
         </span>
-      </div>
-
-      <a
-        href={article.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="news-card__link"
-        aria-label="Read full article"
-      >
-        <span className="visually-hidden">Read full article</span>
       </a>
     </article>
   );

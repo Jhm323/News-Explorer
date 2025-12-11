@@ -295,7 +295,7 @@
 @media screen and (max-width: 480px) {
   .header {
     width: 100vw;
-    position: sticky;
+    position: static;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #d1d2d6;
@@ -340,7 +340,6 @@
 @media screen and (max-width: 320px) {
   .header {
     width: 100vw;
-    position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #d1d2d6;
