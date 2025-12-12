@@ -6,7 +6,6 @@
 
 .main__top {
   padding: 48px 0 0 0;
-  /* background: #fff; */
 }
 
 .main__top-content {
@@ -40,11 +39,6 @@
   max-width: 608px;
   text-align: left;
   margin: 0 0 88px 0;
-}
-
-.main__results {
-  margin: 0 0 48px 0;
-  /* padding: 0 16px; */
 }
 
 .main__results-error,

@@ -1,5 +1,13 @@
 export const SAMPLE_ARTICLES = [
   {
+    source: { name: "BBC News" },
+    title: "Endangered Rhino Born",
+    description: "Critically endangered rhino born at farm",
+    publishedAt: "2024-01-15T10:30:00Z",
+    urlToImage: "https://www.bbc.com/news/videos/cdd52y8nm80o",
+    url: "https://www.bbc.com/news/videos/cdd52y8nm80o",
+  },
+  {
     source: { name: "NBC News" },
     title: "First Giant Panda Cub Born",
     description:

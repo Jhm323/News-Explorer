@@ -27,19 +27,13 @@ function Main({
     setHasSearchError(false);
 
     try {
-      // const sampleArticles = [
-      //   {
-      //     id: 1,
-      //     title: "Endangered Rhino Born",
-      //     description: "Critically endangered rhino born at farm",
-      //     url: "https://www.bbc.com/news/videos/cdd52y8nm80o",
-      //     urlToImage: "https://www.bbc.com/news/videos/cdd52y8nm80o",
-      //     source: { name: "BBC News" },
-      //   },
-      // ];
-
       setTimeout(() => {
-        setSearchResults(SAMPLE_ARTICLES);
+        const filteredArticles = SAMPLE_ARTICLES.filter(
+          (article) =>
+            article.title.toLowerCase().includes(keyword.toLowerCase()) ||
+            article.description.toLowerCase().includes(keyword.toLowerCase())
+        );
+        setSearchResults(filteredArticles);
         setIsLoading(false);
       }, 1500);
     } catch (error) {
@@ -85,8 +79,7 @@ function Main({
       {searchPerformed && (
         <section className="main__results">
           <NewsCardsList
-            articles={articles}
-            // articles={searchResults}
+            articles={searchResults}
             savedArticles={savedArticles}
             onArticleAction={handleArticleAction}
             isLoggedIn={isLoggedIn}

@@ -5,8 +5,8 @@
   background-image: url("../../vendor/page__image-cell-phone.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% -59%;
-
+  background-position: 50% -245px;
+  background-attachment: fixed;
   position: relative;
 }
 
