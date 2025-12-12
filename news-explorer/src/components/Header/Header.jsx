@@ -2,7 +2,7 @@ import "./Header.css";
 import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
-function Header() {
+function Header({ isLoggedIn, onLoginClick, onRegisterClick, onLogoutClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -11,9 +11,28 @@ function Header() {
         <p className="header__logo">NewsExplorer</p>
         <div className="header__right">
           <Navigation className="header__nav" />
-          <button type="button" className="header__signin-btn">
-            Signin
-          </button>
+          <div className="header__auth">
+            {isLoggedIn ? (
+              <button className="header__logout-button" onClick={onLogoutClick}>
+                Logout
+              </button>
+            ) : (
+              <>
+                <button
+                  className="header__signin-button"
+                  onClick={onLoginClick}
+                >
+                  Sign In
+                </button>
+                <button
+                  className="header__signup-button"
+                  onClick={onRegisterClick}
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
         <button
@@ -31,9 +50,28 @@ function Header() {
       {menuOpen && (
         <nav id="header-side-menu" className="header__side-menu">
           <Navigation className="header__side-menu__nav" />
-          <button type="button" className="header__side-menu-signin">
-            Signin
-          </button>
+          <div className="header__auth">
+            {isLoggedIn ? (
+              <button className="header__logout-button" onClick={onLogoutClick}>
+                Logout
+              </button>
+            ) : (
+              <>
+                <button
+                  className="header__signin-button"
+                  onClick={onLoginClick}
+                >
+                  Sign In
+                </button>
+                <button
+                  className="header__signup-button"
+                  onClick={onRegisterClick}
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
+          </div>
         </nav>
       )}
     </header>

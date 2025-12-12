@@ -15,10 +15,12 @@ function NewsCardsList({
   hasSearched,
   showSaveButton = true,
 }) {
-  const [visibleCount, setVisibleCount] = useState(3); // Show 3 articles initially
+  // Show 3 articles initially
+  const [visibleCount, setVisibleCount] = useState(3);
 
+  // Show 3 more articles
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 3); // Show 3 more articles
+    setVisibleCount((prev) => prev + 3);
   };
 
   // Loading, Error, No-Results

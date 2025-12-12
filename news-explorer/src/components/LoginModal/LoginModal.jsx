@@ -1,42 +1,64 @@
-// import React, { useState } from "react";
-// import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import React, { useState } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-// function LoginModal({ isOpen, onClose, onLogin }) {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     onLogin({ email, password });
-//   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-//   return (
-//     <ModalWithForm
-//       title="Sign in"
-//       name="login"
-//       isOpen={isOpen}
-//       onClose={onClose}
-//       onSubmit={handleSubmit}
-//       buttonText="Sign in"
-//     >
-//       <input
-//         type="email"
-//         className="modal__input"
-//         placeholder="Enter email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         required
-//       />
-//       <input
-//         type="password"
-//         className="modal__input"
-//         placeholder="Enter password"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         required
-//       />
-//     </ModalWithForm>
-//   );
-// }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login form submitted:", formData);
+    // Form submission logic will come later
+  };
 
-// export default LoginModal;
+  return (
+    <ModalWithForm
+      title="Sign In"
+      name="login"
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        value={formData.email}
+        onChange={handleChange}
+        className="modal__input"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Enter password"
+        value={formData.password}
+        onChange={handleChange}
+        className="modal__input"
+        required
+      />
+      <button type="submit" className="modal__submit-button">
+        Sign In
+      </button>
+      <button
+        type="button"
+        className="modal__switch-button"
+        onClick={onSwitchToRegister}
+      >
+        Sign Up
+      </button>
+    </ModalWithForm>
+  );
+}
+
+export default LoginModal;

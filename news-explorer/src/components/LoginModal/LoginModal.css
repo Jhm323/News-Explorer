@@ -1,4 +1,4 @@
-/* .login-modal {
+.login-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -161,7 +161,7 @@
 }
 
 /* Mobile Responsive Styles */
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .login-modal__container {
     margin: 0 16px;
     padding: 28px 24px;
@@ -209,4 +209,4 @@
     font-size: 18px;
     line-height: 22px;
   }
-}  */
+}
