@@ -1,7 +1,16 @@
 import React, { useEffect } from "react";
 import "./ModalWithForm.css";
 
-function ModalWithForm({ children, title, name, isOpen, onClose, onSubmit }) {
+function ModalWithForm({
+  children,
+  title,
+  name,
+  isOpen,
+  onClose,
+  onSubmit,
+  className = "modal",
+  containerClassName = "modal__container",
+}) {
   // Close modal on Escape key
   useEffect(() => {
     const handleEscClose = (e) => {
@@ -29,8 +38,11 @@ function ModalWithForm({ children, title, name, isOpen, onClose, onSubmit }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal" onClick={handleOverlayClick}>
-      <div className="modal__container">
+    <div
+      className={`${className} ${isOpen ? className + "_opened" : ""}`}
+      onClick={handleOverlayClick}
+    >
+      <div className={containerClassName}>
         <form
           className={`modal__form modal__form_type_${name}`}
           onSubmit={onSubmit}

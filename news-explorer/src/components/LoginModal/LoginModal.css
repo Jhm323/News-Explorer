@@ -14,40 +14,20 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.login-modal_opened {
+.login-modal.login-modal_opened {
   opacity: 1;
   visibility: visible;
 }
 
 .login-modal__container {
-  background-color: #ffffff;
+  background: #fff;
   border-radius: 16px;
   padding: 36px;
   width: 100%;
   max-width: 430px;
   position: relative;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
-
-.login-modal__close-button {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-modal__close-button:hover {
-  opacity: 0.6;
-}
-
 .login-modal__title {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
@@ -57,16 +37,14 @@
   margin: 0 0 28px 0;
 }
 
-.login-modal__form {
+.modal__form {
   display: flex;
   flex-direction: column;
 }
 
-.login-modal__input {
+.modal__input {
   font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
   font-size: 16px;
-  line-height: 22px;
   color: #1a1b22;
   border: none;
   border-bottom: 1px solid #d1d2d6;
@@ -75,127 +53,96 @@
   background: transparent;
 }
 
-.login-modal__input:focus {
+.modal__input:focus {
   outline: none;
   border-bottom-color: #2f71e5;
 }
 
-.login-modal__input::placeholder {
+.modal__input::placeholder {
   color: #b6bcbf;
 }
 
-.login-modal__input-error {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
+.modal__input-error {
   font-size: 12px;
-  line-height: 15px;
   color: #ff0000;
   margin-bottom: 16px;
   min-height: 15px;
 }
 
-.login-modal__submit-button {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 500;
+.modal__submit-button {
   font-size: 18px;
-  line-height: 24px;
-  color: #ffffff;
-  background-color: #2f71e5;
+  color: #fff;
+  background: #2f71e5;
   border: none;
   border-radius: 100px;
   padding: 18px 0;
-  margin: 16px 0 16px 0;
+  margin: 16px 0 0 0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
-.login-modal__submit-button:hover {
-  background-color: #347eff;
+.modal__submit-button:hover {
+  background: #347eff;
 }
 
-.login-modal__submit-button:disabled {
-  background-color: #b6bcbf;
+.modal__submit-button:disabled {
+  background: #b6bcbf;
   cursor: not-allowed;
 }
 
-.login-modal__alternative {
+/* "or Sign up" row */
+.modal__switch-row {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   margin-top: 16px;
 }
 
-.login-modal__alternative-text {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
-  color: #1a1b22;
-  margin-right: 8px;
+.modal__switch-text {
+  color: #6c707a;
+  font-size: 14px;
 }
 
-.login-modal__alternative-link {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
+.modal__switch-button {
+  background: none;
+  border: none;
   color: #2f71e5;
-  text-decoration: none;
   cursor: pointer;
-  transition: color 0.3s ease;
+  font-size: 14px;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
 }
 
-.login-modal__alternative-link:hover {
+.modal__switch-button:hover {
   color: #347eff;
 }
 
-.login-modal__error-message {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  color: #ff0000;
-  text-align: center;
-  margin-top: 16px;
-  min-height: 18px;
-}
-
-/* Mobile Responsive Styles */
+/* Responsive */
 @media screen and (max-width: 768px) {
   .login-modal__container {
     margin: 0 16px;
     padding: 28px 24px;
     max-width: none;
   }
-
   .login-modal__title {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 24px;
   }
-
   .login-modal__close-button {
     top: 16px;
     right: 16px;
     width: 32px;
     height: 32px;
   }
-
   .login-modal__input {
     font-size: 14px;
-    line-height: 18px;
   }
-
   .login-modal__submit-button {
     font-size: 16px;
-    line-height: 20px;
     padding: 16px 0;
-  }
-
-  .login-modal__alternative-text,
-  .login-modal__alternative-link {
-    font-size: 14px;
-    line-height: 18px;
   }
 }
 
@@ -204,7 +151,6 @@
     margin: 0 8px;
     padding: 24px 20px;
   }
-
   .login-modal__title {
     font-size: 18px;
     line-height: 22px;

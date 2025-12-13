@@ -23,7 +23,7 @@
   position: relative;
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 36px;
+  padding: 34px 36px 28px 36px;
   width: 100%;
   max-width: 430px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
@@ -57,10 +57,10 @@
 
 .modal__title {
   margin: 0 0 28px;
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 500;
+  font-family: var(--font-family-primary);
+  font-weight: 900;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 100%;
   color: var(--color-text-primary);
 }
 
@@ -74,15 +74,36 @@
   margin-bottom: 16px;
 }
 
+.modal__label {
+  display: block;
+  font-family: var(--font-family-tertiary);
+  font-size: 12px;
+  line-height: 100%;
+  color: #2f71e5;
+  margin-bottom: 8px;
+}
+
 .modal__input {
   width: 100%;
   padding: 17px 12px;
   border: 1px solid #d1d2d6;
-  border-radius: 8px;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: var(--font-family-tertiary);
   font-size: 16px;
   line-height: 17px;
-  color: var(--color-text-primary);
+  color: #000000;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+#login-email.modal__input {
+  width: 100%;
+  padding: 17px 12px;
+  border: 1px solid #d1d2d6;
+  font-family: var(--font-family-tertiary);
+  font-size: 16px;
+  line-height: 17px;
+  color: #000000;
   background-color: #ffffff;
   box-sizing: border-box;
   transition: border-color 0.3s ease;

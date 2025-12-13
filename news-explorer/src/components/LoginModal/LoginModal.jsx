@@ -18,7 +18,7 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login form submitted:", formData);
-    // Form submission logic will come later
+    // Form submission logic
   };
 
   return (
@@ -29,7 +29,11 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       onClose={onClose}
       onSubmit={handleSubmit}
     >
+      <label className="modal__label" htmlFor="login-email">
+        Email
+      </label>
       <input
+        id="login-email"
         type="email"
         name="email"
         placeholder="Enter email"
@@ -38,7 +42,11 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
         className="modal__input"
         required
       />
+      <label className="modal__label" htmlFor="login-password">
+        Password
+      </label>
       <input
+        id="login-password"
         type="password"
         name="password"
         placeholder="Enter password"
@@ -50,13 +58,16 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       <button type="submit" className="modal__submit-button">
         Sign In
       </button>
-      <button
-        type="button"
-        className="modal__switch-button"
-        onClick={onSwitchToRegister}
-      >
-        Sign Up
-      </button>
+      <div className="modal__switch-row">
+        <span className="modal__switch-text">or</span>
+        <button
+          type="button"
+          className="modal__switch-button"
+          onClick={onSwitchToRegister}
+        >
+          Sign Up
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

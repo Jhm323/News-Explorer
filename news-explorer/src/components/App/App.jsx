@@ -19,7 +19,6 @@ function App() {
   const handleLoginClick = () => setActiveModal("login");
   const handleRegisterClick = () => setActiveModal("register");
   const handleCloseModal = () => setActiveModal("");
-
   const handleSwitchToRegister = () => setActiveModal("register");
   const handleSwitchToLogin = () => setActiveModal("login");
 
@@ -58,6 +57,8 @@ function App() {
           isOpen={activeModal === "login"}
           onClose={handleCloseModal}
           onSwitchToRegister={handleSwitchToRegister}
+          className="login-modal"
+          containerClassName="login-modal__container"
         />
 
         <RegisterModal
