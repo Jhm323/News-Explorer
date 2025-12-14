@@ -23,7 +23,7 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
 
   return (
     <ModalWithForm
-      title="Sign In"
+      title="Sign in"
       name="login"
       isOpen={isOpen}
       onClose={onClose}

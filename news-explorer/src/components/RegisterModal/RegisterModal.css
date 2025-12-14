@@ -1,14 +1,15 @@
+/* Overlay */
 .register-modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1001;
+  background: rgba(0, 0, 0, 0.5); /* Optional: darken background */
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -19,16 +20,23 @@
   visibility: hidden;
 }
 
+/* Modal box */
 .register-modal__container {
-  position: relative;
-  width: 100%;
+  width: 430px;
+  height: 458px;
+  min-width: 430px;
+  min-height: 458px;
   max-width: 430px;
-  background-color: #ffffff;
+  max-height: 458px;
+  background-color: #fff;
   border-radius: 16px;
-  padding: 36px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-  transform: scale(1);
-  transition: transform 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 34px 36px 24px 36px;
+  margin: 0;
 }
 
 .register-modal_hidden .register-modal__container {
@@ -52,17 +60,18 @@
 }
 
 .register-modal__close-button:hover {
-  opacity: 0.6;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .register-modal__title {
-  margin: 0 0 28px;
-  font-family: var(--font-family-primary, "Roboto", Arial, sans-serif);
+  font-family: var(--font-family-primary);
   font-size: 24px;
   font-weight: 900;
-  line-height: 28px;
-  color: var(--color-text-primary, #1a1b22);
+  line-height: 100%;
+  color: var(--color-text-primary);
   text-align: left;
+  margin: 0 0 22px 0;
 }
 
 .register-modal__form {
@@ -76,32 +85,32 @@
   margin: 0 0 16px;
 }
 
-.register-modal__label {
+.modal__label {
   display: block;
-  margin-bottom: 8px;
-  font-family: var(--font-family-primary, "Roboto", Arial, sans-serif);
+  font-family: var(--font-family-tertiary, "Roboto", Arial, sans-serif);
   font-size: 12px;
   font-weight: 400;
-  line-height: 15px;
+  line-height: 100%;
   color: var(--color-text-secondary, #2f71e5);
-  letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
-.register-modal__input {
+.modal__input {
   width: 100%;
-  height: 56px;
-  padding: 16px 12px;
-  border: 1px solid #d1d2d6;
-  border-radius: 8px;
-  font-family: var(--font-family-primary, "Roboto", Arial, sans-serif);
-  font-size: 16px;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
+  font-family: var(--font-family-tertiary, "Roboto", Arial, sans-serif);
+  font-size: 14px;
   font-weight: 400;
-  line-height: 17px;
-  color: var(--color-text-primary, #1a1b22);
+  line-height: 100%;
+  color: #000000;
   background-color: #ffffff;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
+  margin: 0 0 31px 0;
+}
+input#signup-username.modal__input {
+  margin-bottom: 39px;
 }
 
 .register-modal__input:focus {
@@ -125,85 +134,8 @@
   min-height: 15px;
 }
 
-.register-modal__submit-button {
-  width: 100%;
-  height: 64px;
-  background-color: #2f71e5;
-  color: #ffffff;
-  border: none;
-  border-radius: 100px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.2;
-  cursor: pointer;
-  margin-top: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.register-modal__submit-button:hover {
-  background-color: #347eff;
-}
-
-.register-modal__submit-button:disabled {
-  background-color: #b6bcbf;
-  cursor: not-allowed;
-}
-
-.register-modal__redirect {
-  text-align: center;
-  margin-top: 32px;
-  font-size: 14px;
-  line-height: 1.2;
-  color: #1a1b22;
-}
-
-.register-modal__redirect-link {
-  color: #2f71e5;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.register-modal__redirect-link:hover {
-  text-decoration: underline;
-}
-
-/* Tablet styles */
-@media screen and (max-width: 768px) {
-  .register-modal {
-    width: 90%;
-    max-width: 430px;
-    padding: 36px 28px;
-  }
-
-  .register-modal__title {
-    font-size: 22px;
-    margin-bottom: 28px;
-  }
-
-  .register-modal__form {
-    gap: 24px;
-  }
-
-  .register-modal__input {
-    height: 56px;
-    font-size: 16px;
-    padding: 0 16px;
-  }
-
-  .register-modal__submit-button {
-    height: 56px;
-    font-size: 16px;
-    margin-top: 12px;
-  }
-
-  .register-modal__redirect {
-    margin-top: 24px;
-    font-size: 14px;
-  }
-}
-
 /* Mobile styles */
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .register-modal {
     width: 95%;
     max-width: 100%;
@@ -252,4 +184,4 @@
     margin-top: 20px;
     font-size: 12px;
   }
-}
+} */

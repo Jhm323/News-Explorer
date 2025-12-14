@@ -20,12 +20,15 @@
 }
 
 .modal__container {
+  width: 100%;
+  max-width: 430px;
+  height: 100%;
+  max-height: 380px;
   position: relative;
   background-color: #ffffff;
   border-radius: 16px;
   padding: 34px 36px 28px 36px;
-  width: 100%;
-  max-width: 430px;
+
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   transform: scale(0.9);
   transition: transform 0.3s ease;
@@ -52,7 +55,8 @@
 }
 
 .modal__close-button:hover {
-  opacity: 0.6;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .modal__title {
@@ -62,6 +66,7 @@
   font-size: 24px;
   line-height: 100%;
   color: var(--color-text-primary);
+  margin: 0 0 22px 0;
 }
 
 .modal__form {
@@ -71,7 +76,6 @@
 
 .modal__input-container {
   position: relative;
-  margin-bottom: 16px;
 }
 
 .modal__label {
@@ -80,13 +84,14 @@
   font-size: 12px;
   line-height: 100%;
   color: #2f71e5;
-  margin-bottom: 8px;
+  /* margin-bottom: 9px; */
 }
 
 .modal__input {
   width: 100%;
-  padding: 17px 12px;
-  border: 1px solid #d1d2d6;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #d1d2d6;
   font-family: var(--font-family-tertiary);
   font-size: 16px;
   line-height: 17px;
@@ -97,16 +102,27 @@
 }
 
 #login-email.modal__input {
-  width: 100%;
-  padding: 17px 12px;
-  border: 1px solid #d1d2d6;
   font-family: var(--font-family-tertiary);
-  font-size: 16px;
-  line-height: 17px;
+  font-size: 14px;
+  line-height: 100%;
   color: #000000;
   background-color: #ffffff;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
+  margin-bottom: 31px;
+  padding: 0px;
+}
+
+#login-password.modal__input {
+  font-family: var(--font-family-tertiary);
+  font-size: 14px;
+  line-height: 100%;
+  color: #000000;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-bottom: 39px;
+  padding: 0px;
 }
 
 .modal__input:focus {
@@ -143,27 +159,61 @@
 .modal__submit-button {
   width: 100%;
   height: 64px;
-  background-color: var(--color-primary);
+  background-color: #2f71e5;
   color: var(--color-white);
   border: none;
-  border-radius: 2px;
+  border-radius: 30px;
   font-family: var(--font-primary);
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 24px;
   cursor: pointer;
   transition: background-color 0.3s ease, opacity 0.3s ease;
-  margin-top: 32px;
+  margin: 0 auto 16px auto;
+  padding: 0;
 }
 
 .modal__submit-button:hover {
-  background-color: var(--color-primary-hover);
+  background-color: #347eff;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .modal__submit-button:disabled {
-  background-color: var(--color-disabled);
+  background-color: #e6e8eb;
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+.modal__switch-row {
+  font-family: var(--font-family-tertiary);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.modal__switch-text {
+  color: #6c707a;
+  font-size: 14px;
+}
+
+.modal__switch-button {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+}
+
+.modal__switch-button:hover {
+  color: #347eff;
 }
 
 /* Close button styles */
@@ -181,7 +231,8 @@
 }
 
 .modal__close-button:hover {
-  opacity: 0.6;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .modal__close-button::before,
@@ -201,50 +252,12 @@
 }
 
 /* Responsive design for tablets */
-@media screen and (max-width: 768px) {
-  .modal__container {
-    width: calc(100% - 32px);
-    max-width: 430px;
-    padding: 25px 22px;
-  }
-
-  .modal__title {
-    font-size: 18px;
-    margin-bottom: 50px;
-  }
-
-  .modal__input {
-    margin-bottom: 26px;
-  }
-
-  .modal__submit-button {
-    height: 46px;
-    font-size: 14px;
-    margin-top: 46px;
-  }
-
-  .modal__close-button {
-    top: -36px;
-    right: 0;
-    width: 26px;
-    height: 26px;
-  }
-
-  .modal__close-button::before,
-  .modal__close-button::after {
-    width: 16px;
-  }
-}
 
 /* Responsive design for mobile */
 @media screen and (max-width: 480px) {
   .modal__container {
-    width: calc(100% - 20px);
+    width: 320px;
+    height: 560px;
     padding: 25px 22px;
-  }
-
-  .modal__close-button {
-    top: -32px;
-    right: 5px;
   }
 }

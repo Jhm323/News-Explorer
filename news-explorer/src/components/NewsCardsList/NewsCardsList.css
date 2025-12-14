@@ -97,11 +97,13 @@
 
 .news-cards__more-button:hover {
   background-color: #e8e8e8;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
   cursor: pointer;
 }
 
 .news-cards__more-button:active {
   background-color: #004085;
+  cursor: pointer;
 }
 
 /* Loading state */

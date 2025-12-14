@@ -28,6 +28,7 @@
   position: relative;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
 }
+
 .login-modal__title {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
@@ -82,7 +83,9 @@
 }
 
 .modal__submit-button:hover {
-  background: #347eff;
+  background-color: #347eff;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .modal__submit-button:disabled {
@@ -90,61 +93,36 @@
   cursor: not-allowed;
 }
 
-/* "or Sign up" row */
-.modal__switch-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  margin-top: 16px;
-}
-
-.modal__switch-text {
-  color: #6c707a;
-  font-size: 14px;
-}
-
-.modal__switch-button {
-  background: none;
-  border: none;
-  color: #2f71e5;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: underline;
-  padding: 0;
-  margin: 0;
-}
-
-.modal__switch-button:hover {
-  color: #347eff;
-}
-
 /* Responsive */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .login-modal__container {
-    margin: 0 16px;
-    padding: 28px 24px;
     max-width: none;
   }
+
   .login-modal__title {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 24px;
   }
+
   .login-modal__close-button {
     top: 16px;
     right: 16px;
     width: 32px;
     height: 32px;
+    cursor: pointer;
   }
+
   .login-modal__input {
     font-size: 14px;
   }
+
   .login-modal__submit-button {
     font-size: 16px;
     padding: 16px 0;
+    cursor: pointer;
   }
-}
+} */
 
 @media screen and (max-width: 480px) {
   .login-modal__container {

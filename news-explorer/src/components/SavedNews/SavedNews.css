@@ -266,12 +266,10 @@
 }
 
 .saved-news__delete-button:hover {
-  background-color: #ff0000;
-}
+  box-shadow: 0px 5px 15px 0px #0e1a3933;}
 
 .saved-newsdelete-button:hover .saved-newsdelete-icon {
-  background-color: #ffffff;
-}
+  box-shadow: 0px 5px 15px 0px #0e1a3933;}
 
 .saved-news__delete-icon {
   width: 24px;
@@ -389,6 +387,7 @@
 
 .saved-news__show-more-button:hover {
   background-color: #1a1b22;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
   color: #ffffff;
 }
 

@@ -64,8 +64,9 @@
 }
 
 .navigation__button:hover {
-  background-color: var(--color-text-primary);
-  color: var(--color-background-primary);
+  background-color: #347eff;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 .navigation__button_logged-in {

@@ -76,7 +76,9 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 /* If saved, change to blue icon */
@@ -88,6 +90,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
 .news-card__keyword {
@@ -210,7 +213,8 @@
 }
 
 .news-card__delete-button:hover {
-  opacity: 0.6;
+  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  cursor: pointer;
 }
 
 /* Responsive Design - Tablet */
