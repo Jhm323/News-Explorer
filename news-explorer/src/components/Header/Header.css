@@ -169,6 +169,10 @@
   background-repeat: no-repeat;
 }
 
+.header__side-menu {
+  display: none;
+}
+
 /* Saved News Page Header Styles */
 .header_theme_dark {
   background-color: #1a1b22;
@@ -264,6 +268,10 @@
   }
 
   .header__mobile-menu {
+    display: none;
+  }
+
+  .header__side-menu {
     display: none;
   }
 }

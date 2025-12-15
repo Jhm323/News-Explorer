@@ -7,14 +7,16 @@
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding-top: 207px;
 }
 
 .login-modal.login-modal_opened {
+  display: flex;
   opacity: 1;
   visibility: visible;
 }
@@ -22,11 +24,11 @@
 .login-modal__container {
   background: #fff;
   border-radius: 16px;
-  padding: 36px;
   width: 100%;
   max-width: 430px;
   position: relative;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  padding: 34px 36px 28px 36px;
 }
 
 .login-modal__title {
@@ -77,7 +79,6 @@
   border: none;
   border-radius: 100px;
   padding: 18px 0;
-  margin: 16px 0 0 0;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -94,43 +95,24 @@
 }
 
 /* Responsive */
-/* @media screen and (max-width: 768px) {
+
+@media screen and (max-width: 320px) {
   .login-modal__container {
-    max-width: none;
+    height: 560px;
+    max-height: 520px;
+    min-height: 520px;
+    padding: 16px;
   }
 
-  .login-modal__title {
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 24px;
+  .modal__title {
+    padding-left: 1px;
   }
 
-  .login-modal__close-button {
-    top: 16px;
-    right: 16px;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
+  input#login-email.modal__input {
+    margin-bottom: 30px;
   }
 
-  .login-modal__input {
-    font-size: 14px;
-  }
-
-  .login-modal__submit-button {
-    font-size: 16px;
-    padding: 16px 0;
-    cursor: pointer;
-  }
-} */
-
-@media screen and (max-width: 480px) {
-  .login-modal__container {
-    margin: 0 8px;
-    padding: 24px 20px;
-  }
-  .login-modal__title {
-    font-size: 18px;
-    line-height: 22px;
+  input#login-password.modal__input {
+    margin-bottom: 23px;
   }
 }
