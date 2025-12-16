@@ -341,55 +341,53 @@
     display: none;
   }
 
-  @media screen and (max-width: 480px) {
-    .header__side-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      padding: 16px 16px 0 16px;
-      position: absolute;
-      top: 56px;
-      right: 0;
-      left: auto;
-      z-index: 2000;
-      min-height: unset;
-      min-width: unset;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      border-radius: 12px;
-      width: auto;
-      height: auto;
-    }
+  .header__side-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 3px 16px 0 0;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    left: auto;
+    z-index: 2000;
+    min-height: unset;
+    min-width: unset;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    width: auto;
+    height: auto;
+  }
 
-    .header__side-menu .header__auth {
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-      margin: 0;
-      width: auto;
-    }
+  .header__side-menu .header__auth {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 8px;
+    margin: 0;
+    width: auto;
+  }
 
-    .header__side-menu .header__signin-button,
-    .header__side-menu .header__signup-button {
-      width: 80px;
-      height: 36px;
-      font-size: 14px;
-      line-height: 18px;
-      padding: 0 12px;
-      margin: 0;
-      justify-content: flex-end;
-      border-radius: 100px;
-      background: #2f71e5;
-      color: #fff;
-      border: none;
-      box-shadow: none;
-      display: flex !important;
-    }
+  .header__side-menu .header__signin-button,
+  .header__side-menu .header__signup-button {
+    width: 80px;
+    height: 36px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0 12px;
+    margin: 0;
+    justify-content: flex-end;
+    border-radius: 100px;
+    background: #2f71e5;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    display: flex !important;
+  }
 
-    .header__side-menu .header__signin-button:hover,
-    .header__side-menu .header__signup-button:hover {
-      background: #347eff;
-      color: #fff;
-    }
+  .header__side-menu .header__signin-button:hover,
+  .header__side-menu .header__signup-button:hover {
+    background: #347eff;
+    color: #fff;
   }
 }
 
