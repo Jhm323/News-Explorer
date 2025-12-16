@@ -22,7 +22,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
   });
   const emailInputRef = useRef(null);
 
-  // Reset form, errors, and touched when modal opens
+  // Reset form, errors, touched when modal opens
   useEffect(() => {
     if (isOpen) {
       setFormData({ email: "", password: "", name: "" });
@@ -46,7 +46,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
         formData.email === ""
           ? "Email required"
           : !emailValid
-          ? "Invalid email"
+          ? "Invalid email address"
           : "",
       password: formData.password === "" ? "Password required" : "",
       name: formData.name === "" ? "Username required" : "",
@@ -60,7 +60,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       ...prev,
       [name]: value,
     }));
-    // Optionally, clear emailUnavailable error as user types
     if (name === "email" && emailUnavailable) {
       setEmailUnavailable("");
     }
@@ -94,7 +93,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      className="register-modal"
+      className="modal"
       containerClassName="register-modal__container"
     >
       <div className="modal__input-group">
@@ -113,9 +112,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           ref={emailInputRef}
           required
         />
-        {touched.email && errors.email && (
-          <span className="modal__input-error">{errors.email}</span>
-        )}
+        <span className="modal__input-error">
+          {touched.email && errors.email ? errors.email : "\u00A0"}
+        </span>
       </div>
       <div className="modal__input-group">
         <label className="modal__label" htmlFor="register-password">
@@ -132,9 +131,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           onBlur={handleBlur}
           required
         />
-        {touched.password && errors.password && (
-          <span className="modal__input-error">{errors.password}</span>
-        )}
+        <span className="modal__input-error">
+          {touched.password && errors.password ? errors.password : "\u00A0"}
+        </span>
       </div>
       <div className="modal__input-group">
         <label className="modal__label" htmlFor="register-username">
@@ -151,9 +150,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           onBlur={handleBlur}
           required
         />
-        {touched.name && errors.name && (
-          <span className="modal__input-error">{errors.name}</span>
-        )}
+        <span className="modal__input-error">
+          {touched.name && errors.name ? errors.name : "\u00A0"}
+        </span>
       </div>
       {emailUnavailable && (
         <div className="register-modal__email-unavailable-error">

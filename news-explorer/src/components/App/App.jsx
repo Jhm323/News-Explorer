@@ -30,6 +30,7 @@ function App() {
           onLoginClick={handleLoginClick}
           onRegisterClick={handleRegisterClick}
           isLoginModalOpen={activeModal === "login"}
+          isAnyModalOpen={activeModal === "login" || activeModal === "register"}
         />
         <main className="page__main">
           <Routes>

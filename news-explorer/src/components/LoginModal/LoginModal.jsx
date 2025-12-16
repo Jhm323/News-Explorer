@@ -29,7 +29,7 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
     setErrors({
       email:
         formData.email === ""
-          ? "Email required"
+          ? "Invalid email address"
           : !emailValid
           ? "Invalid email address"
           : "",
@@ -67,7 +67,7 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      className="login-modal"
+      className="modal"
       containerClassName="login-modal__container"
     >
       <div className="modal__input-group-email">
@@ -86,11 +86,9 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
           ref={emailInputRef}
           required
         />
-        {touched.email && errors.email && (
-          <span className="modal__input-error modal__input-error_email">
-            {errors.email}
-          </span>
-        )}
+        <span className="modal__input-error">
+          {touched.email && errors.email ? errors.email : "\u00A0"}
+        </span>
       </div>
       <div className="modal__input-group-password">
         <label className="modal__label" htmlFor="login-password">
@@ -107,11 +105,9 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
           className="modal__input"
           required
         />
-        {touched.password && errors.password && (
-          <span className="modal__input-error modal__input-error_password">
-            {errors.password}
-          </span>
-        )}
+        <span className="modal__input-error">
+          {touched.password && errors.password ? errors.password : "\u00A0"}
+        </span>
       </div>
       <button
         type="submit"

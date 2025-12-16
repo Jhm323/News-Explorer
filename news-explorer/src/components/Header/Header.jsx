@@ -1,5 +1,4 @@
 import "./Header.css";
-import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
 function Header({
@@ -7,6 +6,7 @@ function Header({
   onLoginClick,
   onRegisterClick,
   isLoginModalOpen,
+  isAnyModalOpen,
 }) {
   return (
     <header className="header">
@@ -37,7 +37,7 @@ function Header({
             )}
           </div>
         </div>
-        {!isLoginModalOpen && (
+        {!isAnyModalOpen && (
           <button
             type="button"
             className="header__mobile-menu"

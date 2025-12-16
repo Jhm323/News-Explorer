@@ -1,57 +1,43 @@
-.login-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  padding-top: 177px;
-}
-
-.login-modal.login-modal_opened {
+.modal.modal_opened {
   display: flex;
   opacity: 1;
   visibility: visible;
 }
 
 .login-modal__container {
-  background: #fff;
-  border-radius: 16px;
   width: 100%;
   max-width: 430px;
-  min-height: 0;
-  height: 383px;
-  max-height: none;
+  min-height: 380px;
+  max-height: 380px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  border-radius: 16px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   padding: 34px 36px 28px 36px;
-}
-
-.login-modal__title {
-  font-family: "Roboto", Arial, sans-serif;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 28px;
-  color: #1a1b22;
-  margin: 0 0 28px 0;
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modal__title {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 24px;
+  color: #1a1b22;
+  margin: 0 0 22px 0;
 }
 
 .modal__input-group-email {
   display: flex;
   flex-direction: column;
-  margin-bottom: 31px;
+  margin-bottom: 13px;
 }
 
 .modal__input-group-password {
@@ -77,61 +63,36 @@ input#login-password.modal__input {
   height: 28px;
 }
 
-.modal__input:focus {
-  outline: none;
-  border-bottom-color: #2f71e5;
-}
-
-.modal__input::placeholder {
+input#login-email.modal__input::placeholder,
+input#login-password.modal__input::placeholder {
   font-family: var(--font-family-tertiary);
   font-size: 14px;
+  line-height: 100%;
+  font-weight: 400;
   color: #b6bcbf;
 }
 
-.modal__input-error {
+span.modal__input-error {
+  font-family: var(font-family-primary);
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 1.2;
+  min-height: 18px; /* Reserve space for error */
   display: block;
-  margin: 0;
-}
-
-.modal__submit-button {
-  font-size: 18px;
-  color: #fff;
-  background: #2f71e5;
-  border: none;
-  border-radius: 100px;
-  padding: 18px 0;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.modal__submit-button:hover {
-  background-color: #347eff;
-  box-shadow: 0px 5px 15px 0px #0e1a3933;
-  cursor: pointer;
-}
-
-.modal__submit-button:disabled {
-  background: #b6bcbf;
-  cursor: not-allowed;
+  margin: 3px 0 0 0;
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
   .login-modal__container {
-    /* max-height: 380px;
-    height: 380px; */
-
-    max-height: none;
-    height: auto;
+    max-width: 430px;
+    min-height: 380px;
+    max-height: 380px;
+    height: 380px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .login-modal {
-    align-items: flex-start;
-    padding-top: 56px;
-  }
-
   .login-modal__container {
     width: 100vw;
     min-width: 100vw;
@@ -139,8 +100,11 @@ input#login-password.modal__input {
     min-height: calc(100vh - 56px);
     border-radius: 15px;
     box-shadow: none;
-    /* padding: 16px 8px; */
     margin: 0;
+  }
+
+  .modal__switch-row {
+    margin: 0 0 28px 0;
   }
 }
 
@@ -165,11 +129,7 @@ input#login-password.modal__input {
     padding-left: 1px;
   }
 
-  input#login-email.modal__input {
-    margin-bottom: 30px;
-  }
-
-  input#login-password.modal__input {
-    margin-bottom: 23px;
+  .modal__submit-button {
+    margin: 0 0 16px 0;
   }
 }

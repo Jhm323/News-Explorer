@@ -1,17 +1,16 @@
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 145px;
 }
 
 .modal_opened {
@@ -37,20 +36,18 @@
   transform: scale(1);
 }
 
+/* Close button styles */
 .modal__close-button {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../vendor/close-icon.svg);
   background-color: transparent;
-  background-image: url("../images/close-icon.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  color: transparent;
   border: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  padding: 0;
 }
 
 .modal__close-button:hover {
@@ -67,21 +64,19 @@
   color: var(--color-text-primary);
   margin: 0 0 22px 0;
 }
-
 .modal__form {
   display: flex;
   flex-direction: column;
 }
-
 .modal__input-container {
   position: relative;
 }
-
 .modal__label {
   display: block;
   font-family: var(--font-family-tertiary);
   font-size: 12px;
   line-height: 100%;
+
   color: #2f71e5;
 }
 
@@ -112,28 +107,6 @@
   margin: 0;
 }
 
-.modal__input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-}
-
-.modal__input::placeholder {
-  color: #b6bcbf;
-}
-
-.modal__input_type_error {
-  border-color: #ff0000;
-}
-
-.modal__input-error {
-  font-family: "Roboto", Arial, sans-serif;
-  font-size: 12px;
-  line-height: 15px;
-  color: #ff0000;
-  margin-bottom: 8px;
-}
-
-/* Submit button styles */
 .modal__submit-button {
   width: 100%;
   height: 64px;
@@ -159,6 +132,7 @@
 
 .modal__submit-button:disabled {
   background-color: #e6e8eb;
+  color: #b6bcbf;
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -168,7 +142,6 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,7 +149,7 @@
 }
 
 .modal__switch-text {
-  color: #6c707a;
+  color: #000000;
   font-size: 14px;
 }
 
@@ -185,7 +158,6 @@
   border: none;
   color: #2f71e5;
   cursor: pointer;
-
   padding: 0;
   margin: 0;
 }
@@ -194,46 +166,46 @@
   color: #347eff;
 }
 
-/* Close button styles */
-.modal__close-button {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: opacity 0.3s ease;
+.modal__input:focus {
+  outline: none;
+  box-shadow: none;
 }
 
-.modal__close-button:hover {
-  box-shadow: 0px 5px 15px 0px #0e1a3933;
-  cursor: pointer;
-}
-
-.modal__close-button::before,
-.modal__close-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-white);
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.modal__close-button::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-/* Responsiveness */
 @media screen and (max-width: 480px) {
+  .modal.modal_opened {
+    align-items: flex-start;
+    padding-top: 56px;
+    background-color: transparent !important;
+  }
+
   .modal__container {
-    width: 320px;
-    height: 560px;
-    padding: 25px 22px;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    min-width: 100vw;
+    min-height: calc(100vh - 56px);
+    max-width: 100vw;
+    max-height: calc(100vh - 56px);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 25px 8px;
+    top: 56px;
+  }
+
+  .modal__close-button {
+    width: 24px;
+    height: 24px;
+    top: -40px;
+    right: 15px;
+    background-size: 100% 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  div.modal__input-group-email {
+    margin-bottom: 30px;
+  }
+
+  div.modal__input-group-password {
+    margin-bottom: 2px;
   }
 }

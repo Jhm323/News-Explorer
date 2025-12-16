@@ -1,21 +1,3 @@
-/* Overlay */
-.register-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 1001;
-  background: rgba(0, 0, 0, 0.5); /* Optional: darken background */
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  padding-top: 167px;
-}
-
 .register-modal_hidden {
   opacity: 0;
   visibility: hidden;
@@ -47,7 +29,7 @@
 .modal__input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 23px;
+  margin-bottom: 31px;
 }
 
 .modal__label {
@@ -74,62 +56,46 @@ input#register-username.modal__input {
   padding: 0;
 }
 
-.modal__input::placeholder {
+input#register-email.modal__input::placeholder,
+input#register-password.modal__input::placeholder,
+input#register-username.modal__input::placeholder {
   font-family: var(--font-family-tertiary, "Roboto", Arial, sans-serif);
   font-size: 14px;
   font-weight: 400;
   line-height: 100%;
-  color: #b6bcbf;
+  color: #000;
+  opacity: 20%;
 }
 
-.modal__input-error {
+span.modal__input-error {
+  font-family: var(font-family-primary);
   color: #ff0000;
   font-size: 12px;
   line-height: 1.2;
-  margin-top: 5px;
-  min-height: 15px;
+  min-height: 18px; /* Reserve space for error */
+  display: block;
+  margin: 3px 0 0 0;
 }
 
 /* Mobile styles */
 @media screen and (max-width: 480px) {
   .register-modal__container {
-    width: 320px;
-    height: 100%;
-    min-width: 320px;
-    min-height: 420px;
-    max-width: 320px;
-    max-height: 420px;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: calc(100vh - 56px);
+    border-radius: 15px;
+    box-shadow: none;
+    margin: 0;
     padding: 16px 17px;
-  }
-
-  .register-modal__close-button {
-    width: 24px;
-    height: 24px;
-    top: -40px;
-    right: 10px;
-  }
-
-  .register-modal__close-button::before,
-  .register-modal__close-button::after {
-    width: 16px;
   }
 
   .register-modal__title {
     margin-bottom: 18px;
   }
 
-  .modal__input {
-    padding: 0px;
-    margin-bottom: 40px;
-  }
-
-  input#register-email.modal__input,
-  input#register-password.modal__input {
-    margin-bottom: 30px;
-  }
-
-  input#register-username.modal__input {
-    margin-bottom: 23px;
+  .modal__input-group {
+    margin: 0 0 30px 0;
   }
 }
 
