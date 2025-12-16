@@ -28,7 +28,6 @@
   background-color: #ffffff;
   border-radius: 16px;
   padding: 34px 36px 28px 36px;
-
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   transform: scale(0.9);
   transition: transform 0.3s ease;
@@ -84,7 +83,6 @@
   font-size: 12px;
   line-height: 100%;
   color: #2f71e5;
-  /* margin-bottom: 9px; */
 }
 
 .modal__input {
@@ -101,18 +99,7 @@
   transition: border-color 0.3s ease;
 }
 
-#login-email.modal__input {
-  font-family: var(--font-family-tertiary);
-  font-size: 14px;
-  line-height: 100%;
-  color: #000000;
-  background-color: #ffffff;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-  margin-bottom: 31px;
-  padding: 0px;
-}
-
+#login-email.modal__input,
 #login-password.modal__input {
   font-family: var(--font-family-tertiary);
   font-size: 14px;
@@ -121,8 +108,8 @@
   background-color: #ffffff;
   box-sizing: border-box;
   transition: border-color 0.3s ease;
-  margin-bottom: 39px;
   padding: 0px;
+  margin: 0;
 }
 
 .modal__input:focus {
@@ -139,20 +126,11 @@
 }
 
 .modal__input-error {
-  position: absolute;
-  top: 100%;
-  left: 12px;
-  margin: 8px 0 0;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.modal__input-error_visible {
-  opacity: 1;
+  margin-bottom: 8px;
 }
 
 /* Submit button styles */
@@ -251,9 +229,7 @@
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* Responsive design for tablets */
-
-/* Responsive design for mobile */
+/* Responsiveness */
 @media screen and (max-width: 480px) {
   .modal__container {
     width: 320px;

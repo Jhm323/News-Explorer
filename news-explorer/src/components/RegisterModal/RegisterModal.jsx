@@ -1,16 +1,89 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
 function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    name: "",
+  });
+  const [isValid, setIsValid] = useState(false);
+  const [emailUnavailable, setEmailUnavailable] = useState("");
+  const [touched, setTouched] = useState({
+    email: false,
+    password: false,
+    name: false,
+  });
+  const emailInputRef = useRef(null);
+
+  // Reset form, errors, and touched when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setFormData({ email: "", password: "", name: "" });
+      setErrors({ email: "", password: "", name: "" });
+      setIsValid(false);
+      setTouched({ email: false, password: false, name: false });
+      setEmailUnavailable("");
+      if (emailInputRef.current) {
+        emailInputRef.current.focus();
+      }
+    }
+  }, [isOpen]);
+
+  // Validate fields
+  useEffect(() => {
+    const emailValid = /\S+@\S+\.\S+/.test(formData.email);
+    const passwordValid = formData.password.length > 0;
+    const nameValid = formData.name.length > 0;
+    setErrors({
+      email:
+        formData.email === ""
+          ? "Email required"
+          : !emailValid
+          ? "Invalid email"
+          : "",
+      password: formData.password === "" ? "Password required" : "",
+      name: formData.name === "" ? "Username required" : "",
+    });
+    setIsValid(emailValid && passwordValid && nameValid);
+  }, [formData]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Optionally, clear emailUnavailable error as user types
+    if (name === "email" && emailUnavailable) {
+      setEmailUnavailable("");
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Simulate email check
+    if (formData.email === "taken@example.com") {
+      setEmailUnavailable("This email is not available");
+      return;
+    }
+    setEmailUnavailable("");
     if (onRegister) {
-      onRegister({ email, password, name });
+      onRegister(formData);
     }
   };
 
@@ -24,44 +97,74 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       className="register-modal"
       containerClassName="register-modal__container"
     >
-      <label className="modal__label" htmlFor="signup-email">
-        Email
-      </label>
-      <input
-        id="signup-email"
-        type="email"
-        className="modal__input"
-        placeholder="Enter email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <label className="modal__label" htmlFor="signup-password">
-        Password
-      </label>
-      <input
-        id="signup-password"
-        type="password"
-        className="modal__input"
-        placeholder="Enter password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <label className="modal__label" htmlFor="signup-username">
-        Username
-      </label>
-      <input
-        id="signup-username"
-        type="text"
-        className="modal__input"
-        placeholder="Enter your username"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-
-      <button type="submit" className="modal__submit-button">
+      <div className="modal__input-group">
+        <label className="modal__label" htmlFor="register-email">
+          Email
+        </label>
+        <input
+          id="register-email"
+          type="email"
+          name="email"
+          className="modal__input"
+          placeholder="Enter email"
+          value={formData.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          ref={emailInputRef}
+          required
+        />
+        {touched.email && errors.email && (
+          <span className="modal__input-error">{errors.email}</span>
+        )}
+      </div>
+      <div className="modal__input-group">
+        <label className="modal__label" htmlFor="register-password">
+          Password
+        </label>
+        <input
+          id="register-password"
+          type="password"
+          name="password"
+          className="modal__input"
+          placeholder="Enter password"
+          value={formData.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          required
+        />
+        {touched.password && errors.password && (
+          <span className="modal__input-error">{errors.password}</span>
+        )}
+      </div>
+      <div className="modal__input-group">
+        <label className="modal__label" htmlFor="register-username">
+          Username
+        </label>
+        <input
+          id="register-username"
+          type="text"
+          name="name"
+          className="modal__input"
+          placeholder="Enter your username"
+          value={formData.name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          required
+        />
+        {touched.name && errors.name && (
+          <span className="modal__input-error">{errors.name}</span>
+        )}
+      </div>
+      {emailUnavailable && (
+        <div className="register-modal__email-unavailable-error">
+          {emailUnavailable}
+        </div>
+      )}
+      <button
+        type="submit"
+        className="modal__submit-button"
+        disabled={!isValid}
+      >
         Sign up
       </button>
       <div className="modal__switch-row">

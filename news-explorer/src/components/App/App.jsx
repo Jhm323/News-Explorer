@@ -29,6 +29,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLoginClick={handleLoginClick}
           onRegisterClick={handleRegisterClick}
+          isLoginModalOpen={activeModal === "login"}
         />
         <main className="page__main">
           <Routes>

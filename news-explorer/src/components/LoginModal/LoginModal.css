@@ -12,7 +12,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  padding-top: 207px;
+  padding-top: 177px;
 }
 
 .login-modal.login-modal_opened {
@@ -26,6 +26,9 @@
   border-radius: 16px;
   width: 100%;
   max-width: 430px;
+  min-height: 0;
+  height: 383px;
+  max-height: none;
   position: relative;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   padding: 34px 36px 28px 36px;
@@ -45,9 +48,21 @@
   flex-direction: column;
 }
 
+.modal__input-group-email {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 31px;
+}
+
+.modal__input-group-password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 39px;
+}
+
 .modal__input {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #1a1b22;
   border: none;
   border-bottom: 1px solid #d1d2d6;
@@ -56,20 +71,26 @@
   background: transparent;
 }
 
+input#login-email.modal__input,
+input#login-password.modal__input {
+  font-family: var(--font-family-tertiary);
+  height: 28px;
+}
+
 .modal__input:focus {
   outline: none;
   border-bottom-color: #2f71e5;
 }
 
 .modal__input::placeholder {
+  font-family: var(--font-family-tertiary);
+  font-size: 14px;
   color: #b6bcbf;
 }
 
 .modal__input-error {
-  font-size: 12px;
-  color: #ff0000;
-  margin-bottom: 16px;
-  min-height: 15px;
+  display: block;
+  margin: 0;
 }
 
 .modal__submit-button {
@@ -95,13 +116,49 @@
 }
 
 /* Responsive */
+@media screen and (max-width: 768px) {
+  .login-modal__container {
+    /* max-height: 380px;
+    height: 380px; */
+
+    max-height: none;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-modal {
+    align-items: flex-start;
+    padding-top: 56px;
+  }
+
+  .login-modal__container {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: calc(100vh - 56px);
+    border-radius: 15px;
+    box-shadow: none;
+    /* padding: 16px 8px; */
+    margin: 0;
+  }
+}
 
 @media screen and (max-width: 320px) {
+  .login-modal {
+    align-items: flex-start;
+    padding-top: 56px;
+  }
+
   .login-modal__container {
-    height: 560px;
-    max-height: 520px;
-    min-height: 520px;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: calc(100vh - 56px);
+    border-radius: 15px;
+    box-shadow: none;
     padding: 16px;
+    margin: 0;
   }
 
   .modal__title {

@@ -2,9 +2,12 @@ import "./Header.css";
 import { useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
-function Header({ isLoggedIn, onLoginClick, onRegisterClick, onLogoutClick }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+function Header({
+  isLoggedIn,
+  onLoginClick,
+  onRegisterClick,
+  isLoginModalOpen,
+}) {
   return (
     <header className="header">
       <div className="header__content">
@@ -34,15 +37,16 @@ function Header({ isLoggedIn, onLoginClick, onRegisterClick, onLogoutClick }) {
             )}
           </div>
         </div>
-
-        <button
-          type="button"
-          className="header__mobile-menu"
-          aria-label="Sign in"
-          onClick={onLoginClick}
-        >
-          <span className="header__mobile-menu-icon"></span>
-        </button>
+        {!isLoginModalOpen && (
+          <button
+            type="button"
+            className="header__mobile-menu"
+            aria-label="Sign in"
+            onClick={onLoginClick}
+          >
+            <span className="header__mobile-menu-icon"></span>
+          </button>
+        )}
       </div>
     </header>
   );
