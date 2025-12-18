@@ -18,7 +18,7 @@ function Navigation({ className = "" }) {
             Home
           </NavLink>
         </li>
-        <li className="navigation__item">
+        <li className="navigation__item navigation__item_saved">
           <NavLink
             to="/saved-news"
             className={({ isActive }) =>

@@ -50,30 +50,6 @@
   gap: 32px;
 }
 
-.header__nav-link {
-  max-width: 49px;
-  max-width: 24px;
-  font-family: var(--font-family-primary);
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  position: relative;
-  color: white;
-  padding: 30px 42px 26px 0;
-}
-
-.header__nav-link:hover {
-  color: #1a1b22;
-  opacity: 0.8;
-}
-
-.header__nav-link_active {
-  border-bottom: 3px solid #ffffff;
-  padding-bottom: 1px;
-}
-
 .header__auth {
   display: flex;
   align-items: center;
@@ -120,7 +96,7 @@
   font-weight: 500;
 }
 
-.header__logout-btn {
+.header__logout-button {
   background: transparent;
   border: none;
   font-size: 18px;
@@ -133,7 +109,7 @@
   gap: 8px;
 }
 
-.header__logout-btn:hover {
+.header__logout-button:hover {
   color: #1a1b22;
 }
 
@@ -169,50 +145,6 @@
   background-repeat: no-repeat;
 }
 
-.header__side-menu {
-  display: none;
-}
-
-/* Saved News Page Header Styles */
-.header_theme_dark {
-  background-color: #1a1b22;
-  border-bottom: 1px solid #2f3136;
-}
-
-.header_theme_dark .header__logo {
-  color: #ffffff;
-}
-
-.header_theme_dark .header__nav-link {
-  color: #ffffff;
-}
-
-.header_theme_dark .header__nav-link_active {
-  border-bottom: 3px solid #ffffff;
-}
-
-.header_theme_dark .header__signin-btn {
-  border: 1px solid #ffffff;
-  color: #ffffff;
-}
-
-.header_theme_dark .header__signin-btn:hover {
-  background-color: #ffffff;
-  color: #1a1b22;
-}
-
-.header_theme_dark .header__username {
-  color: #ffffff;
-}
-
-.header_theme_dark .header__logout-btn {
-  color: #ffffff;
-}
-
-.header_theme_dark .header__logout-btn:hover {
-  color: #b6bcbf;
-}
-
 /* Tablet/Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
   .header {
@@ -241,20 +173,8 @@
     gap: 16px;
   }
 
-  .header__nav-link {
-    font-size: 16px;
-    line-height: 24px;
-    padding: 22px 16px 20px 0;
-  }
-
   .header__signup-button {
     display: none !important;
-  }
-
-  .header__signin-btn {
-    height: 40px;
-    font-size: 16px;
-    line-height: 20px;
   }
 
   .header__username {
@@ -262,17 +182,15 @@
     line-height: 20px;
   }
 
-  .header__logout-btn {
+  .header__logout-button {
     font-size: 16px;
     line-height: 20px;
   }
 
-  .header__mobile-menu {
-    display: none;
-  }
-
-  .header__side-menu {
-    display: none;
+  .header__signin-button {
+    width: 152px;
+    height: 40px;
+    font-size: 16px;
   }
 }
 
