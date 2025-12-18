@@ -45,11 +45,6 @@
   padding: 0 104px 0 0;
 }
 
-.header__nav {
-  display: flex;
-  gap: 32px;
-}
-
 .header__auth {
   display: flex;
   align-items: center;
@@ -132,6 +127,12 @@
   position: absolute;
   top: 16px;
   right: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header__mobile-menu:active {
+  transform: scale(0.95);
+  background-color: #f0f0f0;
 }
 
 .header__mobile-menu-icon {
@@ -206,10 +207,6 @@
     min-height: 56px;
   }
 
-  .header__nav-link {
-    display: none;
-  }
-
   .header__username {
     display: none;
   }
@@ -249,10 +246,6 @@
   .header__right {
     max-width: 24px;
     padding: 0 16px 0 16px;
-  }
-
-  .header__nav-link {
-    display: none;
   }
 
   .header__username {

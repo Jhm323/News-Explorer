@@ -1,6 +1,4 @@
 .news-card {
-  /* width: 400px;
-  height: 576px; */
   height: auto;
   min-height: 0;
   position: relative;
@@ -8,17 +6,19 @@
   width: 100%;
   max-width: 400px;
   flex-direction: column;
-  background-color: var(--color-background-primary);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
   padding: 0;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(30, 30, 30, 0.08);
+  border-radius: 12px;
+  background: #fff;
 }
 
 .news-card:hover {
   cursor: pointer;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .news-card__image-container {
