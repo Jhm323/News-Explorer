@@ -32,6 +32,10 @@
   margin-bottom: 31px;
 }
 
+.modal__input-group_last {
+  margin-bottom: 0;
+}
+
 .modal__label {
   display: block;
   font-family: var(--font-family-tertiary, "Roboto", Arial, sans-serif);

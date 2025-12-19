@@ -1,8 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
 function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
+  const { handleRegister } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -14,7 +17,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     name: "",
   });
   const [isValid, setIsValid] = useState(false);
-  const [emailUnavailable, setEmailUnavailable] = useState("");
   const [touched, setTouched] = useState({
     email: false,
     password: false,
@@ -26,13 +28,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
   useEffect(() => {
     if (isOpen) {
       setFormData({ email: "", password: "", name: "" });
-      setErrors({ email: "", password: "", name: "" });
+      setErrors({ email: "", password: "", name: "", register: "" });
       setIsValid(false);
       setTouched({ email: false, password: false, name: false });
-      setEmailUnavailable("");
-      if (emailInputRef.current) {
-        emailInputRef.current.focus();
-      }
     }
   }, [isOpen]);
 
@@ -60,8 +58,13 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       ...prev,
       [name]: value,
     }));
-    if (name === "email" && emailUnavailable) {
-      setEmailUnavailable("");
+
+    // Clear register error when user starts typing
+    if (errors.register) {
+      setErrors((prev) => ({
+        ...prev,
+        register: "",
+      }));
     }
   };
 
@@ -75,14 +78,29 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate email check
+    setErrors((prev) => ({
+      ...prev,
+      register: "",
+    }));
+
+    // Check if email is already taken
     if (formData.email === "taken@example.com") {
-      setEmailUnavailable("This email is not available");
+      setErrors((prev) => ({
+        ...prev,
+        register: "This email is not available",
+      }));
       return;
     }
-    setEmailUnavailable("");
-    if (onRegister) {
-      onRegister(formData);
+
+    try {
+      handleRegister(formData);
+      alert("Registration successful!"); // Replace with SuccessModal later
+      onClose();
+    } catch (err) {
+      setErrors((prev) => ({
+        ...prev,
+        register: "Registration failed. Please try again.",
+      }));
     }
   };
 
@@ -135,7 +153,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           {touched.password && errors.password ? errors.password : "\u00A0"}
         </span>
       </div>
-      <div className="modal__input-group">
+      <div className="modal__input-group modal__input-group_last">
         <label className="modal__label" htmlFor="register-username">
           Username
         </label>
@@ -154,11 +172,13 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           {touched.name && errors.name ? errors.name : "\u00A0"}
         </span>
       </div>
-      {emailUnavailable && (
-        <div className="register-modal__email-unavailable-error">
-          {emailUnavailable}
-        </div>
-      )}
+
+      <div className="modal__error-container">
+        {errors.register && (
+          <div className="modal__error">{errors.register}</div>
+        )}
+      </div>
+
       <button
         type="submit"
         className="modal__submit-button"
