@@ -8,10 +8,10 @@
   margin: 0 0 14px 0;
 }
 
-.modal__switch-row {
+.modal__switch-row_success {
   justify-content: left;
 }
-.modal__switch-button {
+.modal__switch-button_success {
   font-family: var(--font-family-tertiary);
   font-size: 18px;
   font-weight: 400;

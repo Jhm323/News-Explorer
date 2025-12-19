@@ -9,6 +9,7 @@ function SuccessModal({
   onSwitchToLogin,
 }) {
   const handleSubmit = (e) => {
+    onClose();
     e.preventDefault();
     onClose();
   };
@@ -24,10 +25,10 @@ function SuccessModal({
       containerClassName="modal__container"
     >
       {onSwitchToLogin && (
-        <div className="modal__switch-row">
+        <div className="modal__switch-row modal__switch-row_success">
           <button
             type="button"
-            className="modal__switch-button"
+            className="modal__switch-button modal__switch-button_success"
             onClick={onSwitchToLogin}
           >
             Sign In
