@@ -1,13 +1,16 @@
+import react, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 
 function Header({
-  isLoggedIn,
   onLoginClick,
   onRegisterClick,
   isLoginModalOpen,
   isAnyModalOpen,
 }) {
+  const { isLoggedIn, user, handleLogout } = useContext(AuthContext);
+
   return (
     <header className="header">
       <div className="header__content">
@@ -15,10 +18,17 @@ function Header({
         <div className="header__right">
           <Navigation className="header__nav" />
           <div className="header__auth">
-            {isLoggedIn ? (
-              <button className="header__logout-button" onClick={onLogoutClick}>
-                Logout
-              </button>
+            {isLoggedIn && user ? (
+              <div className="header__user-section">
+                <span className="header__username">{user.name}</span>
+                <button
+                  className="header__logout-button"
+                  onClick={handleLogout}
+                  aria-label="Log out"
+                >
+                  <span className="header__logout-icon"></span>
+                </button>
+              </div>
             ) : (
               <>
                 <button

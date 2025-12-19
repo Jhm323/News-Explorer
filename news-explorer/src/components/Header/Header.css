@@ -78,13 +78,20 @@
   cursor: pointer;
 }
 
-.header__user {
+.header__user-section {
   display: flex;
   align-items: center;
+  height: 48px;
   gap: 16px;
+  padding: 8px 16px;
+  border: 1px solid #d1d2d6;
+  border-radius: 100px;
+  background-color: #ffffff;
 }
 
 .header__username {
+  font-family: var(--font-family-primary);
+  font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: #1a1b22;
@@ -92,28 +99,30 @@
 }
 
 .header__logout-button {
-  background: transparent;
+  background-color: #ffffff;
   border: none;
   font-size: 18px;
   line-height: 24px;
-  color: #b6bcbf;
+  color: #000;
   cursor: pointer;
   transition: color 0.3s ease;
   display: flex;
   align-items: center;
   gap: 8px;
+  margin: 0 auto;
 }
 
 .header__logout-button:hover {
-  color: #1a1b22;
+  opacity: 0.7;
 }
 
 .header__logout-icon {
-  width: 24px;
-  height: 24px;
-  background-image: url("../images/logout-icon.svg");
+  background-image: url(../../vendor/logout__icon.svg);
   background-size: contain;
   background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+  color: #000;
 }
 
 .header__mobile-menu {
