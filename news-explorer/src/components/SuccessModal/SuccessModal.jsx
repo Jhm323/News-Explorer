@@ -1,33 +1,40 @@
-import React from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SuccessModal.css";
 
 function SuccessModal({
   isOpen,
   onClose,
   message = "Registration successful!",
+  onSwitchToLogin,
 }) {
-  if (!isOpen) return null;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onClose();
+  };
 
   return (
-    <div className="success-modal">
-      <div className="success-modal__overlay" onClick={onClose}></div>
-      <div className="success-modal__container">
-        <button
-          className="success-modal__close"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ×
-        </button>
-        <div className="success-modal__content">
-          <div className="success-modal__icon">✓</div>
-          <h2 className="success-modal__title">{message}</h2>
-          <button className="success-modal__button" onClick={onClose}>
-            Close
+    <ModalWithForm
+      title={message}
+      name="success"
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={handleSubmit}
+      className="modal"
+      containerClassName="modal__container"
+    >
+      {onSwitchToLogin && (
+        <div className="modal__switch-row">
+          <button
+            type="button"
+            className="modal__switch-button"
+            onClick={onSwitchToLogin}
+          >
+            Sign In
           </button>
         </div>
-      </div>
-    </div>
+      )}
+    </ModalWithForm>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import SuccessModal from "../SuccessModal/SuccessModal";
 import "./RegisterModal.css";
 
 function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
@@ -22,6 +23,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     password: false,
     name: false,
   });
+
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const emailInputRef = useRef(null);
 
   // Reset form, errors, touched when modal opens
@@ -31,6 +35,11 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       setErrors({ email: "", password: "", name: "", register: "" });
       setIsValid(false);
       setTouched({ email: false, password: false, name: false });
+      setShowSuccess(false);
+
+      if (emailInputRef.current) {
+        emailInputRef.current.focus();
+      }
     }
   }, [isOpen]);
 
@@ -39,7 +48,8 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     const emailValid = /\S+@\S+\.\S+/.test(formData.email);
     const passwordValid = formData.password.length > 0;
     const nameValid = formData.name.length > 0;
-    setErrors({
+    setErrors((prev) => ({
+      ...prev,
       email:
         formData.email === ""
           ? "Email required"
@@ -48,7 +58,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           : "",
       password: formData.password === "" ? "Password required" : "",
       name: formData.name === "" ? "Username required" : "",
-    });
+    }));
     setIsValid(emailValid && passwordValid && nameValid);
   }, [formData]);
 
@@ -83,18 +93,9 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       register: "",
     }));
 
-    // Check if email is already taken
-    if (formData.email === "taken@example.com") {
-      setErrors((prev) => ({
-        ...prev,
-        register: "This email is not available",
-      }));
-      return;
-    }
-
     try {
       handleRegister(formData);
-      alert("Registration successful!"); // Replace with SuccessModal later
+      setShowSuccess(true);
       onClose();
     } catch (err) {
       setErrors((prev) => ({
@@ -104,99 +105,113 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     }
   };
 
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+    onClose();
+  };
+
   return (
-    <ModalWithForm
-      title="Sign up"
-      name="register"
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleSubmit}
-      className="modal"
-      containerClassName="register-modal__container"
-    >
-      <div className="modal__input-group">
-        <label className="modal__label" htmlFor="register-email">
-          Email
-        </label>
-        <input
-          id="register-email"
-          type="email"
-          name="email"
-          className="modal__input"
-          placeholder="Enter email"
-          value={formData.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          ref={emailInputRef}
-          required
-        />
-        <span className="modal__input-error">
-          {touched.email && errors.email ? errors.email : "\u00A0"}
-        </span>
-      </div>
-      <div className="modal__input-group">
-        <label className="modal__label" htmlFor="register-password">
-          Password
-        </label>
-        <input
-          id="register-password"
-          type="password"
-          name="password"
-          className="modal__input"
-          placeholder="Enter password"
-          value={formData.password}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        />
-        <span className="modal__input-error">
-          {touched.password && errors.password ? errors.password : "\u00A0"}
-        </span>
-      </div>
-      <div className="modal__input-group modal__input-group_last">
-        <label className="modal__label" htmlFor="register-username">
-          Username
-        </label>
-        <input
-          id="register-username"
-          type="text"
-          name="name"
-          className="modal__input"
-          placeholder="Enter your username"
-          value={formData.name}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        />
-        <span className="modal__input-error">
-          {touched.name && errors.name ? errors.name : "\u00A0"}
-        </span>
-      </div>
-
-      <div className="modal__error-container">
-        {errors.register && (
-          <div className="modal__error">{errors.register}</div>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        className="modal__submit-button"
-        disabled={!isValid}
+    <>
+      <ModalWithForm
+        title="Sign up"
+        name="register"
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={handleSubmit}
+        className="modal"
+        containerClassName="register-modal__container"
       >
-        Sign up
-      </button>
-      <div className="modal__switch-row">
-        <span className="modal__switch-text">or</span>
+        <div className="modal__input-group">
+          <label className="modal__label" htmlFor="register-email">
+            Email
+          </label>
+          <input
+            id="register-email"
+            type="email"
+            name="email"
+            className="modal__input"
+            placeholder="Enter email"
+            value={formData.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            ref={emailInputRef}
+            required
+          />
+          <span className="modal__input-error">
+            {touched.email && errors.email ? errors.email : "\u00A0"}
+          </span>
+        </div>
+        <div className="modal__input-group">
+          <label className="modal__label" htmlFor="register-password">
+            Password
+          </label>
+          <input
+            id="register-password"
+            type="password"
+            name="password"
+            className="modal__input"
+            placeholder="Enter password"
+            value={formData.password}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+          />
+          <span className="modal__input-error">
+            {touched.password && errors.password ? errors.password : "\u00A0"}
+          </span>
+        </div>
+        <div className="modal__input-group modal__input-group_last">
+          <label className="modal__label" htmlFor="register-username">
+            Username
+          </label>
+          <input
+            id="register-username"
+            type="text"
+            name="name"
+            className="modal__input"
+            placeholder="Enter your username"
+            value={formData.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+          />
+          <span className="modal__input-error">
+            {touched.name && errors.name ? errors.name : "\u00A0"}
+          </span>
+        </div>
+
+        <div className="modal__error-container">
+          {errors.register && (
+            <div className="modal__error">{errors.register}</div>
+          )}
+        </div>
+
         <button
-          type="button"
-          className="modal__switch-button"
-          onClick={onSwitchToLogin}
+          type="submit"
+          className="modal__submit-button"
+          disabled={!isValid}
         >
-          Sign in
+          Sign up
         </button>
-      </div>
-    </ModalWithForm>
+        <div className="modal__switch-row">
+          <span className="modal__switch-text">or</span>
+          <button
+            type="button"
+            className="modal__switch-button"
+            onClick={onSwitchToLogin}
+          >
+            Sign in
+          </button>
+        </div>
+      </ModalWithForm>
+
+      <SuccessModal
+        isOpen={showSuccess}
+        onClose={handleSuccessClose}
+        message="Registration successfully completed!"
+        onSwitchToLogin={onSwitchToLogin}
+      />
+    </>
   );
 }
 
