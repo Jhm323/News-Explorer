@@ -43,7 +43,6 @@
 .modal__input-group-password {
   display: flex;
   flex-direction: column;
-  margin-bottom: 39px;
 }
 
 .modal__input {
@@ -77,9 +76,24 @@ span.modal__input-error {
   color: #ff0000;
   font-size: 12px;
   line-height: 1.2;
-  min-height: 18px; /* Reserve space for error */
   display: block;
   margin: 3px 0 0 0;
+}
+
+.modal__error {
+  font-family: var(--font-family-tertiary);
+  color: #ff0000;
+  font-size: 12px;
+  line-height: 100%;
+  margin: 0 0 8px 0;
+  text-align: center;
+  min-height: 18px; /* Reserve space even when empty */
+  display: block;
+}
+
+.modal__error-container {
+  min-height: 18px;
+  margin-bottom: 8px;
 }
 
 /* Responsive */

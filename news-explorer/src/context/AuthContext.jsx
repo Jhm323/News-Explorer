@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
     const newUser = {
       email: formData.email,
       name: formData.name,
-      password: formData.password, // Note: Never store plain passwords in production!
+      password: formData.password,
     };
     localStorage.setItem("user", JSON.stringify(newUser));
     setUser(newUser);
