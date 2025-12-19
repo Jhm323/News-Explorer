@@ -56,7 +56,8 @@ function NewsCardsList({
               article={article}
               isLoggedIn={isLoggedIn}
               isSaved={savedArticles.some((saved) => saved.id === article.id)}
-              onArticleAction={onArticleAction}
+              onSaveArticle={onArticleAction}
+              onDeleteArticle={onArticleAction}
               searchKeyword={searchKeyword}
               showSaveButton={showSaveButton}
             />
