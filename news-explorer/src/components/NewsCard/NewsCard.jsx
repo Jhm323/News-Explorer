@@ -1,13 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./NewsCard.css";
 
 function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
-  const { isLoggedIn, saveArticle } = useContext(AuthContext);
+  const { isLoggedIn, saveArticle, savedArticles, deleteArticle } =
+    useContext(AuthContext);
+  const [isArticleSaved, setIsArticleSaved] = useState(false);
+
+  // Check if article is already saved
+  useEffect(() => {
+    const articleId = article._id || article.url;
+    const saved = savedArticles.some(
+      (saved) => (saved._id || saved.url) === articleId
+    );
+    setIsArticleSaved(saved);
+  }, [savedArticles, article]);
 
   const handleSaveClick = () => {
     if (!isLoggedIn) {
       console.log("User needs to log in to save articles");
+      return;
+    }
+
+    const articleId = article._id || article.url;
+
+    // If already saved, delete it
+    if (isArticleSaved) {
+      deleteArticle(articleId);
       return;
     }
 
@@ -60,10 +79,10 @@ function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
         ) : (
           <button
             className={`news-card__bookmark-button ${
-              isSaved ? "news-card__bookmark-button_active" : ""
+              isArticleSaved ? "news-card__bookmark-button_active" : ""
             }`}
             onClick={handleSaveClick}
-            aria-label={isSaved ? "Remove from saved" : "Save article"}
+            aria-label={isArticleSaved ? "Remove from saved" : "Save article"}
           >
             <span className="news-card__bookmark-icon"></span>
           </button>

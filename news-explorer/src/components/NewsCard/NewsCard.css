@@ -56,6 +56,7 @@
   transition: all 0.3s ease;
   z-index: 2;
 }
+
 .news-card__bookmark-icon {
   width: 24px;
   height: 24px;
@@ -69,44 +70,46 @@
 
 /* On hover, change to black icon */
 .news-card__bookmark-button:hover .news-card__bookmark-icon {
+  background-image: url("../../vendor/bookmark__hover.svg");
   width: 14px;
   height: 19px;
   display: block;
-  background-image: url("../../vendor/bookmark__hover.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: 0px 5px 15px 0px #0e1a3933;
   margin: 0 auto;
-  cursor: pointer;
 }
 
 /* If saved, change to blue icon */
 .news-card__bookmark-button_active .news-card__bookmark-icon {
+  background-image: url("../../vendor/bookmark__active.svg");
   width: 24px;
   height: 24px;
   display: block;
-  background-image: url("../../vendor/bookmark__active.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  cursor: pointer;
+}
+
+/* Active hover state */
+.news-card__bookmark-button_active:hover .news-card__bookmark-icon {
+  background-image: url("../../vendor/bookmark__active.svg");
+  filter: brightness(0.7);
 }
 
 .news-card__keyword {
   position: absolute;
-  top: 24px;
+  top: 20px;
   left: 24px;
   padding: 8px 22px;
-  background-color: var(--color-background-primary);
+  background-color: #fff;
   border-radius: 10px;
-  font-family: var(--font-family-primary);
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 14px;
-  font-weight: 500;
   line-height: 24px;
-  color: var(--color-text-primary);
-  text-transform: capitalize;
-  z-index: 2;
+  font-weight: 500;
+  color: #1a1b22;
 }
 
 .news-card__content {
@@ -180,20 +183,6 @@
 
 .news-card__bookmark_active {
   background-image: url("../images/bookmark-active.svg");
-}
-
-.news-card__keyword {
-  position: absolute;
-  top: 20px;
-  left: 24px;
-  padding: 8px 22px;
-  background-color: #fff;
-  border-radius: 10px;
-  font-family: "Roboto", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 500;
-  color: #1a1b22;
 }
 
 .news-card__delete-button {
