@@ -5,13 +5,19 @@ export const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [savedArticles, setSavedArticles] = useState([]);
 
   // Check localStorage on mount
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
+    const saved = localStorage.getItem("savedArticles");
+
     if (savedUser) {
       setUser(JSON.parse(savedUser));
       setIsLoggedIn(true);
+    }
+    if (saved) {
+      setSavedArticles(JSON.parse(saved));
     }
   }, []);
 
@@ -46,6 +52,20 @@ export function AuthProvider({ children }) {
     setIsLoggedIn(false);
   };
 
+  const saveArticle = (article) => {
+    const updatedArticles = [...savedArticles, article];
+    setSavedArticles(updatedArticles);
+    localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
+  };
+
+  const deleteArticle = (articleId) => {
+    const updatedArticles = savedArticles.filter(
+      (article) => article._id !== articleId && article.url !== articleId
+    );
+    setSavedArticles(updatedArticles);
+    localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -54,6 +74,9 @@ export function AuthProvider({ children }) {
         handleRegister,
         handleLogin,
         handleLogout,
+        savedArticles,
+        saveArticle,
+        deleteArticle,
       }}
     >
       {children}

@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import "./NewsCard.css";
 
-function NewsCard({
-  article,
-  isSaved = false,
-  onSaveArticle,
-  onDeleteArticle,
-  showDeleteButton = false,
-  isLoggedIn = false,
-}) {
+function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
+  const { isLoggedIn, saveArticle } = useContext(AuthContext);
+
   const handleSaveClick = () => {
-    if (isSaved) {
-      onDeleteArticle(article);
-    } else {
-      onSaveArticle(article);
+    if (!isLoggedIn) {
+      console.log("User needs to log in to save articles");
+      return;
+    }
+
+    const articleToSave = {
+      _id: article._id || article.url,
+      url: article.url,
+      title: article.title,
+      description: article.description,
+      image: article.image || article.urlToImage,
+      source: article.source,
+      keyword: article.keyword,
+      date: article.publishedAt || new Date().toISOString(),
+    };
+
+    saveArticle(articleToSave);
+  };
+
+  const handleDeleteClick = () => {
+    if (onDeleteArticle) {
+      onDeleteArticle();
     }
   };
 
@@ -30,10 +44,7 @@ function NewsCard({
     <article className="news-card">
       <div className="news-card__image-container">
         <img
-          src={
-            article.urlToImage ||
-            "https://via.placeholder.com/400x200?text=News+Image"
-          }
+          src={article.image || article.urlToImage}
           alt={article.title}
           className="news-card__image"
         />
@@ -41,7 +52,7 @@ function NewsCard({
         {showDeleteButton ? (
           <button
             className="news-card__delete-button"
-            onClick={handleSaveClick}
+            onClick={handleDeleteClick}
             aria-label="Remove article"
           >
             <span className="news-card__delete-icon"></span>
