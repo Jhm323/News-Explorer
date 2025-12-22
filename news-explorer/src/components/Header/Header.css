@@ -84,7 +84,7 @@
   height: 48px;
   gap: 16px;
   padding: 8px 16px;
-  border: 1px solid #000000;
+  border: 1px solid #d1d2d6;
   border-radius: 100px;
   background-color: #ffffff;
 }
@@ -95,7 +95,6 @@
   font-size: 18px;
   line-height: 24px;
   color: #1a1b22;
-  font-weight: 500;
 }
 
 .header__logout-button {
@@ -109,7 +108,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 auto;
+  padding: 0;
 }
 
 .header__logout-button:hover {
@@ -122,7 +121,6 @@
   background-repeat: no-repeat;
   width: 24px;
   height: 24px;
-  color: #000;
 }
 
 .header__mobile-menu {
@@ -153,6 +151,138 @@
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+/* Mobile Menu */
+.header__mobile-menu-content {
+  display: none;
+  background-color: #ffffff;
+  border-top: 1px solid #d1d2d6;
+  padding: 16px;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header__mobile-user-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.header__mobile-username {
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #1a1b22;
+}
+
+.header__mobile-logout-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #1a1b22;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: opacity 0.3s ease;
+  justify-content: flex-start;
+}
+
+.header__mobile-logout-button:hover {
+  opacity: 0.7;
+}
+
+.header__mobile-logout-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../vendor/logout__icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.header__mobile-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.header__mobile-signin-button,
+.header__mobile-signup-button {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid #d1d2d6;
+  border-radius: 100px;
+  font-family: var(--font-family-primary);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #1a1b22;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header__mobile-signin-button:hover,
+.header__mobile-signup-button:hover {
+  background-color: #1a1b22;
+  color: #ffffff;
+}
+
+/* User Logged In Styles (white) */
+.header_white {
+  background: #ffffff;
+}
+
+.header_white .header__logo {
+  color: #1a1b22;
+}
+
+.header_white .header__nav {
+  color: #1a1b22;
+}
+
+.header_white .header__nav a {
+  color: #1a1b22;
+}
+
+.header_white .header__nav a.active {
+  border-bottom-color: #1a1b22;
+}
+
+.header_white .navigation__link_active::after {
+  background-color: #1a1b22;
+}
+
+.header_white .header__signin-button,
+.header_white .header__signup-button {
+  color: #1a1b22;
+  border-color: #d1d2d6;
+}
+
+.header_white .header__signin-button:hover,
+.header_white .header__signup-button:hover {
+  background-color: #1a1b22;
+  color: #ffffff;
+}
+
+.header_white .header__mobile-menu-icon {
+  filter: brightness(0);
 }
 
 /* Tablet/Mobile Responsive Styles */
@@ -207,13 +337,17 @@
 @media screen and (max-width: 576px) {
   .header {
     max-width: 100%;
-    max-height: 66px;
+    max-height: auto;
   }
 
   .header__content {
-    max-width: 768px;
-    max-height: 66px;
+    max-width: 100%;
+    max-height: auto;
     min-height: 56px;
+  }
+
+  .header__user-section {
+    display: none;
   }
 
   .header__username {
@@ -224,9 +358,17 @@
     display: none !important;
   }
 
+  .header__signup-button {
+    display: none !important;
+  }
+
   .header__mobile-menu {
     display: block;
     margin: 0 auto;
+  }
+
+  .header__mobile-menu-content {
+    display: flex;
   }
 }
 
@@ -260,6 +402,10 @@
   .header__username {
     display: none;
   }
+
+  .header__mobile-menu-content {
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -268,5 +414,9 @@
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #d1d2d6;
+  }
+
+  .header__mobile-menu-content {
+    display: flex;
   }
 }

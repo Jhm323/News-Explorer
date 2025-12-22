@@ -26,14 +26,6 @@ function SavedNews() {
     }
   };
 
-  // const handleDeleteArticle = (articleId) => {
-  //   setSavedArticles((prev) =>
-  //     prev.filter(
-  //       (article) => article._id !== articleId && article.url !== articleId
-  //     )
-  //   );
-  // };
-
   if (!isLoggedIn) {
     return (
       <main className="saved-news">
@@ -66,11 +58,12 @@ function SavedNews() {
         </div>
       </section>
 
-      <section className="saved-news__cards">
+      <section className="saved-news__content">
         <div className="saved-news__container">
           {savedArticlesCount === 0 ? (
-            <div className="saved-news__no-articles">
-              <p className="saved-news__no-articles-text">
+            <div className="saved-news__empty-state">
+              <h2 className="saved-news__empty-title">No saved articles</h2>
+              <p className="saved-news__empty-text">
                 You haven't saved any articles yet. Start browsing to save
                 articles you'd like to read later.
               </p>
