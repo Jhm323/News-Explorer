@@ -128,7 +128,7 @@
 
   .news-cards__list {
     width: 100%;
-    grid-template-columns: repeat(3, 224px);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0;
     justify-items: center;
     gap: 8px;
@@ -177,12 +177,24 @@
 
 @media (max-width: 734px) {
   .news-cards__list {
+    display: grid;
     width: 100%;
     grid-template-columns: repeat(2, 224px);
     padding: 0;
     justify-content: center;
     gap: 8px;
     margin: 0 auto;
+  }
+
+  .news-cards__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .news-card {
+    width: 224px;
+    height: 420px;
   }
 }
 
