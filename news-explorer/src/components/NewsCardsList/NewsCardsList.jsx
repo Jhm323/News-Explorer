@@ -58,7 +58,7 @@ function NewsCardsList({
               isSaved={savedArticles.some((saved) => saved.id === article.id)}
               onSaveArticle={onArticleAction}
               onDeleteArticle={onArticleAction}
-              searchKeyword={searchKeyword}
+              keyword={searchKeyword}
               showSaveButton={showSaveButton}
             />
           ))}

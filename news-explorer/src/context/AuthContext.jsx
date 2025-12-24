@@ -52,8 +52,9 @@ export function AuthProvider({ children }) {
     setIsLoggedIn(false);
   };
 
-  const saveArticle = (article) => {
-    const updatedArticles = [...savedArticles, article];
+  const saveArticle = (article, keyword) => {
+    const articleWithKeyword = { ...article, keyword: keyword };
+    const updatedArticles = [...savedArticles, articleWithKeyword];
     setSavedArticles(updatedArticles);
     localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
   };

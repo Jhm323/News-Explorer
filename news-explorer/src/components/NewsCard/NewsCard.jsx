@@ -2,7 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./NewsCard.css";
 
-function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
+function NewsCard({
+  article,
+  onDeleteArticle,
+  showDeleteButton = false,
+  keyword,
+}) {
   const { isLoggedIn, saveArticle, savedArticles, deleteArticle } =
     useContext(AuthContext);
   const [isArticleSaved, setIsArticleSaved] = useState(false);
@@ -37,11 +42,11 @@ function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
       description: article.description,
       image: article.image || article.urlToImage,
       source: article.source,
-      keyword: article.keyword,
+      keyword: keyword,
       date: article.publishedAt || new Date().toISOString(),
     };
 
-    saveArticle(articleToSave);
+    saveArticle(articleToSave, keyword);
   };
 
   const handleDeleteClick = () => {
@@ -88,9 +93,7 @@ function NewsCard({ article, isSaved, onDeleteArticle, showDeleteButton }) {
           </button>
         )}
 
-        {showDeleteButton && (
-          <div className="news-card__keyword">{article.keyword}</div>
-        )}
+        {keyword && <div className="news-card__keyword">{keyword}</div>}
 
         {!isLoggedIn && !showDeleteButton && (
           <div className="news-card__tooltip">Sign in to save articles</div>

@@ -9,9 +9,18 @@ function SavedNews() {
 
   const savedArticlesCount = savedArticles.length;
 
+  // Debug: Log article structure
+  // React.useEffect(() => {
+  //   if (savedArticles.length > 0) {
+  //     console.log("Sample article:", savedArticles[0]);
+  //   }
+  // }, [savedArticles]);
+
   // Get unique keywords from saved articles
   const getKeywords = () => {
-    const keywords = savedArticles.map((article) => article.keyword);
+    const keywords = savedArticles
+      .map((article) => article.keyword || article.searchQuery)
+      .filter(Boolean);
     const uniqueKeywords = [...new Set(keywords)];
 
     if (uniqueKeywords.length === 0) return "";
@@ -79,6 +88,7 @@ function SavedNews() {
                   }
                   isSaved={true}
                   showDeleteButton={true}
+                  keyword={article.keyword}
                 />
               ))}
             </div>
