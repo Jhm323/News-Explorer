@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
@@ -58,19 +59,30 @@ function Header({
             )}
           </div>
         </div>
-        <button
-          type="button"
-          className="header__mobile-menu"
-          aria-label="Menu"
-          onClick={handleMobileMenuClick}
-        >
-          <span className="header__mobile-menu-icon"></span>
-        </button>
+        {!isMobileMenuOpen && (
+          <button
+            type="button"
+            className="header__mobile-menu"
+            aria-label="Menu"
+            onClick={handleMobileMenuClick}
+          >
+            <span className="header__mobile-menu-icon"></span>
+          </button>
+        )}
+        {isMobileMenuOpen && (
+          <button
+            type="button"
+            className="header__mobile-menu_close"
+            aria-label="Close menu"
+            onClick={handleMobileMenuClick}
+          ></button>
+        )}
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <nav className="header__mobile-menu-content">
+          <Navigation className="header__nav" />
           {isLoggedIn && user ? (
             <div className="header__mobile-user-section">
               <span className="header__mobile-username">{user.name}</span>
