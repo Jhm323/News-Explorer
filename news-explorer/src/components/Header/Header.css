@@ -285,7 +285,7 @@
   filter: brightness(0);
 }
 
-/* Tablet/Mobile Responsive Styles */
+/* Responsiveness */
 @media screen and (max-width: 768px) {
   .header {
     max-width: 768px;
@@ -416,7 +416,74 @@
     border-bottom: 1px solid #d1d2d6;
   }
 
+  .header__nav {
+    display: flex !important;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    z-index: 101;
+    background-color: transparent;
+  }
+
   .header__mobile-menu-content {
     display: flex;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    /* background-color: #ffffff; */
+    flex-direction: column;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    z-index: 101;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .header__mobile-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 0;
+  }
+
+  .header__mobile-signin-button {
+    width: 100%;
+    height: 48px;
+    background-color: #1a1b22;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 30px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .header__mobile-signin-button:active {
+    background-color: #0a0a0a;
+  }
+
+  .header__mobile-signup-button {
+    display: none;
+  }
+
+  /* Overlay */
+  .header__mobile-menu-content::before {
+    content: "";
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 56px);
+    background-color: #000000;
+    opacity: 50%;
+    z-index: -1;
   }
 }

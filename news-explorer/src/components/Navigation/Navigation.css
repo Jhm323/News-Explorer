@@ -99,18 +99,3 @@
     font-size: 16px;
   }
 }
-
-/* Dark theme support */
-@media (prefers-color-scheme: dark) {
-  .navigation__mobile-menu {
-    background-color: var(--color-background-dark, #1a1b22);
-  }
-
-  .navigation__link {
-    color: var(--color-text-dark, #ffffff);
-  }
-
-  .navigation__mobile-link {
-    color: var(--color-text-dark, #ffffff);
-  }
-}
