@@ -25,7 +25,11 @@ function Header({
   };
 
   return (
-    <header className={`header ${isLoggedIn ? "header_white" : ""}`}>
+    <header
+      className={`header ${isLoggedIn ? "header_white" : ""} ${
+        isAnyModalOpen ? "header_modal-open" : ""
+      } ${isMobileMenuOpen ? "header_menu-open" : ""}`}
+    >
       <div className="header__content">
         <p className="header__logo">NewsExplorer</p>
         <div className="header__right">
@@ -60,7 +64,7 @@ function Header({
             )}
           </div>
         </div>
-        {!isMobileMenuOpen && (
+        {!isMobileMenuOpen && !isAnyModalOpen && (
           <button
             type="button"
             className="header__mobile-menu"
@@ -70,7 +74,7 @@ function Header({
             <span className="header__mobile-menu-icon"></span>
           </button>
         )}
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && !isAnyModalOpen && (
           <button
             type="button"
             className="header__mobile-menu_close"
@@ -82,9 +86,12 @@ function Header({
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isAnyModalOpen && (
         <nav className="header__mobile-menu-content">
-          <Navigation className="header__nav" />
+          <Navigation
+            className="header__nav"
+            onNavClick={handleMobileMenuClick}
+          />
           {isLoggedIn && user ? (
             <div className="header__mobile-user-section">
               <span className="header__mobile-username">{user.name}</span>

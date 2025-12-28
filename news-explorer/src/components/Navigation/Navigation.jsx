@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./Navigation.css";
 
-function Navigation({ className = "" }) {
+function Navigation({ className = "", onNavClick }) {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
@@ -12,6 +12,7 @@ function Navigation({ className = "" }) {
         <li className="navigation__item">
           <NavLink
             to="/"
+            onClick={onNavClick}
             className={({ isActive }) =>
               isActive
                 ? "navigation__link navigation__link_active"
@@ -25,6 +26,7 @@ function Navigation({ className = "" }) {
           <li className="navigation__item navigation__item_saved">
             <NavLink
               to="/saved-news"
+              onClick={onNavClick}
               className={({ isActive }) =>
                 isActive
                   ? "navigation__link navigation__link_active"
