@@ -100,7 +100,7 @@
   }
 }
 
-/* @media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) {
   .navigation {
     display: flex !important;
     width: 100%;
@@ -148,4 +148,4 @@
   .navigation__link_active::after {
     display: none;
   }
-} */
+}

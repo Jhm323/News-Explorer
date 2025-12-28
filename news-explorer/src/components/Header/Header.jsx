@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import closeIcon from "../../vendor/close-icon.svg";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 
@@ -75,6 +76,7 @@ function Header({
             className="header__mobile-menu_close"
             aria-label="Close menu"
             onClick={handleMobileMenuClick}
+            style={{ backgroundImage: `url(${closeIcon})` }}
           ></button>
         )}
       </div>
