@@ -219,11 +219,6 @@
 }
 
 @media (max-width: 480px) {
-  /* .news-cards__list {
-    height: 100%;
-    grid-template-columns: repeat(2, 1fr);
-  } */
-
   .news-cards {
     max-width: 100%;
     height: auto;

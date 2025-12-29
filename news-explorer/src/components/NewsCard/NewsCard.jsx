@@ -95,9 +95,9 @@ function NewsCard({
 
         {keyword && <div className="news-card__keyword">{keyword}</div>}
 
-        {!isLoggedIn && !showDeleteButton && (
-          <div className="news-card__tooltip">Sign in to save articles</div>
-        )}
+        {/* {!isLoggedIn && !showDeleteButton && (
+          // <div className="news-card__tooltip">Sign in to save articles</div>
+        )} */}
       </div>
 
       {/* Makes the entire content area a link */}
