@@ -100,7 +100,7 @@ function NewsCard({
         )}
       </div>
 
-      {/* Make the entire content area a link */}
+      {/* Makes the entire content area a link */}
       <a
         className="news-card__content"
         href={article.url}
