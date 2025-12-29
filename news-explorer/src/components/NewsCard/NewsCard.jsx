@@ -5,7 +5,7 @@ import "./NewsCard.css";
 function NewsCard({
   article,
   onDeleteArticle,
-  showDeleteButton = false,
+  showDeleteButton = false, // true on saved articles page, false on home page
   keyword,
 }) {
   const { isLoggedIn, saveArticle, savedArticles, deleteArticle } =
@@ -73,6 +73,7 @@ function NewsCard({
           className="news-card__image"
         />
 
+        {/* Show delete button on saved articles, bookmark button on home page */}
         {showDeleteButton ? (
           <button
             className="news-card__delete-button"
@@ -93,14 +94,19 @@ function NewsCard({
           </button>
         )}
 
-        {keyword && <div className="news-card__keyword">{keyword}</div>}
-
-        {/* {!isLoggedIn && !showDeleteButton && (
-          // <div className="news-card__tooltip">Sign in to save articles</div>
-        )} */}
+        {/* Keyword only shows on saved articles page when showDeleteButton is true */}
+        {keyword && (
+          <div
+            className={`news-card__keyword ${
+              showDeleteButton ? "news-card__keyword_visible" : ""
+            }`}
+          >
+            {keyword}
+          </div>
+        )}
       </div>
 
-      {/* Makes the entire content area a link */}
+      {/* Makes the entire content area a clickable link to the full article */}
       <a
         className="news-card__content"
         href={article.url}

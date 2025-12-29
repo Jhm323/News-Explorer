@@ -44,6 +44,7 @@
   padding: 0;
 }
 
+/* ===== Responsive: 320px ===== */
 @media screen and (max-width: 320px) {
   .page {
     background-size: 800px;

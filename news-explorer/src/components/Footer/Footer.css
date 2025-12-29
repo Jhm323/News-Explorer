@@ -77,7 +77,7 @@
   opacity: 0.7;
 }
 
-/* Responsive styles */
+/* ===== Responsive: 785px ===== */
 @media screen and (max-width: 785px) {
   .footer__copyright {
     margin: 24px 0 18px 40px;
@@ -91,6 +91,7 @@
   }
 }
 
+/* ===== Responsive: 655px ===== */
 @media screen and (max-width: 655px) {
   .footer__content {
     flex-direction: column;
