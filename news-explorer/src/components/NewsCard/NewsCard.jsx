@@ -56,6 +56,7 @@ function NewsCard({
   };
 
   const formatDate = (dateString) => {
+    if (!dateString) return "No date";
     const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
       year: "numeric",
@@ -115,7 +116,7 @@ function NewsCard({
         aria-label="Read full article"
       >
         <time className="news-card__date">
-          {formatDate(article.publishedAt)}
+          {formatDate(article.publishedAt || article.date)}
         </time>
         <h2 className="news-card__title">{article.title}</h2>
         <p className="news-card__description">{article.description}</p>
