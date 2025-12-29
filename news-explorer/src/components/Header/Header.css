@@ -491,6 +491,119 @@
   }
 }
 
+/* Logged-in Mobile Menu */
+.header__mobile-menu-content[data-menu-state="logged-in"] {
+  height: 174px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]::before {
+  display: none;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"] .header__nav {
+  gap: 0;
+  display: flex;
+  flex-direction: column;
+  color: #1a1b22;
+  width: 100%;
+  align-items: center;
+  padding: 0px;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__nav
+  .navigation__link {
+  color: #1a1b22;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  gap: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__mobile-user-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0px;
+  align-items: center;
+  border: none;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__mobile-username {
+  color: #1a1b22;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__mobile-logout-button {
+  color: #1a1b22;
+  padding: 16px;
+  font-size: 14px;
+  justify-content: center;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__mobile-logout-button {
+  color: #1a1b22;
+  padding: 0;
+  font-size: 14px;
+  justify-content: center;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"]
+  .header__mobile-logout-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../vendor/logout__icon.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+/* Not-logged-in mobile menu */
+.header__mobile-menu-content[data-menu-state="not-logged-in"] {
+  height: auto;
+  padding: 24px 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__mobile-menu-content[data-menu-state="not-logged-in"]
+  .header__mobile-auth {
+  width: 100%;
+}
+
+.header__mobile-menu-content[data-menu-state="not-logged-in"]
+  .header__mobile-signin-button {
+  width: 100%;
+  height: 56px;
+}
+
+.header__mobile-menu-content[data-menu-state="not-logged-in"] .header__nav {
+  display: flex;
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 480px) {
   .header {
     width: 100vw;
@@ -602,7 +715,6 @@
   }
 
   .header__mobile-auth {
-    /* height: 174px; */
     width: auto;
     display: flex;
     flex-direction: column;
@@ -759,7 +871,6 @@
   }
 
   .header__mobile-auth {
-    /* height: 174px; */
     width: auto;
     display: flex;
     flex-direction: column;

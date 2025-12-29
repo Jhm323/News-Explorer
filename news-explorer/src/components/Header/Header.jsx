@@ -24,6 +24,15 @@ function Header({
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleSignInClick = () => {
+    onLoginClick();
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`header ${isLoggedIn ? "header_white" : ""} ${
@@ -87,43 +96,53 @@ function Header({
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && !isAnyModalOpen && (
-        <nav className="header__mobile-menu-content">
-          <Navigation
-            className="header__nav"
-            onNavClick={handleMobileMenuClick}
-          />
+        <nav
+          className="header__mobile-menu-content"
+          data-menu-state={isLoggedIn ? "logged-in" : "not-logged-in"}
+        >
           {isLoggedIn && user ? (
-            <div className="header__mobile-user-section">
-              <span className="header__mobile-username">{user.name}</span>
-              <button
-                className="header__mobile-logout-button"
-                onClick={handleLogoutClick}
-              >
-                <span className="header__mobile-logout-icon"></span>
-                Logout
-              </button>
-            </div>
+            <>
+              <Navigation
+                className="header__nav"
+                onNavClick={handleNavLinkClick}
+                data-testid="mobile-menu-logged-in"
+              />
+              <div className="header__mobile-user-section">
+                <span className="header__mobile-username">{user.name}</span>
+                <button
+                  className="header__mobile-logout-button"
+                  onClick={handleLogoutClick}
+                >
+                  <span className="header__mobile-logout-icon"></span>
+                  Logout
+                </button>
+              </div>
+            </>
           ) : (
-            <div className="header__mobile-auth">
-              <button
-                className="header__mobile-signin-button"
-                onClick={() => {
-                  onLoginClick();
-                  setIsMobileMenuOpen(false);
-                }}
+            <>
+              <Navigation
+                className="header__nav"
+                onNavClick={handleNavLinkClick}
+                data-testid="mobile-menu-not-logged-in-nav"
+              />
+              <div
+                className="header__mobile-auth"
+                data-testid="mobile-menu-not-logged-in"
               >
-                Sign In
-              </button>
-              <button
-                className="header__mobile-signup-button"
-                onClick={() => {
-                  onRegisterClick();
-                  setIsMobileMenuOpen(false);
-                }}
-              >
-                Sign Up
-              </button>
-            </div>
+                <button
+                  className="header__mobile-signin-button"
+                  onClick={handleSignInClick}
+                >
+                  Sign In
+                </button>
+                <button
+                  className="header__mobile-signup-button"
+                  onClick={handleSignInClick}
+                >
+                  Sign Up
+                </button>
+              </div>
+            </>
           )}
         </nav>
       )}
