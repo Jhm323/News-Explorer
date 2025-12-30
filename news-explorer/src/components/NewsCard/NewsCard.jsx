@@ -11,6 +11,7 @@ function NewsCard({
   const { isLoggedIn, saveArticle, savedArticles, deleteArticle } =
     useContext(AuthContext);
   const [isArticleSaved, setIsArticleSaved] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Check if article is already saved
   useEffect(() => {
@@ -23,7 +24,8 @@ function NewsCard({
 
   const handleSaveClick = () => {
     if (!isLoggedIn) {
-      console.log("User needs to log in to save articles");
+      setShowTooltip(true);
+      setTimeout(() => setShowTooltip(false), 3000);
       return;
     }
 
@@ -90,6 +92,8 @@ function NewsCard({
             }`}
             onClick={handleSaveClick}
             aria-label={isArticleSaved ? "Remove from saved" : "Save article"}
+            onMouseEnter={() => !isLoggedIn && setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
           >
             <span className="news-card__bookmark-icon"></span>
           </button>
@@ -104,6 +108,11 @@ function NewsCard({
           >
             {keyword}
           </div>
+        )}
+
+        {/* Tooltip for saving articles */}
+        {!showDeleteButton && showTooltip && !isLoggedIn && (
+          <div className="news-card__tooltip">Sign in to save articles</div>
         )}
       </div>
 

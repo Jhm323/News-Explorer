@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Main.css";
 
-import { SAMPLE_ARTICLES } from "../../utils/constants";
+import newsApi from "../../utils/NewsApi";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCardsList from "../NewsCardsList/NewsCardsList";
 import About from "../About/About";
@@ -13,32 +13,31 @@ function Main({
   setSavedArticles,
   isLoggedIn,
 }) {
-  const [articles, setArticles] = useState(SAMPLE_ARTICLES);
-
   const [isLoading, setIsLoading] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
   const [hasSearchError, setHasSearchError] = useState(false);
 
   const handleSearchSubmit = async (keyword) => {
+    if (!keyword.trim()) {
+      setHasSearchError(true);
+      setSearchPerformed(true);
+      return;
+    }
+
     setIsLoading(true);
     setSearchPerformed(true);
     setSearchKeyword(keyword);
     setHasSearchError(false);
 
     try {
-      setTimeout(() => {
-        const filteredArticles = SAMPLE_ARTICLES.filter(
-          (article) =>
-            article.title.toLowerCase().includes(keyword.toLowerCase()) ||
-            article.description.toLowerCase().includes(keyword.toLowerCase())
-        );
-        setSearchResults(filteredArticles);
-        setIsLoading(false);
-      }, 1500);
+      const data = await newsApi.searchNews(keyword);
+      setSearchResults(data.articles || []);
     } catch (error) {
       console.error("Search error:", error);
       setHasSearchError(true);
+      setSearchResults([]);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -46,12 +45,12 @@ function Main({
   const handleArticleAction = (article) => {
     if (isLoggedIn) {
       const isArticleSaved = savedArticles.some(
-        (saved) => saved.id === article.id
+        (saved) => saved.url === article.url // Use url for uniqueness
       );
 
       if (isArticleSaved) {
         setSavedArticles(
-          savedArticles.filter((saved) => saved.id !== article.id)
+          savedArticles.filter((saved) => saved.url !== article.url)
         );
       } else {
         setSavedArticles([...savedArticles, article]);
