@@ -1,10 +1,15 @@
-const API_KEY = "2f540b608a08465397414bb521b65a22";
-const BASE_URL = "https://newsapi.org/v2";
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://nomoreparties.co/news/v2/everything"
+    : "https://newsapi.org/v2/everything";
 
 class NewsApi {
   constructor() {
     this._baseUrl = BASE_URL;
-    this._apiKey = API_KEY;
+    this._apiKey = process.env.REACT_APP_NEWS_API_KEY;
+    // Calculate dates
+    this._today = new Date();
+    this._weekAgo = new Date(this._today.getTime() - 7 * 24 * 60 * 60 * 1000);
   }
 
   // Check response and handle errors
@@ -17,8 +22,15 @@ class NewsApi {
 
   // Main search method
   searchNews(query) {
+    if (!query.trim()) {
+      return Promise.reject("Please enter a keyword");
+    }
+    const fromDate = this._weekAgo.toISOString().split("T")[0];
+    const toDate = this._today.toISOString().split("T")[0];
     return fetch(
-      `${this._baseUrl}/everything?q=${query}&apiKey=${this._apiKey}&pageSize=100&sortBy=publishedAt`
+      `${this._baseUrl}?q=${encodeURIComponent(query)}&apiKey=${
+        this._apiKey
+      }&from=${fromDate}&to=${toDate}&pageSize=100&sortBy=publishedAt`
     ).then(this._checkResponse);
   }
 }
