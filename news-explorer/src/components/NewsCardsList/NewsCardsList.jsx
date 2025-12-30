@@ -28,7 +28,8 @@ function NewsCardsList({
   if (hasSearchError)
     return (
       <div className="news-cards__error">
-        Sorry, something went wrong during the request.
+        Sorry, something went wrong during the request. There may be a
+        connection issue or the server may be down. Please try again later.
       </div>
     );
   if (hasSearched && articles.length === 0)
@@ -55,7 +56,7 @@ function NewsCardsList({
               key={article.id || article.url}
               article={article}
               isLoggedIn={isLoggedIn}
-              isSaved={savedArticles.some((saved) => saved.id === article.id)}
+              isSaved={savedArticles.some((saved) => saved.url === article.url)}
               onSaveArticle={onArticleAction}
               onDeleteArticle={onArticleAction}
               keyword={searchKeyword}
