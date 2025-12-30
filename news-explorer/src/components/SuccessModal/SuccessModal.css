@@ -21,7 +21,35 @@
 
 /* ===== Responsive: 480px ===== */
 @media screen and (max-width: 480px) {
-  .modal {
-    display: none;
+  .modal_success {
+    top: -56px;
+    position: fixed;
+    display: flex;
+  }
+
+  .modal__container {
+    width: 288px;
+    height: auto;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .modal_success .modal__close-button {
+    position: absolute;
+    right: 16px;
+    z-index: 100;
+  }
+}
+
+/* ===== Responsive: 320px ===== */
+@media screen and (max-width: 320px) {
+  .modal__container {
+    width: 280px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .modal__switch-row_success {
+    justify-content: left;
   }
 }

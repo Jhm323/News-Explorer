@@ -20,7 +20,7 @@ function SuccessModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
-      className="modal"
+      className="modal modal_success"
       containerClassName="modal__container"
     >
       {onSwitchToLogin && (

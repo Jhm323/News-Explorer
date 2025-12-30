@@ -16,7 +16,9 @@ function Header({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMobileMenuClick = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (!isAnyModalOpen) {
+      setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
   };
 
   const handleLogoutClick = () => {
