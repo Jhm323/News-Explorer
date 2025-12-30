@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SuccessModal.css";
 
@@ -9,7 +9,6 @@ function SuccessModal({
   onSwitchToLogin,
 }) {
   const handleSubmit = (e) => {
-    onClose();
     e.preventDefault();
     onClose();
   };

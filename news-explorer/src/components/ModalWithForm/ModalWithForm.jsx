@@ -39,7 +39,7 @@ function ModalWithForm({
 
   return (
     <div
-      className={`${className} ${isOpen ? className + "_opened" : ""}`}
+      className={`${className}${isOpen ? " " + className + "_opened" : ""}`}
       onClick={handleOverlayClick}
     >
       <div className={containerClassName}>

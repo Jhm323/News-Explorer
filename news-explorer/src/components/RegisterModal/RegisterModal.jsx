@@ -4,8 +4,16 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import "./RegisterModal.css";
 
-function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
+function RegisterModal({
+  isOpen,
+  onClose,
+  onRegister,
+  onSwitchToLogin,
+  onSuccessOpen,
+  onSuccessClose,
+}) {
   const { handleRegister } = useContext(AuthContext);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -24,11 +32,8 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     name: false,
   });
 
-  const [showSuccess, setShowSuccess] = useState(false);
-
   const emailInputRef = useRef(null);
 
-  // Reset form, errors, touched when modal opens
   useEffect(() => {
     if (isOpen) {
       setFormData({ email: "", password: "", name: "" });
@@ -43,7 +48,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     }
   }, [isOpen]);
 
-  // Validate fields
   useEffect(() => {
     const emailValid = /\S+@\S+\.\S+/.test(formData.email);
     const passwordValid = formData.password.length > 0;
@@ -69,7 +73,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       [name]: value,
     }));
 
-    // Clear register error when user starts typing
     if (errors.register) {
       setErrors((prev) => ({
         ...prev,
@@ -96,7 +99,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
     try {
       handleRegister(formData);
       setShowSuccess(true);
-      onClose();
     } catch (err) {
       setErrors((prev) => ({
         ...prev,
@@ -115,7 +117,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
       <ModalWithForm
         title="Sign up"
         name="register"
-        isOpen={isOpen}
+        isOpen={isOpen && !showSuccess}
         onClose={onClose}
         onSubmit={handleSubmit}
         className="modal"
@@ -204,7 +206,6 @@ function RegisterModal({ isOpen, onClose, onRegister, onSwitchToLogin }) {
           </button>
         </div>
       </ModalWithForm>
-
       <SuccessModal
         isOpen={showSuccess}
         onClose={handleSuccessClose}
