@@ -22,34 +22,42 @@ export function AuthProvider({ children }) {
   }, []);
 
   const handleRegister = (formData) => {
-    const newUser = {
-      email: formData.email,
-      name: formData.name,
-      password: formData.password,
-    };
-    localStorage.setItem("user", JSON.stringify(newUser));
-    setUser(newUser);
-    setIsLoggedIn(true);
+    return new Promise((resolve, reject) => {
+      const newUser = {
+        email: formData.email,
+        name: formData.name,
+        password: formData.password,
+      };
+      localStorage.setItem("user", JSON.stringify(newUser));
+      setUser(newUser);
+      setIsLoggedIn(true);
+      resolve(); // Simulate success
+    });
   };
 
   const handleLogin = (formData) => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (
-      savedUser &&
-      savedUser.email === formData.email &&
-      savedUser.password === formData.password
-    ) {
-      setUser(savedUser);
-      setIsLoggedIn(true);
-      return true;
-    }
-    return false; // Login failed
+    return new Promise((resolve, reject) => {
+      const savedUser = JSON.parse(localStorage.getItem("user"));
+      if (
+        savedUser &&
+        savedUser.email === formData.email &&
+        savedUser.password === formData.password
+      ) {
+        setUser(savedUser);
+        setIsLoggedIn(true);
+        resolve(); // Simulate success
+      } else {
+        reject(new Error("Invalid credentials"));
+      }
+    });
   };
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("savedArticles");
     setUser(null);
     setIsLoggedIn(false);
+    setSavedArticles([]);
   };
 
   const saveArticle = (article, keyword) => {
