@@ -1,53 +1,70 @@
+/* ===== CSS Variables ===== */
+:root {
+  --page-max-width: 1440px;
+  --container-max-width: 1200px;
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --background-size-large: 1440px;
+  --background-size-small: 800px;
+}
+
+/* ===== Page Layout ===== */
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("../../vendor/page__image-cell-phone.jpg");
-  background-repeat: no-repeat;
-  background-size: 1440px;
-  background-position: 50% -245px;
-  background-attachment: fixed;
   position: relative;
 }
 
+/* ===== Page Background ===== */
+.page {
+  background-image: url("../../vendor/page__image-cell-phone.jpg");
+  background-repeat: no-repeat;
+  background-size: var(--background-size-large);
+  background-position: 50% -245px;
+  background-attachment: scroll;
+}
+
+/* ===== Overlay ===== */
 .page::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--overlay-color);
   z-index: 1;
   pointer-events: none;
 }
 
+/* ===== Z-Index for Content ===== */
 .page > * {
   position: relative;
   z-index: 2;
 }
 
+/* ===== Main Content ===== */
 .page__main {
   flex: 1;
   width: 100%;
 }
 
+/* ===== Utility Classes ===== */
+/* Shared container for centering content */
+.container,
 .page__content {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0;
 }
 
-/* app components helper */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
+/* Specific override if .page__content differs  */
+.page__content {
+  max-width: var(--page-max-width);
 }
 
-/* ===== Responsive: 320px ===== */
+/* ===== Responsive Design ===== */
 @media screen and (max-width: 320px) {
   .page {
-    background-size: 800px;
+    background-size: var(--background-size-small);
     background-position: 52% 0px;
   }
 }
