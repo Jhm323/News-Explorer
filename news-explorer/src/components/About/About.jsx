@@ -1,16 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types"; // for validation
 import aboutImg from "../../vendor/avatarImg.jpg";
 import "./About.css";
 
-function About() {
+const About = React.memo(() => {
   return (
-    <div className="about">
+    <section className="about" aria-labelledby="about-title">
       <div className="about__author">
         <div className="about__author-avatar">
-          <img src={aboutImg} alt="Author" />
+          <img
+            src={aboutImg}
+            alt="Portrait of James Holden Moore, the author"
+          />{" "}
         </div>
         <div className="about__author-info">
-          <h2 className="about__author-title">About the Author</h2>
+          <h2 id="about-title" className="about__author-title">
+            About the Author
+          </h2>{" "}
           <div className="about__author-text">
             <p>
               Hi, I’m James Holden Moore — a full-stack software engineer who
@@ -29,8 +35,10 @@ function About() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+});
+
+About.propTypes = {}; // for future props
 
 export default About;

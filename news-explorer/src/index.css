@@ -115,7 +115,7 @@ body {
   padding: 0;
 }
 
-/* Optional: ensure header and other full-width elements are not constrained */
+/* Ensure header and other full-width elements are not constrained */
 .header,
 .header__content {
   width: 100%;
