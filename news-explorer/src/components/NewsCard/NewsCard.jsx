@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { SAVE_TOOLTIP_MESSAGE } from "../../utils/constants";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -96,6 +97,9 @@ function NewsCard({
             onMouseLeave={() => setShowTooltip(false)}
           >
             <span className="news-card__bookmark-icon"></span>
+            {showTooltip && !isLoggedIn && (
+              <span className="news-card__tooltip">{SAVE_TOOLTIP_MESSAGE}</span>
+            )}
           </button>
         )}
 
@@ -112,7 +116,7 @@ function NewsCard({
 
         {/* Tooltip for saving articles */}
         {!showDeleteButton && showTooltip && !isLoggedIn && (
-          <div className="news-card__tooltip">Sign in to save articles</div>
+          <div className="news-card__tooltip">{SAVE_TOOLTIP_MESSAGE}</div>
         )}
       </div>
 

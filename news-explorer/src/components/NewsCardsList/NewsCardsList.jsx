@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import nothingFoundImg from "../../vendor/nothing-found.svg";
+import {
+  SEARCH_ERROR_MESSAGE,
+  NO_RESULTS_MESSAGE,
+} from "../../utils/constants";
 import "./NewsCardsList.css";
 
 function NewsCardsList({
@@ -26,12 +30,7 @@ function NewsCardsList({
   // Loading, Error, No-Results
   if (isLoading) return <Preloader />;
   if (hasSearchError)
-    return (
-      <div className="news-cards__error">
-        Sorry, something went wrong during the request. There may be a
-        connection issue or the server may be down. Please try again later.
-      </div>
-    );
+    return <div className="news-cards__error">{SEARCH_ERROR_MESSAGE}</div>;
   if (hasSearched && articles.length === 0)
     return (
       <div className="news-cards__no-results">
@@ -42,7 +41,7 @@ function NewsCardsList({
         />
         <h3 className="news-cards__no-results-title">Nothing found</h3>
         <p className="news-cards__no-results-description">
-          Sorry, but nothing matched your search terms.
+          {NO_RESULTS_MESSAGE}
         </p>
       </div>
     );

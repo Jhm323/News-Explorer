@@ -9,10 +9,41 @@ import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import SuccessModal from "../SuccessModal/SuccessModal";
+
+// Error Boundary Class Component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Log the error to an error reporting service (e.g., console or Sentry)
+    console.error("Error Boundary Caught an Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // Fallback UI
+      return (
+        <div style={{ textAlign: "center", padding: "50px" }}>
+          <h1>Something went wrong.</h1>
+          <p>Please refresh the page or try again later.</p>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 function AppContent() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const [searchResults, setSearchResults] = useState([]);
   const [savedArticles, setSavedArticles] = useState([]);
   const [activeModal, setActiveModal] = useState("");
@@ -20,6 +51,7 @@ function AppContent() {
   const handleLoginClick = () => setActiveModal("login");
   const handleRegisterClick = () => setActiveModal("register");
   const handleCloseModal = () => setActiveModal("");
+
   const handleSwitchToRegister = () => setActiveModal("register");
   const handleSwitchToLogin = () => setActiveModal("login");
 
@@ -29,7 +61,7 @@ function AppContent() {
         onLoginClick={handleLoginClick}
         onRegisterClick={handleRegisterClick}
         isAnyModalOpen={activeModal === "login" || activeModal === "register"}
-        isLoggedIn={isAuthenticated}
+        isLoggedIn={isLoggedIn}
       />
       <main className="page__main">
         <Routes>
