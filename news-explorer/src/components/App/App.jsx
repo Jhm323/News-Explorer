@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PropTypes from "prop-types"; // for validation
 import "./App.css";
 
 import { AuthProvider, AuthContext } from "../../context/AuthContext";
@@ -18,18 +19,15 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-    // Log the error to an error reporting service (e.g., console or Sentry)
     console.error("Error Boundary Caught an Error:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Fallback UI
       return (
         <div style={{ textAlign: "center", padding: "50px" }}>
           <h1>Something went wrong.</h1>
@@ -37,16 +35,14 @@ class ErrorBoundary extends React.Component {
         </div>
       );
     }
-
     return this.props.children;
   }
 }
 
-function AppContent() {
+const AppContent = React.memo(() => {
   const { isLoggedIn } = useContext(AuthContext);
-  const [searchResults, setSearchResults] = useState([]);
-  const [savedArticles, setSavedArticles] = useState([]);
-  const [activeModal, setActiveModal] = useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const [activeModal, setActiveModal] = React.useState("");
 
   const handleLoginClick = () => setActiveModal("login");
   const handleRegisterClick = () => setActiveModal("register");
@@ -71,15 +67,10 @@ function AppContent() {
               <Main
                 searchResults={searchResults}
                 setSearchResults={setSearchResults}
-                savedArticles={savedArticles}
-                setSavedArticles={setSavedArticles}
               />
             }
           />
-          <Route
-            path="/saved-news"
-            element={<SavedNews savedArticles={savedArticles} />}
-          />
+          <Route path="/saved-news" element={<SavedNews />} />
         </Routes>
       </main>
       <Footer />
@@ -95,16 +86,25 @@ function AppContent() {
         isOpen={activeModal === "register"}
         onClose={handleCloseModal}
         onSwitchToLogin={handleSwitchToLogin}
+        className="register-modal"
+        containerClassName="register-modal__container"
       />
     </div>
   );
-}
+});
+
+// PropTypes for AppContent
+AppContent.propTypes = {};
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <AppContent />
+        <ErrorBoundary>
+          {" "}
+          {}
+          <AppContent />
+        </ErrorBoundary>
       </BrowserRouter>
     </AuthProvider>
   );

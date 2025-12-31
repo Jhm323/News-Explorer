@@ -10,7 +10,7 @@ import "./NewsCardsList.css";
 
 function NewsCardsList({
   articles,
-  savedArticles,
+  savedArticles = [],
   onArticleAction,
   isLoggedIn,
   searchKeyword,
