@@ -90,7 +90,6 @@ span.modal__input-error {
   color: var(--error-color);
   font-size: var(--font-size-12);
   line-height: 100%;
-  margin: 0 0 8px 0;
   text-align: center;
   min-height: 18px; /* Reserve space even when empty */
   display: block;

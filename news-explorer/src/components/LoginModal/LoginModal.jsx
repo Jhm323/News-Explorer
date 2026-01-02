@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
 import { AuthContext } from "../../context/AuthContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
+const LoginModal = React.memo(({ isOpen, onClose, onSwitchToRegister }) => {
   const { handleLogin } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -68,21 +69,28 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors((prev) => ({
       ...prev,
       login: "",
     }));
 
-    const success = handleLogin(formData);
-    if (success) {
-      alert("Login successful!"); // Replace with SuccessModal later
-      onClose();
-    } else {
+    try {
+      const success = await handleLogin(formData);
+      if (success) {
+        alert("Login successful!"); // Replace with SuccessModal later
+        onClose();
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          login: "Invalid email or password",
+        }));
+      }
+    } catch (error) {
       setErrors((prev) => ({
         ...prev,
-        login: "Invalid email or password",
+        login: "Invalid email or password", // Or error.message for dynamic
       }));
     }
   };
@@ -97,8 +105,6 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       className="modal"
       containerClassName="login-modal__container"
     >
-      {/* {errors.login && <div className="modal__error">{errors.login}</div>} */}
-
       <div className="modal__input-group-email">
         <label className="modal__label" htmlFor="login-email">
           Email
@@ -162,6 +168,12 @@ function LoginModal({ isOpen, onClose, onSwitchToRegister }) {
       </div>
     </ModalWithForm>
   );
-}
+});
+
+LoginModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSwitchToRegister: PropTypes.func.isRequired,
+};
 
 export default LoginModal;
