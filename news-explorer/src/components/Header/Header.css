@@ -6,8 +6,8 @@
   top: 0;
   left: 0;
   z-index: 100;
-  border-bottom: 1px solid #d1d2d6;
-  background: #c4c4c403;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--header-bg);
   transition: background-color 0.3s ease, position 0.3s ease;
 }
 
@@ -79,7 +79,7 @@
   justify-content: center;
   box-sizing: border-box;
   background: transparent;
-  border: 1px solid #d1d2d6;
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-18);
@@ -105,7 +105,7 @@
   justify-content: center;
   box-sizing: border-box;
   background: transparent;
-  border: 1px solid #d1d2d6;
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   font-family: var(--font-family-primary);
   font-size: var(--font-size-16);
@@ -120,6 +120,8 @@
 .header__mobile-signup-button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+  transform: scale(1.01);
+  opacity: 0.9;
 }
 
 /* ===== User Section ===== */
@@ -129,7 +131,7 @@
   height: 48px;
   gap: 16px;
   padding: 8px 16px;
-  border: 1px solid #d1d2d6;
+  border: 1px solid var(--border-color);
   border-radius: 100px;
   background-color: var(--color-white);
 }
@@ -161,7 +163,7 @@
   background-color: var(--color-white);
   font-size: var(--font-size-18);
   line-height: 24px;
-  color: #000;
+  color: var(--color-black);
   justify-content: flex-start;
 }
 
@@ -218,7 +220,7 @@
 
 .header__mobile-menu:active {
   transform: scale(0.95);
-  background-color: #f0f0f0;
+  background-color: var(--modal-bg);
 }
 
 .header__mobile-menu-icon {
@@ -244,7 +246,7 @@
 .header__mobile-menu-content {
   display: none;
   background-color: var(--color-white);
-  border-top: 1px solid #d1d2d6;
+  border-top: 1px solid var(--border-color);
   padding: 16px;
   flex-direction: column;
   gap: 12px;
@@ -258,7 +260,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 16px 0;
-  border-bottom: 1px solid #d1d2d6;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .header__mobile-username {
@@ -302,7 +304,7 @@
 .header_white .header__signin-button,
 .header_white .header__signup-button {
   color: var(--color-primary);
-  border-color: #d1d2d6;
+  border-color: var(--border-color);
 }
 
 .header_white .header__signin-button:hover,
@@ -366,7 +368,7 @@
     width: 100vw;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #d1d2d6;
+    border-bottom: 1px solid var(--border-color);
     position: relative;
   }
 
@@ -612,7 +614,7 @@
     width: 100vw;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid #d1d2d6;
+    border-bottom: 1px solid var(--border-color);
   }
 
   .header.header_modal-open {
