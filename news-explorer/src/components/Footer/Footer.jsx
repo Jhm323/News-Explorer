@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import gitHubIcon from "../../vendor/gitHub.svg";
 import linkedInIcon from "../../vendor/linkedIn.svg";
 import "./Footer.css";
 
-function Footer() {
+const Footer = React.memo(() => {
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -64,6 +65,8 @@ function Footer() {
       </div>
     </footer>
   );
-}
+});
+
+Footer.propTypes = {}; // for future props
 
 export default Footer;
