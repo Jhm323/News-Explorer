@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   box-sizing: border-box;
   margin: 0;
 }
@@ -19,8 +19,8 @@
 }
 
 .footer__copyright {
-  color: #b6bcbf;
-  font-size: 16px;
+  color: var(--color-secondary);
+  font-size: var(--font-size-16)
   line-height: 22px;
   margin: 32px 0 26px 104px;
 }
@@ -43,7 +43,7 @@
 .footer__link {
   color: #000;
   text-decoration: none;
-  font-size: 18px;
+  font-size: var(--font-size-18)
   line-height: 24px;
   transition: color 0.2s;
   padding-right: 40px;
@@ -51,7 +51,7 @@
 
 .footer__link:hover,
 .footer__link:focus {
-  color: #2f71e5;
+  color: var(--color-accent);
   text-decoration: underline;
 }
 

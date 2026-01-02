@@ -1,7 +1,7 @@
 /* ===== CSS Variables ===== */
 :root {
   --about-max-width: 1440px;
-  --text-color: #1a1b22;
+  --text-color: var(--color-primary);
   --avatar-margin-large: 0 56px 0 104px;
   --avatar-margin-small: 0 32px 0 0;
   --avatar-margin-medium: 0 56px 0 0;
@@ -14,7 +14,7 @@
   max-width: var(--about-max-width);
   width: 100%;
   min-height: 624px;
-  background: #ffffff;
+  background: var(--color-white);
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -70,7 +70,7 @@
 
 .about__author-text p {
   font-family: var(--font-family-primary);
-  font-size: 18px;
+  font-size: var(--font-size-18)
   line-height: 24px;
   color: var(--text-color);
   margin: 0 0 24px 0;
@@ -111,7 +111,7 @@
   }
 
   .about__author-title {
-    font-size: 30px;
+    font-size: var(--font-size-30)
     line-height: 40px;
   }
 
@@ -120,7 +120,7 @@
   }
 
   .about__author-text p {
-    font-size: 18px;
+    font-size: var(--font-size-18)
     line-height: 24px;
   }
 }
@@ -152,7 +152,7 @@
   }
 
   .about__author-title {
-    font-size: 30px;
+    font-size: var(--font-size-30)
     line-height: 40px;
     text-align: center;
     margin: 0 0 16px 0;
@@ -165,7 +165,7 @@
   }
 
   .about__author-text p {
-    font-size: 18px;
+    font-size: var(--font-size-18)
     line-height: 24px;
   }
 }

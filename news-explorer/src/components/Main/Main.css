@@ -24,7 +24,7 @@
   font-size: 60px;
   line-height: 64px;
   font-weight: 400;
-  color: #ffffff;
+  color: var(--color-white);
   max-width: 608px;
   max-height: 128px;
   text-align: left;
@@ -33,9 +33,9 @@
 
 .main__top-subtitle {
   font-family: var(--font-family-primary);
-  font-size: 18px;
+  font-size: var(--font-size-18);
   line-height: 24px;
-  color: #ffffff;
+  color: var(--color-white);
   max-width: 608px;
   text-align: left;
   margin: 0 0 88px 0;
@@ -45,18 +45,18 @@
 .main__results-not-found {
   text-align: center;
   padding: 32px 0;
-  color: #1a1b22;
+  color: var(--color-primary);
 }
 
 .main__results-error-title,
 .main__results-not-found-title {
-  font-size: 24px;
+  font-size: var(--font-size-24);
   margin-bottom: 8px;
 }
 
 .main__results-error-text,
 .main__results-not-found-text {
-  font-size: 16px;
+  font-size: var(--font-size-16);
   color: #6b6b6b;
 }
 
@@ -88,13 +88,13 @@
 
   .main__top-title {
     width: 385px;
-    font-size: 36px;
+    font-size: var(--font-size-36);
     line-height: 40px;
     margin: 0 0 16px 0;
   }
 
   .main__top-subtitle {
-    font-size: 18px;
+    font-size: var(--font-size-18);
     line-height: 24px;
     margin: 0;
   }
@@ -104,6 +104,7 @@
   .main__top {
     padding: 30px 0 0 0;
   }
+
   .main__top-content {
     max-width: 768px;
     margin: 0 auto 32px auto;
@@ -118,14 +119,14 @@
 
   .main__top-title {
     width: 285px;
-    font-size: 36px;
+    font-size: var(--font-size-36);
     line-height: 40px;
     margin: 0 0 16px 0;
   }
 
   .main__top-subtitle {
     width: 288px;
-    font-size: 18px;
+    font-size: var(--font-size-18);
     line-height: 24px;
     margin: 0;
   }

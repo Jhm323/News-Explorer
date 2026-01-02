@@ -24,7 +24,7 @@
   height: 100%;
   max-height: 380px;
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 16px;
   padding: 34px 36px 28px 36px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
@@ -59,7 +59,7 @@
   margin: 0 0 28px;
   font-family: var(--font-family-primary);
   font-weight: 900;
-  font-size: 24px;
+  font-size: var(--font-size-24);
   line-height: 100%;
   color: var(--color-text-primary);
   margin: 0 0 22px 0;
@@ -74,10 +74,10 @@
 .modal__label {
   display: block;
   font-family: var(--font-family-tertiary);
-  font-size: 12px;
+  font-size: var(--font-size-12);
   line-height: 100%;
 
-  color: #2f71e5;
+  color: var(--color-accent);
 }
 
 .modal__input {
@@ -86,10 +86,10 @@
   border: none;
   border-bottom: 1px solid #d1d2d6;
   font-family: var(--font-family-tertiary);
-  font-size: 16px;
+  font-size: var(--font-size-16);
   line-height: 17px;
-  color: #000000;
-  background-color: #ffffff;
+  color: var(--color-black);
+  background-color: var(--color-white);
   box-sizing: border-box;
   transition: border-color 0.3s ease;
 }
@@ -97,10 +97,10 @@
 #login-email.modal__input,
 #login-password.modal__input {
   font-family: var(--font-family-tertiary);
-  font-size: 14px;
+  font-size: var(--font-size-14);
   line-height: 100%;
-  color: #000000;
-  background-color: #ffffff;
+  color: var(--color-black);
+  background-color: var(--color-white);
   box-sizing: border-box;
   transition: border-color 0.3s ease;
   padding: 0px;
@@ -110,12 +110,12 @@
 .modal__submit-button {
   width: 100%;
   height: 64px;
-  background-color: #2f71e5;
+  background-color: var(--color-accent);
   color: var(--color-white);
   border: none;
   border-radius: 30px;
   font-family: var(--font-primary);
-  font-size: 18px;
+  font-size: var(--font-size-18);
   font-weight: 500;
   line-height: 24px;
   cursor: pointer;
@@ -132,14 +132,14 @@
 
 .modal__submit-button:disabled {
   background-color: #e6e8eb;
-  color: #b6bcbf;
+  color: var(--color-secondary);
   cursor: not-allowed;
   opacity: 0.5;
 }
 
 .modal__switch-row {
   font-family: var(--font-family-tertiary);
-  font-size: 14px;
+  font-size: var(--font-size-14);
   font-weight: 400;
   line-height: 100%;
   display: flex;
@@ -149,14 +149,14 @@
 }
 
 .modal__switch-text {
-  color: #000000;
-  font-size: 14px;
+  color: var(--color-black);
+  font-size: var(--font-size-14);
 }
 
 .modal__switch-button {
   background: none;
   border: none;
-  color: #2f71e5;
+  color: var(--color-accent);
   cursor: pointer;
   padding: 0;
   margin: 0;

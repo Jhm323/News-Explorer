@@ -14,7 +14,7 @@
 
 .modal__switch-button_success {
   font-family: var(--font-family-tertiary);
-  font-size: 18px;
+  font-size: var(--font-size-18)
   font-weight: 400;
   line-height: 100%;
 }

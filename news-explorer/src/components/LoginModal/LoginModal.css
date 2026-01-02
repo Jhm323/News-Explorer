@@ -28,9 +28,9 @@
 .modal__title {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
-  font-size: 24px;
+  font-size: var(--font-size-24)
   line-height: 24px;
-  color: #1a1b22;
+  color: var(--color-primary);
   margin: 0 0 22px 0;
 }
 
@@ -47,8 +47,8 @@
 
 .modal__input {
   font-family: "Roboto", Arial, sans-serif;
-  font-size: 14px;
-  color: #1a1b22;
+  font-size: var(--font-size-14)
+  color: var(--color-primary);
   border: none;
   border-bottom: 1px solid #d1d2d6;
   padding: 16px 0 13px 0;
@@ -65,16 +65,16 @@ input#login-password.modal__input {
 input#login-email.modal__input::placeholder,
 input#login-password.modal__input::placeholder {
   font-family: var(--font-family-tertiary);
-  font-size: 14px;
+  font-size: var(--font-size-14)
   line-height: 100%;
   font-weight: 400;
-  color: #b6bcbf;
+  color: var(--color-secondary);
 }
 
 span.modal__input-error {
   font-family: var(font-family-primary);
   color: #ff0000;
-  font-size: 12px;
+  font-size: var(--font-size-12)
   line-height: 1.2;
   display: block;
   margin: 3px 0 0 0;
@@ -83,7 +83,7 @@ span.modal__input-error {
 .modal__error {
   font-family: var(--font-family-tertiary);
   color: #ff0000;
-  font-size: 12px;
+  font-size: var(--font-size-12)
   line-height: 100%;
   margin: 0 0 8px 0;
   text-align: center;

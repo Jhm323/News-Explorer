@@ -1,12 +1,14 @@
 @import "normalize.css";
 
-/* Roboto font faces */
+/* ===== Font Faces ===== */
+/* Roboto */
 @font-face {
   font-family: "Roboto";
   src: url("./fonts/roboto-400-regular.woff2") format("woff2"),
     url("./fonts/roboto-400-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
@@ -14,6 +16,7 @@
     url("./fonts/roboto-500-medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
@@ -21,6 +24,7 @@
     url("./fonts/roboto-700-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
@@ -28,13 +32,17 @@
     url("./fonts/roboto-900-black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
+
+/* Roboto Slab */
 @font-face {
   font-family: "Roboto Slab";
   src: url("./fonts/roboto-slab-400-regular.woff2") format("woff2"),
     url("./fonts/roboto-slab-400-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Roboto Slab";
@@ -42,13 +50,17 @@
     url("./fonts/roboto-slab-700.woff") format("woff");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
+
+/* Inter */
 @font-face {
   font-family: "Inter";
   src: url("./fonts/inter-400-regular.woff2") format("woff2"),
     url("./fonts/inter-400-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Inter";
@@ -56,27 +68,47 @@
     url("./fonts/inter-500-medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
-/* CSS variables for fonts and colors */
+/* ===== CSS Variables ===== */
 :root {
   --color-primary: #1a1b22;
   --color-secondary: #b6bcbf;
   --color-accent: #2f71e5;
   --color-white: #ffffff;
+  --color-black: #000000;
   --color-background: #f5f6f7;
   --font-family-primary: "Roboto", Arial, sans-serif;
   --font-family-secondary: "Roboto Slab", Arial, serif;
   --font-family-tertiary: "Inter", Arial, sans-serif;
+
+  /* Font sizes */
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-22: 22px;
+  --font-size-24: 24px;
+  --font-size-30: 30px;
+  --font-size-36: 36px;
 }
 
-/* Box sizing + reset */
+/* ===== Resets ===== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Basic focus reset for accessibility */
+*:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ===== Base Styles ===== */
 /* Ensure app root is full-bleed */
 html,
 body,
@@ -88,10 +120,9 @@ body,
   max-width: none;
 }
 
-/* Base page styles */
 body {
   font-family: var(--font-family-primary);
-  font-size: 16px;
+  font-size: var(--font-size-16);
   line-height: 1.5;
   color: var(--color-primary);
   background: var(--color-background);
@@ -99,7 +130,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Simple layout helpers */
+/* ===== Layout Helpers ===== */
 .page {
   min-height: 100vh;
   display: flex;

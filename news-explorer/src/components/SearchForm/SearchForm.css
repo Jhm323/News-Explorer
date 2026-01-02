@@ -14,7 +14,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 100px;
   box-shadow: 0 2px 8px rgba(26, 27, 34, 0.15);
   overflow: hidden;
@@ -52,23 +52,23 @@
   border-radius: 32px;
   padding: 21px 24px;
   font-family: var(--font-family-primary);
-  font-size: 14px;
-  background: #ffffff;
+  font-size: var(--font-size-14)
+  background: var(--color-white);
   position: relative;
   z-index: 1;
 }
 
 .search-form__input::placeholder {
-  color: #b6bcbf;
+  color: var(--color-secondary);
   font-family: var(--font-family-primary);
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--font-size-16)
   line-height: 22px;
 }
 
 .search-form__input:focus {
-  outline: 2px solid #2f71e5;
+  outline: 2px solid var(--color-accent);
   outline-offset: -2px;
 }
 
@@ -79,15 +79,15 @@
   top: 0;
   height: 64px;
   min-width: 168px;
-  background-color: #2f71e5;
+  background-color: var(--color-accent);
   border: none;
   padding: 0 32px;
   cursor: pointer;
   font-family: var(--font-family-primary);
   font-weight: 500;
-  font-size: 18px;
+  font-size: var(--font-size-18)
   line-height: 24px;
-  color: #ffffff;
+  color: var(--color-white);
   border-radius: 32px;
   z-index: 2;
   box-shadow: 0 2px 8px rgba(47, 113, 229, 0.15);
@@ -113,7 +113,7 @@
   font-family: var(--font-family-tertiary);
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: var(--font-size-12)
   line-height: 20px;
   color: #ff0000;
   text-align: center;
@@ -155,7 +155,7 @@
   width: 20px;
   height: 20px;
   border: 2px solid transparent;
-  border-top: 2px solid #ffffff;
+  border-top: 2px solidvar(--color-white);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -212,7 +212,7 @@
     min-height: 56px;
     max-height: 56px;
     line-height: 22px;
-    font-size: 16px;
+    font-size: var(--font-size-16)
     padding: 17px 24px;
   }
 
@@ -220,7 +220,7 @@
   .search-form__submit-button {
     height: 56px;
     min-width: 160px;
-    font-size: 18px;
+    font-size: var(--font-size-18)
     padding: 16px 52px;
     border-radius: 28px;
     right: -28px;
@@ -249,7 +249,7 @@
   .search-form__input {
     width: 100%;
     height: 44px;
-    font-size: 16px;
+    font-size: var(--font-size-16)
     padding: 17px 16px;
     border-radius: 32px;
     min-width: 0;
@@ -268,7 +268,7 @@
   }
 
   .search-form__error {
-    font-size: 12px;
+    font-size: var(--font-size-12)
     line-height: 16px;
     margin-top: 12px;
   }
@@ -295,7 +295,7 @@
     max-height: 56px;
     min-width: 288px;
     min-height: 56px;
-    font-size: 16px;
+    font-size: var(--font-size-16)
     padding: 17px 16px;
     border-radius: 32px;
     margin-bottom: 16px;
@@ -307,7 +307,7 @@
     max-height: 56px;
     min-width: 288px;
     min-height: 56px;
-    font-size: 18px;
+    font-size: var(--font-size-18)
     line-height: 24px;
     padding: 17px 16px;
     border-radius: 32px;
@@ -318,15 +318,15 @@
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .search-form__container {
-    border: 2px solid #000000;
+    border: 2px solid var(--color-black);
   }
 
   .search-form__input:focus {
-    outline: 3px solid #000000;
+    outline: 3px solid var(--color-black);
   }
 
   .search-form__submit-button:focus {
-    outline: 3px solid #ffffff;
+    outline: 3px solidvar(--color-white);
   }
 }
 
@@ -349,7 +349,7 @@
   }
 
   .search-form__input {
-    color: #ffffff;
+    color: var(--color-white);
   }
 
   .search-form__input::placeholder {
@@ -363,12 +363,12 @@
 
 /* Focus-visible for better keyboard navigation */
 .search-form__submit-button:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solidvar(--color-white);
   outline-offset: -4px;
 }
 
 .search-form__input:focus-visible {
-  outline: 2px solid #2f71e5;
+  outline: 2px solid var(--color-accent);
   outline-offset: -2px;
 }
 
@@ -404,7 +404,7 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   border-radius: 0 0 16px 16px;
   box-shadow: 0 4px 16px rgba(26, 27, 34, 0.15);
   z-index: 10;
@@ -424,14 +424,14 @@
   padding: 12px 24px;
   cursor: pointer;
   font-family: var(--font-family-tertiary);
-  font-size: 14px;
+  font-size: var(--font-size-14)
   line-height: 100%;
-  color: #1a1b22;
-  border-bottom: 1px solid #f5f6f7;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-background);
 }
 
 .search-form__suggestion:hover {
-  background-color: #f5f6f7;
+  background-color: var(--color-background);
 }
 
 .search-form__suggestion:last-child {
