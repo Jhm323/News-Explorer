@@ -1,9 +1,11 @@
+/* ===== Modal States ===== */
 .modal.modal_opened {
   display: flex;
   opacity: 1;
   visibility: visible;
 }
 
+/* ===== Container ===== */
 .login-modal__container {
   width: 100%;
   max-width: 430px;
@@ -13,18 +15,20 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: #fff;
+  background: var(--modal-bg);
   border-radius: 16px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   padding: 34px 36px 28px 36px;
 }
 
+/* ===== Form ===== */
 .modal__form {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
 }
 
+/* ===== Typography ===== */
 .modal__title {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
@@ -34,6 +38,7 @@
   margin: 0 0 22px 0;
 }
 
+/* ===== Inputs ===== */
 .modal__input-group-email {
   display: flex;
   flex-direction: column;
@@ -50,7 +55,7 @@
   font-size: var(--font-size-14);
   color: var(--color-primary);
   border: none;
-  border-bottom: 1px solid #d1d2d6;
+  border-bottom: 1px solid var(--border-color);
   padding: 16px 0 13px 0;
   margin-bottom: 8px;
   background: transparent;
@@ -72,8 +77,8 @@ input#login-password.modal__input::placeholder {
 }
 
 span.modal__input-error {
-  font-family: var(font-family-primary);
-  color: #ff0000;
+  font-family: var(--font-family-primary);
+  color: var(--error-color);
   font-size: var(--font-size-12);
   line-height: 1.2;
   display: block;
@@ -82,7 +87,7 @@ span.modal__input-error {
 
 .modal__error {
   font-family: var(--font-family-tertiary);
-  color: #ff0000;
+  color: var(--error-color);
   font-size: var(--font-size-12);
   line-height: 100%;
   margin: 0 0 8px 0;
@@ -96,7 +101,7 @@ span.modal__input-error {
   margin-bottom: 8px;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media screen and (max-width: 768px) {
   .login-modal__container {
     max-width: 430px;
