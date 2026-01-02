@@ -18,13 +18,24 @@
   gap: 24px;
 }
 
+/* ===== Typography ===== */
 .footer__copyright {
   color: var(--color-secondary);
-  font-size: var(--font-size-16)
+  font-size: var(--font-size-16);
   line-height: 22px;
   margin: 32px 0 26px 104px;
 }
 
+.footer__link {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: var(--font-size-18);
+  line-height: 24px;
+  transition: color 0.2s;
+  padding-right: 40px;
+}
+
+/* ===== Navigation & Social ===== */
 .footer__nav-social {
   display: flex;
   align-items: center;
@@ -35,24 +46,8 @@
 .footer__links {
   display: flex;
   list-style: none;
-
   padding: 0;
   margin: 0;
-}
-
-.footer__link {
-  color: #000;
-  text-decoration: none;
-  font-size: var(--font-size-18)
-  line-height: 24px;
-  transition: color 0.2s;
-  padding-right: 40px;
-}
-
-.footer__link:hover,
-.footer__link:focus {
-  color: var(--color-accent);
-  text-decoration: underline;
 }
 
 .footer__social {
@@ -72,6 +67,13 @@
   transition: opacity 0.2s;
 }
 
+/* ===== Interactions ===== */
+.footer__link:hover,
+.footer__link:focus {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
 .footer__social-link:hover .footer__social-icon,
 .footer__social-link:focus .footer__social-icon {
   opacity: 0.7;
@@ -84,9 +86,6 @@
   }
 
   .footer__nav-social {
-    display: flex;
-    align-items: center;
-    gap: 0px;
     margin: 21px 20px 19px 0;
   }
 }
@@ -94,30 +93,24 @@
 /* ===== Responsive: 655px ===== */
 @media screen and (max-width: 655px) {
   .footer__content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: stretch;
     justify-content: flex-start;
-    flex-direction: column-reverse;
     gap: 0;
-    height: 100%;
-    display: flex;
   }
 
   .footer__nav-social {
     width: 100%;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     margin: 0 0 38px 0;
-    gap: 0;
   }
 
   .footer__links {
     flex-direction: column;
     align-items: flex-start;
     line-height: 48px;
-    gap: 0px;
     margin: 20px 0 0 16px;
   }
 
@@ -136,7 +129,6 @@
     text-align: center;
     align-self: center;
     width: 100%;
-    margin: 0 auto;
-    margin-bottom: 22px;
+    margin: 0 auto 22px auto;
   }
 }
