@@ -55,15 +55,6 @@
   cursor: pointer;
 }
 
-.modal__title {
-  margin: 0 0 28px;
-  font-family: var(--font-family-primary);
-  font-weight: 900;
-  font-size: var(--font-size-24);
-  line-height: 100%;
-  color: var(--color-text-primary);
-  margin: 0 0 22px 0;
-}
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -76,8 +67,8 @@
   font-family: var(--font-family-tertiary);
   font-size: var(--font-size-12);
   line-height: 100%;
-
   color: var(--color-accent);
+  margin-bottom: 8px;
 }
 
 .modal__input {
@@ -169,6 +160,7 @@
 .modal__input:focus {
   outline: none;
   box-shadow: none;
+  border-bottom: 1px solid var(--color-black);
 }
 
 @media screen and (max-width: 480px) {

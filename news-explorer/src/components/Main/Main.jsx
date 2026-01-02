@@ -5,6 +5,7 @@ import newsApi from "../../utils/NewsApi";
 import SearchForm from "../SearchForm/SearchForm";
 import NewsCardsList from "../NewsCardsList/NewsCardsList";
 import About from "../About/About";
+import "../../index.css";
 
 function Main({
   searchResults,
