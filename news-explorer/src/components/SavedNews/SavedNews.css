@@ -2,6 +2,7 @@
 .saved-news {
   flex: 1;
   background-color: var(--color-background);
+  min-height: 100vh;
 }
 
 .saved-news__header {
