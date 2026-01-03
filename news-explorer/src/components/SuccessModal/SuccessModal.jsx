@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types"; // for validation
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SuccessModal.css";
 
@@ -37,5 +38,12 @@ function SuccessModal({
     </ModalWithForm>
   );
 }
+
+SuccessModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  message: PropTypes.string,
+  onSwitchToLogin: PropTypes.func,
+};
 
 export default SuccessModal;
