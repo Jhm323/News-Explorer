@@ -106,6 +106,7 @@ npm run preview
 ### View & Save Articles
 
 - Click **Show more** to load additional articles (3 at a time)
+
 - Hover over the save icon:
 
   - If logged out → tooltip: _“Sign in to save articles”_
@@ -117,6 +118,12 @@ npm run preview
 - **Home** → `/`
 - **Saved News** → `/saved-news` (simulated)
 - External article links open in new tabs
+
+---
+
+## Project Pitch Video
+
+Check out [this video](https://www.loom.com/share/f5c716f9438643b18e2d4a1e02044f4c), where I describe my project and some challenges I faced while building it.
 
 ---
 
