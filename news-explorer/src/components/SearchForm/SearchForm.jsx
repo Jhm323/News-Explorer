@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types"; //  for validation
 import "./SearchForm.css";
 
 function SearchForm({ onSearch }) {
@@ -31,5 +32,9 @@ function SearchForm({ onSearch }) {
     </section>
   );
 }
+
+SearchForm.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
 
 export default SearchForm;
