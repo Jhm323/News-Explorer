@@ -1,3 +1,4 @@
+/* ===== Base Styles ===== */
 .main {
   width: 100%;
   box-sizing: border-box;
@@ -41,6 +42,7 @@
   margin: 0 0 88px 0;
 }
 
+/* ===== Results States ===== */
 .main__results-error,
 .main__results-not-found {
   text-align: center;
@@ -60,20 +62,12 @@
   color: #6b6b6b;
 }
 
-.main__results-error-icon,
-.main__results-not-found-icon {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 16px auto;
-  background: url("/path/to/icon.svg") no-repeat center center;
-  background-size: contain;
-}
-
-/* Responsive styles */
+/* ===== Responsive Styles ===== */
 @media screen and (max-width: 768px) {
   .main__top {
     padding: 38px 0 0 0;
   }
+
   .main__top-content {
     max-width: 768px;
     margin: 0 auto 48px auto;
