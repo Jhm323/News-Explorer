@@ -10,14 +10,13 @@
   overflow: hidden;
   padding: 0;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 2px 8px rgba(30, 30, 30, 0.08);
-  border-radius: 12px;
-  background: #fff;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  background: var(--color-white);
 }
 
 .news-card:hover {
   cursor: pointer;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 8px 32px var(--shadow-color);
   transform: translateY(-4px) scale(1.02);
 }
 
@@ -35,7 +34,7 @@
   transition: transform 0.3s ease;
 }
 
-/* Bookmark Button */
+/* ===== Bookmark Button ===== */
 .news-card__bookmark-button {
   position: absolute;
   top: 24px;
@@ -115,7 +114,7 @@
   display: block;
 }
 
-/* News Card ToolTip */
+/* ===== News Card ToolTip ===== */
 .news-card__tooltip {
   position: absolute;
   right: 50px;
@@ -133,7 +132,7 @@
   transition: opacity 0.3s ease;
   overflow: hidden;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .news-card__tooltip_visible {
@@ -223,7 +222,7 @@
   background-position: center;
   transition: opacity 0.3s ease;
   color: var(--color-black);
-  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  box-shadow: 0px 5px 15px 0px var(--shadow-color);
   cursor: pointer;
 }
 
@@ -246,10 +245,10 @@
   font-weight: 500;
   white-space: nowrap;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--shadow-color);
 }
 
-/* Responsive Design - Tablet */
+/* ===== Responsive Design - Tablet ===== */
 @media screen and (max-width: 1024px) {
   .news-card {
     max-width: 352px;
@@ -295,7 +294,7 @@
   }
 }
 
-/* Responsive Design - Mobile */
+/* ===== Responsive Design - Mobile ===== */
 @media screen and (max-width: 768px) {
   .news-card {
     max-width: 224px;
@@ -367,7 +366,7 @@
   }
 }
 
-/* Mobile -  480px */
+/* ===== Mobile - 480px ===== */
 @media screen and (max-width: 480px) {
   .news-card {
     max-width: 288px;

@@ -94,6 +94,15 @@
   --font-size-30: 30px;
   --font-size-36: 36px;
 
+  /* About Section */
+  --about-max-width: 1440px;
+  --text-color: var(--color-primary);
+  --avatar-margin-large: 0 56px 0 104px;
+  --avatar-margin-small: 0 32px 0 0;
+  --avatar-margin-medium: 0 56px 0 0;
+  --padding-large: 80px 216px 80px 104px;
+  --padding-small: 40px;
+
   /* MISC */
   --border-color: #d1d2d6;
   --header-bg: #c4c4c403;
