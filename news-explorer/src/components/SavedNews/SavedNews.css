@@ -1,5 +1,6 @@
 /* ===== Base Saved News ===== */
 .saved-news {
+  flex: 1;
   background-color: var(--color-background);
 }
 
@@ -11,7 +12,6 @@
 .saved-news__container {
   max-width: 1232px;
   width: 100%;
-  max-height: 1260px;
   margin: 0 auto;
   padding: 0px;
   box-sizing: border-box;
@@ -63,8 +63,8 @@
 }
 
 .saved-news__content {
-  height: 100vh;
   padding: 0;
+  min-height: 100%;
 }
 
 .saved-news__cards-grid {

@@ -59,12 +59,6 @@
 /* Specific override if .page__content differs  */
 .page__content {
   max-width: var(--page-max-width);
-  flex: 1;
-}
-
-/* ===== Footer Sticking ===== */
-.footer {
-  margin-top: auto; /* Pushes footer to bottom in flex container */
 }
 
 /* ===== Responsive Design ===== */
