@@ -1,3 +1,4 @@
+/* ===== Base Saved News ===== */
 .saved-news {
   background-color: var(--color-background);
 }
@@ -96,7 +97,7 @@
   color: var(--color-text-secondary);
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media screen and (max-width: 1240px) {
   .saved-news__header {
     padding: 24px 0 32px 40px;
