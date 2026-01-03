@@ -109,7 +109,9 @@
   --logout-color: #000;
   --modal-bg: #fff;
   --error-color: #ff0000;
+  --error-color-light: #ff9999;
   --color-accent-hover: #347eff;
+  --color-accent-active: #2a65cc;
   --color-disabled: #e6e8eb;
   --shadow-color: #0e1a3933;
   --color-text-hover: #d1d2d6;
