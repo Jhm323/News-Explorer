@@ -9,13 +9,6 @@ function SavedNews() {
 
   const savedArticlesCount = savedArticles.length;
 
-  // Debug: Log article structure
-  // React.useEffect(() => {
-  //   if (savedArticles.length > 0) {
-  //     console.log("Sample article:", savedArticles[0]);
-  //   }
-  // }, [savedArticles]);
-
   // Get unique keywords from saved articles
   const getKeywords = () => {
     const keywords = savedArticles

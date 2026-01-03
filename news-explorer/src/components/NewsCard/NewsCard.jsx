@@ -97,10 +97,18 @@ function NewsCard({
             onMouseLeave={() => setShowTooltip(false)}
           >
             <span className="news-card__bookmark-icon"></span>
-            {showTooltip && !isLoggedIn && (
-              <span className="news-card__tooltip">{SAVE_TOOLTIP_MESSAGE}</span>
-            )}
           </button>
+        )}
+
+        {/* Tooltip for saving articles */}
+        {!showDeleteButton && (
+          <div
+            className={`news-card__tooltip ${
+              showTooltip && !isLoggedIn ? "news-card__tooltip_visible" : ""
+            }`}
+          >
+            {SAVE_TOOLTIP_MESSAGE}
+          </div>
         )}
 
         {/* Keyword only shows on saved articles page when showDeleteButton is true */}
@@ -113,13 +121,8 @@ function NewsCard({
             {keyword}
           </div>
         )}
-
-        {/* Tooltip for saving articles */}
-        {!showDeleteButton && showTooltip && !isLoggedIn && (
-          <div className="news-card__tooltip">{SAVE_TOOLTIP_MESSAGE}</div>
-        )}
-      </div>
-
+      </div>{" "}
+      {/* Fixed: Properly close the div */}
       {/* Makes the entire content area a clickable link to the full article */}
       <a
         className="news-card__content"
