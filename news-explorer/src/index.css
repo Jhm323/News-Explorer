@@ -113,6 +113,8 @@
   --color-disabled: #e6e8eb;
   --shadow-color: #0e1a3933;
   --color-text-hover: #d1d2d6;
+  --color-error-bg: #fff5f5;
+  --color-text-secondary: #666666;
 }
 
 /* ===== Resets ===== */
