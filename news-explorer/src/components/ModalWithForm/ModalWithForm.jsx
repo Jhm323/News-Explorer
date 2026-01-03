@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -15,13 +16,16 @@ function ModalWithForm({
   const modalClass = `${className}${isOpen ? " " + baseClass + "_opened" : ""}`;
 
   // Close modal on Escape key
-  useEffect(() => {
-    const handleEscClose = (e) => {
+  const handleEscClose = useCallback(
+    (e) => {
       if (e.key === "Escape") {
         onClose();
       }
-    };
+    },
+    [onClose]
+  );
 
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener("keydown", handleEscClose);
     }
@@ -29,7 +33,7 @@ function ModalWithForm({
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, handleEscClose]);
 
   // Close modal when clicking outside
   const handleOverlayClick = (e) => {
@@ -59,5 +63,16 @@ function ModalWithForm({
     </div>
   );
 }
+
+ModalWithForm.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  containerClassName: PropTypes.string,
+};
 
 export default ModalWithForm;
