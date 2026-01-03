@@ -167,6 +167,27 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  background-image: url("../../vendor/page__image-cell-phone.jpg"); /* Moved from App.css */
+  background-repeat: no-repeat;
+  background-size: 1440px; /* Use var if needed */
+  background-position: 50% -245px;
+  background-attachment: scroll;
+  position: relative;
+}
+
+.page::before {
+  /* Moved from App.css */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page > * {
+  position: relative;
+  z-index: 2;
 }
 
 .page__content {
@@ -174,10 +195,18 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0;
+  flex: 1; /* Ensures content expands, pushing footer down */
 }
 
 /* Ensure header and other full-width elements are not constrained */
 .header,
 .header__content {
   width: 100%;
+}
+
+@media screen and (max-width: 320px) {
+  .page {
+    background-size: 800px;
+    background-position: 52% 0px;
+  }
 }
