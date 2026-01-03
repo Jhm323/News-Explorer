@@ -6,6 +6,7 @@ import {
 
 const BASE_URL =
   import.meta.env.MODE === "production" ? API_BASE_URL_PROD : API_BASE_URL_DEV;
+
 class NewsApi {
   constructor() {
     this._baseUrl =
