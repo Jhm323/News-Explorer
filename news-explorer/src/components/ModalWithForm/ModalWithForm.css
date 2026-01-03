@@ -1,3 +1,4 @@
+/* ===== Modal Base ===== */
 .modal {
   position: fixed;
   display: flex;
@@ -36,7 +37,7 @@
   transform: scale(1);
 }
 
-/* Close button styles */
+/* ===== Close Button ===== */
 .modal__close-button {
   width: 40px;
   height: 40px;
@@ -51,17 +52,20 @@
 }
 
 .modal__close-button:hover {
-  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  box-shadow: 0px 5px 15px 0px var(--shadow-color);
   cursor: pointer;
 }
 
+/* ===== Form ===== */
 .modal__form {
   display: flex;
   flex-direction: column;
 }
+
 .modal__input-container {
   position: relative;
 }
+
 .modal__label {
   display: block;
   font-family: var(--font-family-tertiary);
@@ -75,7 +79,7 @@
   width: 100%;
   height: 35px;
   border: none;
-  border-bottom: 1px solid #d1d2d6;
+  border-bottom: 1px solid var(--border-color);
   font-family: var(--font-family-tertiary);
   font-size: var(--font-size-16);
   line-height: 17px;
@@ -105,7 +109,7 @@
   color: var(--color-white);
   border: none;
   border-radius: 30px;
-  font-family: var(--font-primary);
+  font-family: var(--font-family-primary);
   font-size: var(--font-size-18);
   font-weight: 500;
   line-height: 24px;
@@ -116,13 +120,13 @@
 }
 
 .modal__submit-button:hover {
-  background-color: #347eff;
-  box-shadow: 0px 5px 15px 0px #0e1a3933;
+  background-color: var(--color-accent-hover);
+  box-shadow: 0px 5px 15px 0px var(--shadow-color);
   cursor: pointer;
 }
 
 .modal__submit-button:disabled {
-  background-color: #e6e8eb;
+  background-color: var(--color-disabled);
   color: var(--color-secondary);
   cursor: not-allowed;
   opacity: 0.5;
@@ -154,7 +158,7 @@
 }
 
 .modal__switch-button:hover {
-  color: #347eff;
+  color: var(--color-accent-hover);
 }
 
 .modal__input:focus {
@@ -163,6 +167,7 @@
   border-bottom: 1px solid var(--color-black);
 }
 
+/* ===== Responsive ===== */
 @media screen and (max-width: 480px) {
   .modal.modal_opened {
     align-items: flex-start;
