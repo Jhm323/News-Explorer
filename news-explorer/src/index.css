@@ -73,12 +73,15 @@
 
 /* ===== CSS Variables ===== */
 :root {
+  /* Colors */
   --color-primary: #1a1b22;
   --color-secondary: #b6bcbf;
   --color-accent: #2f71e5;
   --color-white: #ffffff;
   --color-black: #000000;
   --color-background: #f5f6f7;
+
+  /* Fonts */
   --font-family-primary: "Roboto", Arial, sans-serif;
   --font-family-secondary: "Roboto Slab", Arial, serif;
   --font-family-tertiary: "Inter", Arial, sans-serif;
