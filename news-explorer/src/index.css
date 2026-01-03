@@ -115,6 +115,9 @@
   --color-text-hover: #d1d2d6;
   --color-error-bg: #fff5f5;
   --color-text-secondary: #666666;
+  --color-spinner: #444444;
+  --color-spinner-light: #888888;
+  --color-text-preloader: #6c707a;
 }
 
 /* ===== Resets ===== */
