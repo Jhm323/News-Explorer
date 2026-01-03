@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types"; // for validation
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./Navigation.css";
 
-function Navigation({ className = "", onNavClick }) {
+const Navigation = React.memo(({ className = "", onNavClick }) => {
   const { isLoggedIn } = useContext(AuthContext);
 
   return (
@@ -40,6 +41,11 @@ function Navigation({ className = "", onNavClick }) {
       </ul>
     </nav>
   );
-}
+});
+
+Navigation.propTypes = {
+  className: PropTypes.string,
+  onNavClick: PropTypes.func,
+};
 
 export default Navigation;
