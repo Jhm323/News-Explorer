@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types"; // for validation
 import { AuthContext } from "../../context/AuthContext";
 import "./SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function SavedNews() {
+const SavedNews = React.memo(() => {
   const { user, isLoggedIn, savedArticles, deleteArticle } =
     useContext(AuthContext);
 
@@ -90,6 +91,10 @@ function SavedNews() {
       </section>
     </main>
   );
-}
+});
+
+SavedNews.propTypes = {
+  // No props currently
+};
 
 export default SavedNews;
