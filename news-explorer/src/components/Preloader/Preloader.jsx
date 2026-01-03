@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types"; // for validation
 import "./Preloader.css";
-function Preloader() {
+
+const Preloader = React.memo(() => {
   return (
     <div className="preloader">
       <div className="preloader__container">
@@ -11,6 +13,10 @@ function Preloader() {
       </div>
     </div>
   );
-}
+});
+
+Preloader.propTypes = {
+  // No props currently
+};
 
 export default Preloader;
