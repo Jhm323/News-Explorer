@@ -64,7 +64,8 @@
 }
 
 .saved-news__content {
-  padding: 0;
+  padding-bottom: 62px;
+  padding-top: 62px;
   min-height: 100%;
 }
 
@@ -72,7 +73,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin: 62px 0;
+  margin: 0 auto;
 }
 
 .saved-news__empty-state {
