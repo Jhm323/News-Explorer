@@ -650,6 +650,19 @@
   align-items: flex-start;
 }
 
+/* ===== Mobile Menu Overlay ===== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  cursor: pointer;
+}
+
+.header__mobile-menu-content {
+  z-index: 101;
+}
+
 /* ===== Responsive: 480px and 320px ===== */
 @media screen and (max-width: 480px) {
   .header {

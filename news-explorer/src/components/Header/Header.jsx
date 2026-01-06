@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useContext } from "react";
-import { useLocation } from "react-router-dom"; // Add this import
+import React, { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { AuthContext } from "../../context/AuthContext";
 import "./Header.css";
@@ -10,10 +9,21 @@ const Header = React.memo(
   ({ onLoginClick, onRegisterClick, isLoginModalOpen, isAnyModalOpen }) => {
     const { isLoggedIn, user, handleLogout } = useContext(AuthContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation(); // Add this
+    const location = useLocation();
 
-    // Simple check: white styles only on saved articles page
     const isOnSavedArticles = location.pathname === "/saved-news";
+
+    // Add escape key listener
+    useEffect(() => {
+      const handleEscape = (e) => {
+        if (e.key === "Escape" && isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+        }
+      };
+
+      document.addEventListener("keydown", handleEscape);
+      return () => document.removeEventListener("keydown", handleEscape);
+    }, [isMobileMenuOpen]);
 
     const handleMobileMenuClick = () => {
       if (!isAnyModalOpen) {
@@ -94,49 +104,56 @@ const Header = React.memo(
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && !isAnyModalOpen && (
-          <nav
-            className="header__mobile-menu-content"
-            data-menu-state={isLoggedIn ? "logged-in" : "not-logged-in"}
-          >
-            {isLoggedIn && user ? (
-              <>
-                <Navigation
-                  className="header__nav"
-                  onNavClick={handleNavLinkClick}
-                  data-testid="mobile-menu-logged-in"
-                />
-                <div className="header__mobile-user-section">
-                  <span className="header__mobile-username">{user.name}</span>
-                  <button
-                    className="header__mobile-logout-button"
-                    onClick={handleLogoutClick}
+          <>
+            <div
+              className="mobile-menu-overlay"
+              onClick={handleMobileMenuClick}
+            ></div>
+
+            <nav
+              className="header__mobile-menu-content"
+              data-menu-state={isLoggedIn ? "logged-in" : "not-logged-in"}
+            >
+              {isLoggedIn && user ? (
+                <>
+                  <Navigation
+                    className="header__nav"
+                    onNavClick={handleNavLinkClick}
+                    data-testid="mobile-menu-logged-in"
+                  />
+                  <div className="header__mobile-user-section">
+                    <span className="header__mobile-username">{user.name}</span>
+                    <button
+                      className="header__mobile-logout-button"
+                      onClick={handleLogoutClick}
+                    >
+                      <span className="header__mobile-logout-icon"></span>
+                      Logout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <Navigation
+                    className="header__nav"
+                    onNavClick={handleNavLinkClick}
+                    data-testid="mobile-menu-not-logged-in-nav"
+                  />
+                  <div
+                    className="header__mobile-auth"
+                    data-testid="mobile-menu-not-logged-in"
                   >
-                    <span className="header__mobile-logout-icon"></span>
-                    Logout
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <Navigation
-                  className="header__nav"
-                  onNavClick={handleNavLinkClick}
-                  data-testid="mobile-menu-not-logged-in-nav"
-                />
-                <div
-                  className="header__mobile-auth"
-                  data-testid="mobile-menu-not-logged-in"
-                >
-                  <button
-                    className="header__mobile-signin-button"
-                    onClick={handleSignInClick}
-                  >
-                    Sign In
-                  </button>
-                </div>
-              </>
-            )}
-          </nav>
+                    <button
+                      className="header__mobile-signin-button"
+                      onClick={handleSignInClick}
+                    >
+                      Sign In
+                    </button>
+                  </div>
+                </>
+              )}
+            </nav>
+          </>
         )}
       </header>
     );
