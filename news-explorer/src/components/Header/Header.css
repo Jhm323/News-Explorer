@@ -133,7 +133,7 @@
   padding: 8px 16px;
   border: 1px solid var(--border-color);
   border-radius: 100px;
-  background-color: var(--color-white);
+  background-color: transparent;
 }
 
 .header__username {
@@ -141,7 +141,7 @@
   font-weight: 500;
   font-size: var(--font-size-18);
   line-height: 24px;
-  color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .header__logout-button,
@@ -160,7 +160,7 @@
 }
 
 .header__logout-button {
-  background-color: var(--color-white);
+  background-color: transparent;
   font-size: var(--font-size-18);
   line-height: 24px;
   color: var(--color-black);
@@ -186,11 +186,13 @@
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
+  background-color: transparent;
 }
 
 .header__logout-icon {
   width: 24px;
   height: 24px;
+  filter: invert(1);
 }
 
 .header__mobile-logout-icon {
@@ -311,6 +313,10 @@
 .header_white .header__signup-button:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+.header_white .header__user-section {
+  background-color: var(--color-white);
 }
 
 .header_white .header__mobile-menu-icon {
