@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import PropTypes from "prop-types"; // for validation
 import "./App.css";
 
@@ -41,18 +41,19 @@ class ErrorBoundary extends React.Component {
 
 const AppContent = React.memo(() => {
   const { isLoggedIn } = useContext(AuthContext);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const [searchResults, setSearchResults] = React.useState([]);
   const [activeModal, setActiveModal] = React.useState("");
 
   const handleLoginClick = () => setActiveModal("login");
   const handleRegisterClick = () => setActiveModal("register");
   const handleCloseModal = () => setActiveModal("");
-
   const handleSwitchToRegister = () => setActiveModal("register");
   const handleSwitchToLogin = () => setActiveModal("login");
 
   return (
-    <div className="page">
+    <div className={`page ${isHomePage ? "page--home" : ""}`}>
       <Header
         onLoginClick={handleLoginClick}
         onRegisterClick={handleRegisterClick}
@@ -96,18 +97,16 @@ const AppContent = React.memo(() => {
 // PropTypes for AppContent
 AppContent.propTypes = {};
 
-function App() {
+const App = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
         <ErrorBoundary>
-          {" "}
-          {}
           <AppContent />
         </ErrorBoundary>
       </BrowserRouter>
     </AuthProvider>
   );
-}
+};
 
 export default App;

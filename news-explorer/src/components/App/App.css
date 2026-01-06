@@ -20,12 +20,13 @@
   background-image: url("../../vendor/page__image-cell-phone.jpg");
   background-repeat: no-repeat;
   background-size: var(--background-size-large);
+  background-color: var(--color-white);
   background-position: 50% -245px;
   background-attachment: scroll;
 }
 
-/* ===== Overlay ===== */
-.page::before {
+/* ===== Overlay - Only on Home Page ===== */
+.page--home::before {
   content: "";
   position: absolute;
   inset: 0;

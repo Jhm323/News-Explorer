@@ -155,7 +155,7 @@ body {
   font-size: var(--font-size-16);
   line-height: 1.5;
   color: var(--color-primary);
-  background: var(--color-background);
+  background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
