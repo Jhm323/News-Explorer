@@ -319,6 +319,14 @@
   background-color: var(--color-white);
 }
 
+.header_white .header__username {
+  color: var(--color-primary);
+}
+
+.header_white .header__logout-icon {
+  filter: brightness(0);
+}
+
 .header_white .header__mobile-menu-icon {
   filter: brightness(0);
 }
