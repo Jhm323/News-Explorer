@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { useLocation } from "react-router-dom"; // Add this import
 import PropTypes from "prop-types";
 import { AuthContext } from "../../context/AuthContext";
-import closeIcon from "../../vendor/close-icon.svg";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 
@@ -89,7 +88,6 @@ const Header = React.memo(
               className="header__mobile-menu_close"
               aria-label="Close menu"
               onClick={handleMobileMenuClick}
-              style={{ backgroundImage: `url(${closeIcon})` }}
             ></button>
           )}
         </div>
