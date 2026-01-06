@@ -64,20 +64,12 @@ const Header = React.memo(
                   </button>
                 </div>
               ) : (
-                <>
-                  <button
-                    className="header__signin-button"
-                    onClick={onLoginClick}
-                  >
-                    Sign In
-                  </button>
-                  <button
-                    className="header__signup-button"
-                    onClick={onRegisterClick}
-                  >
-                    Sign Up
-                  </button>
-                </>
+                <button
+                  className="header__signin-button"
+                  onClick={onLoginClick}
+                >
+                  Sign In
+                </button>
               )}
             </div>
           </div>
@@ -142,12 +134,6 @@ const Header = React.memo(
                     onClick={handleSignInClick}
                   >
                     Sign In
-                  </button>
-                  <button
-                    className="header__mobile-signup-button"
-                    onClick={handleSignUpClick}
-                  >
-                    Sign Up
                   </button>
                 </div>
               </>

@@ -61,12 +61,22 @@
   gap: 24px;
 }
 
+/* ===== Navigation Links ===== */
 .header__nav {
   transition: color 0.3s ease;
 }
 
 .header__nav .navigation__link {
+  color: var(--color-secondary);
   transition: color 0.3s ease;
+}
+
+.header__nav .navigation__link_active,
+.header__nav .navigation__link.active {
+  color: white;
+}
+.header:not(.header_white) .header__nav .navigation__link:hover {
+  color: white;
 }
 
 /* ===== Buttons ===== */
@@ -317,6 +327,7 @@
 
 .header_white .header__user-section {
   background-color: var(--color-white);
+  border-color: var(--color-black);
 }
 
 .header_white .header__username {
@@ -357,10 +368,6 @@
 
   .header__auth {
     gap: 16px;
-  }
-
-  .header__signup-button {
-    display: none !important;
   }
 
   .header__username,
