@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { useLocation } from "react-router-dom"; // Add this import
 import PropTypes from "prop-types";
 import { AuthContext } from "../../context/AuthContext";
 import closeIcon from "../../vendor/close-icon.svg";
@@ -10,6 +11,10 @@ const Header = React.memo(
   ({ onLoginClick, onRegisterClick, isLoginModalOpen, isAnyModalOpen }) => {
     const { isLoggedIn, user, handleLogout } = useContext(AuthContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation(); // Add this
+
+    // Simple check: white styles only on saved articles page
+    const isOnSavedArticles = location.pathname === "/saved-news";
 
     const handleMobileMenuClick = () => {
       if (!isAnyModalOpen) {
@@ -38,7 +43,7 @@ const Header = React.memo(
 
     return (
       <header
-        className={`header ${isLoggedIn ? "header_white" : ""} ${
+        className={`header ${isOnSavedArticles ? "header_white" : ""} ${
           isAnyModalOpen ? "header_modal-open" : ""
         } ${isMobileMenuOpen ? "header_menu-open" : ""}`}
       >
