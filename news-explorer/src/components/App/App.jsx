@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
-import { AuthProvider, AuthContext } from "../../context/AuthContext";
+import { AuthProvider } from "../../context/AuthProvider";
+import { AuthContext } from "../../context/AuthContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
