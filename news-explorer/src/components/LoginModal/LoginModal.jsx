@@ -176,4 +176,6 @@ LoginModal.propTypes = {
   onSwitchToRegister: PropTypes.func.isRequired,
 };
 
+LoginModal.displayName = "LoginModal";
+
 export default LoginModal;

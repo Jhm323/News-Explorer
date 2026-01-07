@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types"; // for validation
 import aboutImg from "../../vendor/avatarImg.jpg";
 import "./About.css";
 
@@ -40,5 +39,5 @@ const About = React.memo(() => {
 });
 
 About.propTypes = {}; // for future props
-
+About.displayName = "About";
 export default About;

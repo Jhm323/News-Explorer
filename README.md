@@ -18,7 +18,7 @@ A React-based web application that lets users search for recent news articles vi
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 **Frontend**
 

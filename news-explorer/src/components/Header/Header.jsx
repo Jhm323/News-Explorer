@@ -6,7 +6,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 
 const Header = React.memo(
-  ({ onLoginClick, onRegisterClick, isLoginModalOpen, isAnyModalOpen }) => {
+  ({ onLoginClick, onRegisterClick, isAnyModalOpen }) => {
     const { isLoggedIn, user, handleLogout } = useContext(AuthContext);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
@@ -54,11 +54,6 @@ const Header = React.memo(
 
     const handleSignInClick = () => {
       onLoginClick();
-      setIsMobileMenuOpen(false);
-    };
-
-    const handleSignUpClick = () => {
-      onRegisterClick();
       setIsMobileMenuOpen(false);
     };
 
@@ -178,5 +173,7 @@ Header.propTypes = {
   isLoginModalOpen: PropTypes.bool,
   isAnyModalOpen: PropTypes.bool,
 };
+
+Header.displayName = "Header";
 
 export default Header;

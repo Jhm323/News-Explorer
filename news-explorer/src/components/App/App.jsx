@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import PropTypes from "prop-types"; // for validation
 import "./App.css";
 
 import { AuthProvider, AuthContext } from "../../context/AuthContext";
@@ -18,7 +17,7 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -38,6 +37,11 @@ class ErrorBoundary extends React.Component {
     return this.props.children;
   }
 }
+
+// Add PropTypes for ErrorBoundary
+ErrorBoundary.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 const AppContent = React.memo(() => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -108,5 +112,7 @@ const App = () => {
     </AuthProvider>
   );
 };
+
+App.displayName = "App";
 
 export default App;

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Main.css";
 
 import newsApi from "../../utils/NewsApi";
