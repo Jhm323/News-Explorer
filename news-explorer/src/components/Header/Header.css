@@ -343,7 +343,12 @@
 
 .header_white .header__user-section {
   background-color: var(--color-white);
+  border-color: var(--border-color);
+}
+
+.header_white .header__user-section:hover {
   border-color: var(--color-black);
+  transition: border-color 0.3s ease;
 }
 
 .header_white .header__username {
