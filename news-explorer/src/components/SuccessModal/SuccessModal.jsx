@@ -21,6 +21,7 @@ function SuccessModal({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      onSwitch={onSwitchToLogin}
       className="modal modal_success"
       containerClassName="modal__container"
     >
@@ -29,7 +30,10 @@ function SuccessModal({
           <button
             type="button"
             className="modal__switch-button modal__switch-button_success"
-            onClick={onSwitchToLogin}
+            onClick={() => {
+              onClose();
+              onSwitchToLogin();
+            }}
           >
             Sign In
           </button>
