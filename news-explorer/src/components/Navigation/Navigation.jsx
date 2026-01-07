@@ -48,4 +48,6 @@ Navigation.propTypes = {
   onNavClick: PropTypes.func,
 };
 
+Navigation.displayName = "Navigation";
+
 export default Navigation;

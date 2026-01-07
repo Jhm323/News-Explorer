@@ -12,9 +12,9 @@ import "./NewsCardsList.css";
 const NewsCardsList = React.memo(
   ({
     articles,
-    savedArticles = [],
+
     onArticleAction,
-    isLoggedIn,
+
     searchKeyword,
     isLoading,
     hasSearchError,
@@ -101,5 +101,7 @@ NewsCardsList.propTypes = {
   hasSearched: PropTypes.bool,
   showSaveButton: PropTypes.bool,
 };
+
+NewsCardsList.displayName = "NewsCardsList";
 
 export default NewsCardsList;

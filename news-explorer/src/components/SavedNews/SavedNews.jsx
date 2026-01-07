@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types"; // for validation
 import { AuthContext } from "../../context/AuthContext";
 import "./SavedNews.css";
 import NewsCard from "../NewsCard/NewsCard";
@@ -67,8 +66,8 @@ const SavedNews = React.memo(() => {
             <div className="saved-news__empty-state">
               <h2 className="saved-news__empty-title">No saved articles</h2>
               <p className="saved-news__empty-text">
-                You haven't saved any articles yet. Start browsing to save
-                articles you'd like to read later.
+                You haven&apos;t saved any articles yet. Start browsing to save
+                articles you&apos;d like to read later.
               </p>
             </div>
           ) : (
@@ -93,8 +92,6 @@ const SavedNews = React.memo(() => {
   );
 });
 
-SavedNews.propTypes = {
-  // No props currently
-};
+SavedNews.displayName = "SavedNews";
 
 export default SavedNews;

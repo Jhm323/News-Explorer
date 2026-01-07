@@ -165,4 +165,6 @@ NewsCard.propTypes = {
   keyword: PropTypes.string,
 };
 
+NewsCard.displayName = "NewsCard";
+
 export default NewsCard;

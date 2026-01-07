@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -38,7 +39,6 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-// Add PropTypes for ErrorBoundary
 ErrorBoundary.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -98,8 +98,7 @@ const AppContent = React.memo(() => {
   );
 });
 
-// PropTypes for AppContent
-AppContent.propTypes = {};
+AppContent.displayName = "AppContent";
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types"; //  for validation
 
 export const AuthContext = createContext();
@@ -97,5 +97,7 @@ export function AuthProvider({ children }) {
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+AuthProvider.displayName = "AuthProvider";
 
 export default AuthProvider;

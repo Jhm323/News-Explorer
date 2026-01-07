@@ -1,3 +1,5 @@
+import { useState } from "react";
+import PropTypes from "prop-types";
 import "./Main.css";
 
 import newsApi from "../../utils/NewsApi";
@@ -45,7 +47,8 @@ function Main({
   const handleArticleAction = (article) => {
     if (isLoggedIn) {
       const isArticleSaved = savedArticles.some(
-        (saved) => saved.url === article.url // Use url for uniqueness
+        (saved) => saved.url === article.url
+        // Use url for uniqueness
       );
 
       if (isArticleSaved) {
@@ -65,7 +68,9 @@ function Main({
       <section className="main__top">
         <div className="main__top-content">
           <div className="main__top-textbox">
-            <h1 className="main__top-title">What's going on in the world?</h1>
+            <h1 className="main__top-title">
+              What&apos;s going on in the world?
+            </h1>
             <p className="main__top-subtitle">
               Find the latest news on any topic and save them in your personal
               account.
@@ -95,5 +100,15 @@ function Main({
     </main>
   );
 }
+
+Main.propTypes = {
+  searchResults: PropTypes.array,
+  setSearchResults: PropTypes.func,
+  savedArticles: PropTypes.array,
+  setSavedArticles: PropTypes.func,
+  isLoggedIn: PropTypes.bool,
+};
+
+Main.displayName = "Main";
 
 export default Main;

@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types"; // for validation
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./SuccessModal.css";
