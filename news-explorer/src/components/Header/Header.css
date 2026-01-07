@@ -401,6 +401,10 @@
     height: 40px;
     font-size: var(--font-size-16);
   }
+
+  .header__mobile-menu {
+    display: none;
+  }
 }
 
 /* ===== Responsive: Mobile (576px and below) ===== */

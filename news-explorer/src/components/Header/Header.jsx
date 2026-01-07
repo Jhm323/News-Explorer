@@ -25,6 +25,18 @@ const Header = React.memo(
       return () => document.removeEventListener("keydown", handleEscape);
     }, [isMobileMenuOpen]);
 
+    // Close mobile menu on window resize (for responsive design)
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth > 576 && isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+        }
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, [isMobileMenuOpen]);
+
     const handleMobileMenuClick = () => {
       if (!isAnyModalOpen) {
         setIsMobileMenuOpen(!isMobileMenuOpen);
