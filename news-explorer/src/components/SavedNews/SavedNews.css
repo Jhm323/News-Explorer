@@ -114,7 +114,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+/* ===== Responsive 1040px && 768px =====*/
+@media screen and (max-width: 1040px) {
   .saved-news__header {
     padding: 24px 16px 32px 40px;
   }
