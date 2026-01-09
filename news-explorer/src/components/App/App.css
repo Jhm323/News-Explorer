@@ -29,7 +29,11 @@
 .page--home::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--background-size-large);
+  height: 100%;
   background: var(--overlay-color);
   z-index: 1;
   pointer-events: none;
@@ -67,5 +71,9 @@
   .page {
     background-size: var(--background-size-small);
     background-position: 52% 0px;
+  }
+
+  .page--home::before {
+    width: var(--background-size-small);
   }
 }
