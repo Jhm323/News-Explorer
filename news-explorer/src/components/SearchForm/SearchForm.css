@@ -173,9 +173,8 @@
   box-shadow: 0 2px 8px rgba(47, 113, 229, 0.3);
 }
 
-/* Responsive Design */
+/*===== Responsive Design =====*/
 
-/* Tablet styles */
 @media screen and (max-width: 768px) {
   .search-form {
     max-width: 456px;
@@ -261,7 +260,10 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 480px) {
+} */
+
+@media screen and (max-width: 480px) {
   .search-form {
     max-width: 100vw;
     padding: 0 16px;
