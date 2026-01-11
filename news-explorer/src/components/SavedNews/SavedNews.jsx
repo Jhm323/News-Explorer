@@ -44,7 +44,7 @@ const SavedNews = React.memo(() => {
 
   return (
     <section className="saved-news">
-      <section className="saved-news__header">
+      <header className="saved-news__header">
         <div className="saved-news__container">
           <p className="saved-news__subtitle">Saved articles</p>
           <h1 className="saved-news__title">
@@ -58,7 +58,7 @@ const SavedNews = React.memo(() => {
             </p>
           )}
         </div>
-      </section>
+      </header>
 
       <section className="saved-news__content">
         <div className="saved-news__container">
@@ -71,20 +71,21 @@ const SavedNews = React.memo(() => {
               </p>
             </div>
           ) : (
-            <div className="saved-news__cards-grid">
+            <ul className="saved-news__cards-grid">
               {savedArticles.map((article) => (
-                <NewsCard
-                  key={article._id || article.url}
-                  article={article}
-                  onDeleteArticle={() =>
-                    deleteArticle(article._id || article.url)
-                  }
-                  isSaved={true}
-                  showDeleteButton={true}
-                  keyword={article.keyword}
-                />
+                <li key={article._id || article.url}>
+                  <NewsCard
+                    article={article}
+                    onDeleteArticle={() =>
+                      deleteArticle(article._id || article.url)
+                    }
+                    isSaved={true}
+                    showDeleteButton={true}
+                    keyword={article.keyword}
+                  />
+                </li>
               ))}
-            </div>
+            </ul>
           )}
         </div>
       </section>

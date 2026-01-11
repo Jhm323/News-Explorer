@@ -76,6 +76,13 @@
   margin: 0 auto;
 }
 
+.news-cards__list,
+.saved-news__cards-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .saved-news__empty-state {
   text-align: center;
   padding: 120px 0;
