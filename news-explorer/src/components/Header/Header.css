@@ -548,13 +548,12 @@
 
 /* ===== Logged-in Mobile Menu (all breakpoints) ===== */
 .header__mobile-menu-content[data-menu-state="logged-in"] {
-  height: 174px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+  /* align-items: flex-start; */
   background-color: var(--color-primary);
+  padding: 24px 16px;
   margin: 0 auto;
 }
 
@@ -563,27 +562,35 @@
 }
 
 .header__mobile-menu-content[data-menu-state="logged-in"] .header__nav {
-  gap: 0;
+  gap: 24px;
   display: flex;
   flex-direction: column;
   color: var(--color-primary);
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   padding: 0;
+}
+
+.header__mobile-menu-content[data-menu-state="logged-in"] .navigation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  width: 100%;
+  height: 112px;
+  align-items: flex-start;
 }
 
 .header__mobile-menu-content[data-menu-state="logged-in"]
   .header__nav
   .navigation__link {
   color: var(--color-white) !important;
-  font-size: var(--font-size-14);
-  height: 40px;
+  font-size: var(--font-size-18);
   width: 100%;
   padding: 0;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .header__mobile-menu-content[data-menu-state="logged-in"]
@@ -614,19 +621,27 @@
 
 .header__mobile-menu-content[data-menu-state="logged-in"]
   .header__mobile-username {
+  display: flex;
+  align-items: flex-start;
   color: var(--color-white);
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-18);
   width: 100%;
   text-align: center;
 }
 
 .header__mobile-menu-content[data-menu-state="logged-in"]
   .header__mobile-logout-button {
+  width: 288px;
+  height: 56px;
   padding: 0;
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-18);
   justify-content: center;
   gap: 8px;
   color: var(--color-white);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-white);
+  border-radius: 30px;
+  margin: 0 auto;
 }
 
 .header__mobile-menu-content[data-menu-state="logged-in"]
