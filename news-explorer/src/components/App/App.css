@@ -21,7 +21,7 @@
   background-repeat: no-repeat;
   background-size: var(--background-size-large);
   background-color: var(--color-white);
-  background-position: 50% -245px;
+  background-position: 50% 0%;
   background-attachment: scroll;
 }
 
@@ -34,7 +34,6 @@
   transform: translateX(-50%);
   width: var(--background-size-large);
   height: 100%;
-  background: var(--overlay-color);
   z-index: 1;
   pointer-events: none;
 }
