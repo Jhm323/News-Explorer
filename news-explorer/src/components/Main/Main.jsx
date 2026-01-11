@@ -64,7 +64,7 @@ function Main({
   };
 
   return (
-    <main className="main">
+    <section className="main">
       <section className="main__top">
         <div className="main__top-content">
           <div className="main__top-textbox">
@@ -97,7 +97,7 @@ function Main({
       )}
 
       <About />
-    </main>
+    </section>
   );
 }
 

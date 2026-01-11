@@ -30,7 +30,7 @@ const SavedNews = React.memo(() => {
 
   if (!isLoggedIn) {
     return (
-      <main className="saved-news">
+      <section className="saved-news">
         <section className="saved-news__header">
           <div className="saved-news__container">
             <p className="saved-news__message">
@@ -38,12 +38,12 @@ const SavedNews = React.memo(() => {
             </p>
           </div>
         </section>
-      </main>
+      </section>
     );
   }
 
   return (
-    <main className="saved-news">
+    <section className="saved-news">
       <section className="saved-news__header">
         <div className="saved-news__container">
           <p className="saved-news__subtitle">Saved articles</p>
@@ -88,7 +88,7 @@ const SavedNews = React.memo(() => {
           )}
         </div>
       </section>
-    </main>
+    </section>
   );
 });
 
