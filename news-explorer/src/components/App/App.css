@@ -17,7 +17,7 @@
 
 /* ===== Page Background ===== */
 .page {
-  background-image: url("../../vendor/page__image-cell-phone.jpg");
+  background-image: url("../../vendor/cell-phone-background.svg");
   background-repeat: no-repeat;
   background-size: var(--background-size-large);
   background-color: var(--color-white);
@@ -67,12 +67,14 @@
 }
 
 /* ===== Responsive Design ===== */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .page {
-    background-size: var(--background-size-small);
+    background-size: var(--background-size-large);
     background-position: 52% 0px;
   }
+}
 
+@media screen and (max-width: 320px) {
   .page--home::before {
     width: var(--background-size-small);
   }
