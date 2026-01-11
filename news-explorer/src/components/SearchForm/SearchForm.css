@@ -277,6 +277,7 @@
     min-width: 0;
     max-width: 100%;
     height: auto;
+    align-items: center;
   }
 
   .search-form__input {
@@ -292,6 +293,7 @@
 
   .search-form__button,
   .search-form__submit-button {
+    position: static;
     max-width: 288px;
     max-height: 56px;
     min-width: 288px;
@@ -300,7 +302,7 @@
     line-height: 24px;
     padding: 17px 16px;
     border-radius: 32px;
-    top: 71px;
+    margin-top: 16px;
   }
 }
 
