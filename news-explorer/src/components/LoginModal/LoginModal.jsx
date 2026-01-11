@@ -6,7 +6,6 @@ import "./LoginModal.css";
 
 const LoginModal = React.memo(({ isOpen, onClose, onSwitchToRegister }) => {
   const { handleLogin } = useContext(AuthContext);
-
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [isValid, setIsValid] = useState(false);
