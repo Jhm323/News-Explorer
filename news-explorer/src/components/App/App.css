@@ -1,3 +1,4 @@
+/* "[Branch Test] Stage 1 vs Main, excluding code that results in horizontal scroll, card & grid  irregularities */
 /* ===== CSS Variables ===== */
 :root {
   --page-max-width: 1440px;
