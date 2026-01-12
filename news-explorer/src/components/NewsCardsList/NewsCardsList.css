@@ -41,6 +41,10 @@
   margin: 0;
 }
 
+.news-cards__list li {
+  display: contents;
+}
+
 .news-cards__error {
   text-align: center;
   padding: 60px 20px;

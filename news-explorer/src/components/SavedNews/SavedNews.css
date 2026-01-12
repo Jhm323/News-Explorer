@@ -76,6 +76,10 @@
   margin: 0 auto;
 }
 
+.saved-news__cards-grid li {
+  display: contents;
+}
+
 .news-cards__list,
 .saved-news__cards-grid {
   list-style: none;
