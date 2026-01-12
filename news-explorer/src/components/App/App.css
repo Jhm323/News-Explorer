@@ -25,19 +25,6 @@
   background-attachment: scroll;
 }
 
-/* ===== Overlay - Only on Home Page ===== */
-.page--home::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: var(--background-size-large);
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
 /* ===== Z-Index for Content ===== */
 .page > * {
   position: relative;
