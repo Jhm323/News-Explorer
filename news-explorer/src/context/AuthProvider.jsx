@@ -29,8 +29,6 @@ export function AuthProvider({ children }) {
         password: formData.password,
       };
       localStorage.setItem("user", JSON.stringify(newUser));
-      setUser(newUser);
-      setIsLoggedIn(true);
       resolve(); // Simulate success
     });
   };

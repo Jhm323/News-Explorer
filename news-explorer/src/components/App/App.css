@@ -17,22 +17,12 @@
 
 /* ===== Page Background ===== */
 .page {
-  background-image: url("../../vendor/page__image-cell-phone.jpg");
+  background-image: url("../../vendor/cell-phone-background.svg");
   background-repeat: no-repeat;
   background-size: var(--background-size-large);
   background-color: var(--color-white);
   background-position: 50% 0%;
   background-attachment: scroll;
-}
-
-/* ===== Overlay - Only on Home Page ===== */
-.page--home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--overlay-color);
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* ===== Z-Index for Content ===== */
@@ -63,9 +53,15 @@
 }
 
 /* ===== Responsive Design ===== */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .page {
-    background-size: var(--background-size-small);
+    background-size: var(--background-size-large);
     background-position: 52% 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page--home::before {
+    width: var(--background-size-small);
   }
 }
