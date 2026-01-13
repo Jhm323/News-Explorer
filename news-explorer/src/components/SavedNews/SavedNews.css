@@ -178,7 +178,7 @@
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 767px) {
   .saved-news__cards-grid {
     grid-template-columns: repeat(2, 224px);
     justify-content: center;
