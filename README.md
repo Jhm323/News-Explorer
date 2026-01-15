@@ -10,24 +10,24 @@ The objective of **News Explorer** is to design and build a scalable, real-world
 
 Key goals include:
 
-* Demonstrating professional React architecture using functional components and hooks
-* Implementing robust API interaction with loading and error states
-* Designing a responsive, accessible UI suitable for production deployment
-* Preparing the application for future full-stack expansion
+- Demonstrating professional React architecture using functional components and hooks
+- Implementing robust API interaction with loading and error states
+- Designing a responsive, accessible UI suitable for production deployment
+- Preparing the application for future full-stack expansion
 
 ---
 
 ## Features
 
-* **Keyword Search** — Search for news articles from the last 7 days
-* **Article Grid** — Responsive card layout with images, metadata, and external links
-* **Pagination** — Incremental loading with *Show more / Show less*
-* **Save Articles (Stage 1 simulation)** — Save behavior mocked using `localStorage`
-* **Auth Tooltips** — UI prompts for unauthenticated users attempting protected actions
-* **Preloader** — Animated loading indicator during API requests
-* **Error Handling** — Friendly messages for empty results, invalid searches, and API/network errors
-* **Responsive Design** — Optimized for desktop, tablet, and mobile (320px+)
-* **Deployment Ready** — Configured for GitHub Pages
+- **Keyword Search** — Search for news articles from the last 7 days
+- **Article Grid** — Responsive card layout with images, metadata, and external links
+- **Pagination** — Incremental loading with _Show more / Show less_
+- **Save Articles (Stage 1 simulation)** — Save behavior mocked using `localStorage`
+- **Auth Tooltips** — UI prompts for unauthenticated users attempting protected actions
+- **Preloader** — Animated loading indicator during API requests
+- **Error Handling** — Friendly messages for empty results, invalid searches, and API/network errors
+- **Responsive Design** — Optimized for desktop, tablet, and mobile (320px+)
+- **Deployment Ready** — Configured for GitHub Pages
 
 ---
 
@@ -35,47 +35,45 @@ Key goals include:
 
 ### Frontend
 
-* React (functional components)
-* Vite
-* JSX
-* CSS (BEM methodology)
+- React (functional components)
+- Vite
+- JSX
+- CSS (BEM methodology)
 
 ### State & Routing
 
-* React Hooks (`useState`, `useContext`)
-* React Router
+- React Hooks (`useState`, `useContext`)
+- React Router
 
 ### API
 
-* NewsAPI.org
-* Production proxy: `nomoreparties.co`
+- NewsAPI.org
+- Production proxy: `nomoreparties.co`
 
 ### Styling & Assets
 
-* Normalize.css
-* Fonts: Roboto, Roboto Slab, Inter
+- Normalize.css
+- Fonts: Roboto, Roboto Slab, Inter
 
 ### Deployment
 
-* GitHub Pages
+- GitHub Pages
 
 ---
 
 ## Screenshots
 
-> *Add screenshots or GIFs to visually demonstrate the application’s functionality.*
-
 ### Search Results
 
-![Search Results](./assets/screenshots/search-results.png)
+![Search Results](./src/vendor/search-results.png)
 
 ### Loading State
 
-![Preloader](./assets/screenshots/preloader.gif)
+![Preloader](./src/vendor/preloader.png)
 
 ### Saved Articles
 
-![Saved Articles](./assets/screenshots/saved-news.png)
+![Saved Articles](./src/vendor/saved-articles.png)
 
 ---
 
@@ -129,24 +127,25 @@ npm run preview
 2. Click **Search**
 3. Results appear as cards displaying:
 
-   * Title
-   * Description
-   * Publication date
-   * Source and image
+   - Title
+   - Description
+   - Publication date
+   - Source and image
 
 ### View & Save Articles
 
-* Click **Show more** to load additional articles (3 at a time)
-* Hover over the save icon:
+- Click **Show more** to load additional articles (3 at a time)
+- Hover over the save icon:
 
-  * If logged out → tooltip: *“Sign in to save articles”*
-* Saved articles are stored in `localStorage` (Stage 1 only)
+  - If logged out → tooltip: _“Sign in to save articles”_
+
+- Saved articles are stored in `localStorage` (Stage 1 only)
 
 ### Navigation
 
-* **Home** → `/`
-* **Saved News** → `/saved-news` (simulated)
-* External article links open in new tabs
+- **Home** → `/`
+- **Saved News** → `/saved-news` (simulated)
+- External article links open in new tabs
 
 ---
 
@@ -160,29 +159,29 @@ The application uses a component-driven React architecture with a clear separati
 
 ### Endpoint
 
-* Development: `https://newsapi.org/v2/everything`
-* Production: `https://nomoreparties.co/news/v2/everything`
+- Development: `https://newsapi.org/v2/everything`
+- Production: `https://nomoreparties.co/news/v2/everything`
 
 ### Parameters
 
-* `q` — Search query
-* `apiKey` — API key
-* `from` / `to` — Date range (last 7 days)
-* `pageSize` — 100 (max free tier)
+- `q` — Search query
+- `apiKey` — API key
+- `from` / `to` — Date range (last 7 days)
+- `pageSize` — 100 (max free tier)
 
 ### Response Fields Used
 
-* `source.name`
-* `title`
-* `description`
-* `publishedAt`
-* `urlToImage`
+- `source.name`
+- `title`
+- `description`
+- `publishedAt`
+- `urlToImage`
 
 ### Error States
 
-* No results found
-* API or network error
-* Invalid or empty search query
+- No results found
+- API or network error
+- Invalid or empty search query
 
 ---
 
@@ -215,11 +214,11 @@ Tested on Chrome, Firefox, and Safari. Fully responsive across desktop, tablet, 
 
 ## Future Improvements & Business Impact
 
-* Implement backend authentication and persistent user accounts
-* Replace `localStorage` with a database-backed saved articles system
-* Add article categorization and personalized recommendations
-* Introduce analytics to track user engagement and search behavior
-* Improve SEO and social sharing metadata
+- Implement backend authentication and persistent user accounts
+- Replace `localStorage` with a database-backed saved articles system
+- Add article categorization and personalized recommendations
+- Introduce analytics to track user engagement and search behavior
+- Improve SEO and social sharing metadata
 
 From a business perspective, these enhancements could increase user retention, enable personalization, and support monetization through subscriptions or content partnerships.
 
@@ -236,9 +235,9 @@ Live Demo:
 npm run build
 ```
 
-* Push the build to GitHub
-* Enable **GitHub Pages** in repository settings
-* Select the `gh-pages` branch or root directory
+- Push the build to GitHub
+- Enable **GitHub Pages** in repository settings
+- Select the `gh-pages` branch or root directory
 
 ---
 
@@ -248,13 +247,13 @@ This is a **TripleTen educational project**.
 
 Guidelines:
 
-* Work in the `stage-1-frontend-and-api` branch
-* Submit a Pull Request to `main`
-* Ensure all rubric criteria are met:
+- Work in the `stage-1-frontend-and-api` branch
+- Submit a Pull Request to `main`
+- Ensure all rubric criteria are met:
 
-  * Responsive layout
-  * Semantic HTML
-  * BEM class naming
+  - Responsive layout
+  - Semantic HTML
+  - BEM class naming
 
 ---
 
