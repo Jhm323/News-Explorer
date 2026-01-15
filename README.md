@@ -1,50 +1,81 @@
 # News Explorer
 
-A React-based web application that lets users search for recent news articles via **NewsAPI**, view results in a clean, card-based layout, and save articles for later. This project is part of **TripleTen — Sprint 16 (Final Project)** and focuses on frontend architecture, API integration, routing, and responsive UI.
+A React-based web application that allows users to search for recent news articles via **NewsAPI**, explore results in a clean, card-based interface, and save articles for later reading. This project was built as part of **TripleTen — Sprint 16 (Final Project)** and demonstrates production-style frontend architecture, API integration, routing, and responsive UI design.
+
+---
+
+## Project Objective
+
+The objective of **News Explorer** is to design and build a scalable, real-world React application that mirrors the behavior of a modern news aggregation product. The project focuses on integrating third-party APIs, managing asynchronous data flows, implementing authentication-aware UI behavior, and delivering a polished, responsive user experience across devices.
+
+Key goals include:
+
+* Demonstrating professional React architecture using functional components and hooks
+* Implementing robust API interaction with loading and error states
+* Designing a responsive, accessible UI suitable for production deployment
+* Preparing the application for future full-stack expansion
 
 ---
 
 ## Features
 
-- **Keyword Search** — Search news articles from the last 7 days
-- **Article Grid** — Responsive card layout with images, metadata, and links
-- **Pagination** — Load results incrementally with _Show more / Show less_
-- **Save Articles (Stage 1 simulation)** — Save behavior mocked with `localStorage`
-- **Auth Tooltips** — Prompts unauthenticated users to sign in
-- **Preloader** — Animated loader during API requests
-- **Error Handling** — Friendly messages for empty results, API errors, and invalid searches
-- **Responsive Design** — Optimized for desktop, tablet, and mobile (320px+)
-- **Deployment Ready** — Hosted via GitHub Pages
+* **Keyword Search** — Search for news articles from the last 7 days
+* **Article Grid** — Responsive card layout with images, metadata, and external links
+* **Pagination** — Incremental loading with *Show more / Show less*
+* **Save Articles (Stage 1 simulation)** — Save behavior mocked using `localStorage`
+* **Auth Tooltips** — UI prompts for unauthenticated users attempting protected actions
+* **Preloader** — Animated loading indicator during API requests
+* **Error Handling** — Friendly messages for empty results, invalid searches, and API/network errors
+* **Responsive Design** — Optimized for desktop, tablet, and mobile (320px+)
+* **Deployment Ready** — Configured for GitHub Pages
 
 ---
 
 ## Tech Stack
 
-**Frontend**
+### Frontend
 
-- React (functional components)
-- Vite
-- JSX
-- CSS (BEM methodology)
+* React (functional components)
+* Vite
+* JSX
+* CSS (BEM methodology)
 
-**State & Routing**
+### State & Routing
 
-- React Hooks (`useState`, `useContext`)
-- React Router
+* React Hooks (`useState`, `useContext`)
+* React Router
 
-**API**
+### API
 
-- [NewsAPI.org](https://newsapi.org)
-- Production proxy: `nomoreparties.co`
+* NewsAPI.org
+* Production proxy: `nomoreparties.co`
 
-**Styling & Assets**
+### Styling & Assets
 
-- Normalize.css
-- Fonts: Roboto, Roboto Slab, Inter
+* Normalize.css
+* Fonts: Roboto, Roboto Slab, Inter
 
-**Deployment**
+### Deployment
 
-- GitHub Pages
+* GitHub Pages
+
+---
+
+## Screenshots
+
+> *Add screenshots or GIFs to visually demonstrate the application’s functionality.*
+
+### Search Results
+
+![Search Results](./assets/screenshots/search-results.png)
+
+### Loading State
+
+![Preloader](./assets/screenshots/preloader.gif)
+
+### Saved Articles
+
+![Saved Articles](./assets/screenshots/saved-news.png)
 
 ---
 
@@ -68,10 +99,10 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-VITE_NEWS_API_KEY=api_key
+VITE_NEWS_API_KEY=your_api_key_here
 ```
 
-> Get a free API key from [NewsAPI.org](https://newsapi.org).
+> Get a free API key from NewsAPI.org.
 
 ### 4. Run locally
 
@@ -79,7 +110,7 @@ VITE_NEWS_API_KEY=api_key
 npm run dev
 ```
 
-Open: **[http://localhost:5173](http://localhost:5173)**
+Open: [http://localhost:5173](http://localhost:5173)
 
 ### 5. Production build
 
@@ -96,64 +127,62 @@ npm run preview
 
 1. Enter a keyword (e.g., `technology`, `climate`, `sports`)
 2. Click **Search**
-3. Results appear as cards with:
+3. Results appear as cards displaying:
 
-   - Title
-   - Description
-   - Publication date
-   - Source & image
+   * Title
+   * Description
+   * Publication date
+   * Source and image
 
 ### View & Save Articles
 
-- Click **Show more** to load additional articles (3 at a time)
+* Click **Show more** to load additional articles (3 at a time)
+* Hover over the save icon:
 
-- Hover over the save icon:
-
-  - If logged out → tooltip: _“Sign in to save articles”_
-
-- Saved articles are stored in `localStorage` (Stage 1 only)
+  * If logged out → tooltip: *“Sign in to save articles”*
+* Saved articles are stored in `localStorage` (Stage 1 only)
 
 ### Navigation
 
-- **Home** → `/`
-- **Saved News** → `/saved-news` (simulated)
-- External article links open in new tabs
+* **Home** → `/`
+* **Saved News** → `/saved-news` (simulated)
+* External article links open in new tabs
 
 ---
 
-## Project Pitch Video
+## Architecture Overview
 
-Check out [this video](https://www.loom.com/share/f5c716f9438643b18e2d4a1e02044f4c), where I describe my project and some challenges I faced while building it.
+The application uses a component-driven React architecture with a clear separation of concerns. UI components, API logic, and helper utilities are organized into dedicated directories. State is managed locally using React hooks and context, while routing is handled with React Router to support multiple views. This structure improves maintainability, scalability, and readiness for backend integration.
 
 ---
 
 ## API Details
 
-**Endpoint**
+### Endpoint
 
-- Development: `https://newsapi.org/v2/everything`
-- Production: `https://nomoreparties.co/news/v2/everything`
+* Development: `https://newsapi.org/v2/everything`
+* Production: `https://nomoreparties.co/news/v2/everything`
 
-**Parameters**
+### Parameters
 
-- `q` — search query
-- `apiKey` — your API key
-- `from` / `to` — date range (last 7 days)
-- `pageSize` — `100` (max free tier)
+* `q` — Search query
+* `apiKey` — API key
+* `from` / `to` — Date range (last 7 days)
+* `pageSize` — 100 (max free tier)
 
-**Response Fields Used**
+### Response Fields Used
 
-- `source.name`
-- `title`
-- `description`
-- `publishedAt`
-- `urlToImage`
+* `source.name`
+* `title`
+* `description`
+* `publishedAt`
+* `urlToImage`
 
-**Error States**
+### Error States
 
-- No results found
-- API/network error
-- Invalid or empty query
+* No results found
+* API or network error
+* Invalid or empty search query
 
 ---
 
@@ -162,61 +191,44 @@ Check out [this video](https://www.loom.com/share/f5c716f9438643b18e2d4a1e02044f
 ```
 src/
 ├── components/        # React components
-├── utils/             # API & helper functions
-├── assets/            # Images & static assets
-├── vendor/            # Fonts & third-party files
-├── blocks/            # BEM-based CSS (optional structure)
+├── utils/             # API and helper functions
+├── assets/            # Images and static assets
+├── vendor/            # Fonts and third-party files
+├── blocks/            # BEM-based CSS
 ├── App.jsx            # Root component
 └── main.jsx           # Vite entry point
 ```
 
 ---
 
-## Sprint 16 — Project Requirements (Stage 1)
+## Browser & Device Support
 
-**Infrastructure**
+Tested on Chrome, Firefox, and Safari. Fully responsive across desktop, tablet, and mobile devices (320px+).
 
-- Vite-based React setup
-- Functional components only
-- Proper file organization
+---
 
-**Core Components**
+## Conclusion
 
-- App
-- Header / Navigation
-- SearchForm
-- Main
-- NewsCard
-- Preloader
-- Footer
-- ModalWithForm
-- LoginModal / RegisterModal
+**News Explorer** successfully demonstrates the ability to design and implement a production-style React application with real-world features such as API integration, routing, loading and error handling, and authentication-aware UI patterns. The project reflects modern frontend best practices and provides a strong foundation for extending into a full-stack product.
 
-**Routing**
+---
 
-- `/` — Main page
-- `/saved-news` — Saved articles page
+## Future Improvements & Business Impact
 
-**Modal Behavior**
+* Implement backend authentication and persistent user accounts
+* Replace `localStorage` with a database-backed saved articles system
+* Add article categorization and personalized recommendations
+* Introduce analytics to track user engagement and search behavior
+* Improve SEO and social sharing metadata
 
-- Open on button click
-- Close via:
-
-  - Close icon
-  - Overlay click
-  - `Escape` key
-
-**Preloader**
-
-- Circular animation
-- Text: _“Searching for news…”_
+From a business perspective, these enhancements could increase user retention, enable personalization, and support monetization through subscriptions or content partnerships.
 
 ---
 
 ## Deployment
 
 Live Demo:
-**[https://github.com/Jhm323/News-Explorer](https://github.com/Jhm323/News-Explorer)**
+[https://jhm323.github.io/News-Explorer](https://jhm323.github.io/News-Explorer)
 
 ### Deploy to GitHub Pages
 
@@ -224,9 +236,9 @@ Live Demo:
 npm run build
 ```
 
-- Push to GitHub
-- Enable **Pages** in repo settings
-- Select `gh-pages` branch or root directory
+* Push the build to GitHub
+* Enable **GitHub Pages** in repository settings
+* Select the `gh-pages` branch or root directory
 
 ---
 
@@ -236,13 +248,13 @@ This is a **TripleTen educational project**.
 
 Guidelines:
 
-- Work in the `stage-1-frontend-and-api` branch
-- Submit a Pull Request to `main`
-- Ensure all rubric criteria are met:
+* Work in the `stage-1-frontend-and-api` branch
+* Submit a Pull Request to `main`
+* Ensure all rubric criteria are met:
 
-  - Responsive layout
-  - Semantic HTML
-  - BEM class naming
+  * Responsive layout
+  * Semantic HTML
+  * BEM class naming
 
 ---
 
@@ -252,4 +264,4 @@ This project is for educational purposes as part of the **TripleTen curriculum**
 
 ---
 
-> Built with React • Styled with BEM • Powered by NewsAPI
+Built with React • Styled with BEM • Powered by NewsAPI
