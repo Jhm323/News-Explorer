@@ -65,15 +65,15 @@ Key goals include:
 
 ### Search Results
 
-![Search Results](./src/vendor/search-results.png)
+![Search Results](./news-explorer/src/vendor/search-results.png)
 
 ### Loading State
 
-![Preloader](./src/vendor/preloader.png)
+![Preloader](./news-explorer/src/vendor/preloader.png)
 
 ### Saved Articles
 
-![Saved Articles](./src/vendor/saved-articles.png)
+![Saved Articles](./news-explorer/src/vendor/saved-articles.png)
 
 ---
 
