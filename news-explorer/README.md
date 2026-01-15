@@ -75,6 +75,16 @@ Key goals include:
 
 ![Saved Articles](./src/vendor/saved-articles.png)
 
+### Mobile & Tablet
+
+![Mobile Menu](./src/vendor/mobile-menu.png)
+![Tablet](./src/vendor/tablet.png)
+
+### Register Modal
+
+![Mobile Signup](./src/vendor/mobile-signup.png)
+![Signup](./src/vendor/tablet-signup.png)
+
 ---
 
 ## Installation & Setup
