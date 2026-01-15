@@ -63,6 +63,7 @@
   line-height: 24px;
   color: var(--text-color);
   margin: 0 0 24px 0;
+  padding: 0 16px 0 0;
   width: 100%;
   height: auto;
 }
@@ -114,7 +115,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .about {
     padding: 32px 0;
     margin: 0;

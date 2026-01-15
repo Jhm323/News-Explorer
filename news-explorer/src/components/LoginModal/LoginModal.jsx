@@ -6,7 +6,6 @@ import "./LoginModal.css";
 
 const LoginModal = React.memo(({ isOpen, onClose, onSwitchToRegister }) => {
   const { handleLogin } = useContext(AuthContext);
-
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [isValid, setIsValid] = useState(false);
@@ -77,20 +76,12 @@ const LoginModal = React.memo(({ isOpen, onClose, onSwitchToRegister }) => {
     }));
 
     try {
-      const success = await handleLogin(formData);
-      if (success) {
-        alert("Login successful!"); // Replace with SuccessModal later
-        onClose();
-      } else {
-        setErrors((prev) => ({
-          ...prev,
-          login: "Invalid email or password",
-        }));
-      }
+      await handleLogin(formData);
+      onClose();
     } catch (error) {
       setErrors((prev) => ({
         ...prev,
-        login: "Invalid email or password", // Or error.message for dynamic
+        login: "Invalid email or password",
       }));
     }
   };

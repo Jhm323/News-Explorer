@@ -51,17 +51,19 @@ const NewsCardsList = React.memo(
       <section className="news-cards">
         <h2 className="news-cards__title">Search results</h2>
         <div className="news-cards__container">
-          <div className="news-cards__list">
+          <ul className="news-cards__list">
             {articles.slice(0, visibleCount).map((article) => (
-              <NewsCard
-                key={article.id || article.url}
-                article={article}
-                onDeleteArticle={onArticleAction}
-                showDeleteButton={!showSaveButton}
-                keyword={searchKeyword}
-              />
+              <li key={article.id || article.url}>
+                <NewsCard
+                  key={article.id || article.url}
+                  article={article}
+                  onDeleteArticle={onArticleAction}
+                  showDeleteButton={!showSaveButton}
+                  keyword={searchKeyword}
+                />
+              </li>
             ))}
-          </div>
+          </ul>
           {visibleCount < articles.length && (
             <button
               className="news-cards__more-button"

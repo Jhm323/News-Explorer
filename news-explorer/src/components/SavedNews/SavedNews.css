@@ -76,6 +76,17 @@
   margin: 0 auto;
 }
 
+.saved-news__cards-grid li {
+  display: contents;
+}
+
+.news-cards__list,
+.saved-news__cards-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .saved-news__empty-state {
   text-align: center;
   padding: 120px 0;
@@ -167,7 +178,7 @@
   }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 767px) {
   .saved-news__cards-grid {
     grid-template-columns: repeat(2, 224px);
     justify-content: center;
