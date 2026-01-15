@@ -69,7 +69,7 @@ Key goals include:
 
 ### Loading State
 
-![Preloader](./src/vendor/search-progress.png)
+![Preloader](./src/vendor/preloader.png)
 
 ### Saved Articles
 
