@@ -1,5 +1,17 @@
 # News Explorer
 
+![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/News-Explorer?style=flat-square)
+![Last commit](https://img.shields.io/github/last-commit/Jhm323/News-Explorer?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/Jhm323/News-Explorer?style=flat-square)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Jhm323/News-Explorer?style=flat-square)
+![GitHub license](https://img.shields.io/github/license/Jhm323/News-Explorer?style=flat-square)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
+![GitHub stars](https://img.shields.io/github/stars/Jhm323/News-Explorer?style=flat-square)
+![GitHub forks](https://img.shields.io/github/forks/Jhm323/News-Explorer?style=flat-square)
+
 A React-based web application that allows users to search for recent news articles via **NewsAPI**, explore results in a clean, card-based interface, and save articles for later reading. This project was built as part of **TripleTen — Sprint 16 (Final Project)** and demonstrates production-style frontend architecture, API integration, routing, and responsive UI design.
 
 ---
