@@ -12,7 +12,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/Jhm323/News-Explorer?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/Jhm323/News-Explorer?style=flat-square)
 
-A React-based web application that allows users to search for recent news articles via **NewsAPI**, explore results in a clean, card-based interface, and save articles for later reading. This project was built as part of **TripleTen — Sprint 16 (Final Project)** and demonstrates production-style frontend architecture, API integration, routing, and responsive UI design.
+A React-based web application that allows users to search for recent news articles via **NewsAPI**, explore results in a clean, card-based interface, and save articles for later reading. This project demonstrates production-style frontend architecture, API integration, routing, and responsive UI design.
 
 ---
 
