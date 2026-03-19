@@ -10,7 +10,10 @@ const getArticles = (req, res, next) => {
 
 const createArticle = (req, res, next) => {
   Article.create({ ...req.body, owner: req.user._id })
-    .then((article) => res.status(201).json(article))
+    .then((article) => {
+      const { owner, ...articleData } = article.toObject();
+      return res.status(201).json(articleData);
+    })
     .catch((err) => {
       if (err.name === "ValidationError")
         return next(new BadRequestError(MESSAGES.INVALID_DATA));
