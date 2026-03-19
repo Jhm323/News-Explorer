@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
-const { UnauthorizedError } = require("../errors");
-const { MESSAGES } = require("../constants");
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const { UnauthorizedError } = require('../errors');
+const { MESSAGES } = require('../constants');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -27,11 +27,11 @@ userSchema.statics.findUserByCredentials = async function findUserByCredentials(
   email,
   password,
 ) {
-  const user = await this.findOne({ email }).select("+password");
+  const user = await this.findOne({ email }).select('+password');
   if (!user) throw new UnauthorizedError(MESSAGES.INVALID_CREDENTIALS);
   const matched = await bcrypt.compare(password, user.password);
   if (!matched) throw new UnauthorizedError(MESSAGES.INVALID_CREDENTIALS);
   return user;
 };
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema);

@@ -1,4 +1,4 @@
-const { MESSAGES } = require("../constants");
+const { MESSAGES } = require('../constants');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = (err, req, res, next) => {

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
   keyword: { type: String, required: true },
@@ -10,10 +10,10 @@ const articleSchema = new mongoose.Schema({
   image: { type: String, required: true, match: /^https?:\/\// },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true,
     select: false,
   },
 });
 
-module.exports = mongoose.model("Article", articleSchema);
+module.exports = mongoose.model('Article', articleSchema);
