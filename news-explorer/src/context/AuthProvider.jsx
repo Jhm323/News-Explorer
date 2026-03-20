@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [savedArticles, setSavedArticles] = useState([]);
 
-  // Check localStorage on mount
+  // Check localStorage for token on mount and validate with server
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) return;
@@ -32,6 +32,10 @@ export function AuthProvider({ children }) {
   }, []);
 
   const handleRegister = (formData) => {
+    return register(formData.email, formData.password, formData.name);
+  };
+
+  const handleLogin = (formData) => {
     return login(formData.email, formData.password)
       .then(({ token }) => {
         localStorage.setItem("token", token);
