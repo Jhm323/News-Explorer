@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const request = (endpoint, options) =>
   fetch(`${BASE_URL}${endpoint}`, options).then((res) => {
@@ -21,17 +21,17 @@ export const login = (email, password) =>
   });
 
 export const getUserInfo = (token) =>
-  request("/users/me", {
+  request("/api/users/me", {
     headers: { Authorization: `Bearer ${token}` },
   });
 
 export const getSavedArticles = (token) =>
-  request("/articles", {
+  request("/api/articles", {
     headers: { Authorization: `Bearer ${token}` },
   });
 
 export const saveArticle = (token, article) =>
-  request("/articles", {
+  request("/api/articles", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const saveArticle = (token, article) =>
   });
 
 export const deleteArticle = (token, articleId) =>
-  request(`/articles/${articleId}`, {
+  request(`/api/articles/${articleId}`, {
     method: "DELETE",
     headers: { Authorization: `Bearer ${token}` },
   });
