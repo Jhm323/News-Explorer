@@ -16,11 +16,9 @@ const NewsCard = React.memo(
     const [isArticleSaved, setIsArticleSaved] = useState(false);
     const [showTooltip, setShowTooltip] = useState(false);
 
-    // Check if article is already saved
     useEffect(() => {
-      const articleId = article._id || article.url;
       const saved = savedArticles.some(
-        (saved) => (saved._id || saved.url) === articleId
+        (saved) => saved.link === article.url || saved._id === article._id,
       );
       setIsArticleSaved(saved);
     }, [savedArticles, article]);
@@ -32,26 +30,15 @@ const NewsCard = React.memo(
         return;
       }
 
-      const articleId = article._id || article.url;
-
-      // If already saved, delete it
       if (isArticleSaved) {
-        deleteArticle(articleId);
+        const savedArticle = savedArticles.find(
+          (saved) => saved.link === article.url || saved._id === article._id,
+        );
+        if (savedArticle) deleteArticle(savedArticle._id);
         return;
       }
 
-      const articleToSave = {
-        _id: article._id || article.url,
-        url: article.url,
-        title: article.title,
-        description: article.description,
-        image: article.image || article.urlToImage,
-        source: article.source,
-        keyword: keyword,
-        date: article.publishedAt || new Date().toISOString(),
-      };
-
-      saveArticle(articleToSave, keyword);
+      saveArticle(article, keyword);
     };
 
     const handleDeleteClick = () => {
@@ -113,7 +100,7 @@ const NewsCard = React.memo(
             </div>
           )}
 
-          {/* Keyword only shows on saved articles page when showDeleteButton is true */}
+          {/* Keyword shows on saved articles when showDeleteButton is true */}
           {keyword && (
             <div
               className={`news-card__keyword ${
@@ -124,7 +111,7 @@ const NewsCard = React.memo(
             </div>
           )}
         </div>
-        {/* Makes the entire content area a clickable link to the full article */}
+        {/* Makes the entire content area a clickable*/}
         <a
           className="news-card__content"
           href={article.url}
@@ -143,7 +130,7 @@ const NewsCard = React.memo(
         </a>
       </article>
     );
-  }
+  },
 );
 
 NewsCard.propTypes = {

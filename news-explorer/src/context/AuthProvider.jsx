@@ -61,11 +61,14 @@ export function AuthProvider({ children }) {
     return apiSaveArticle(token, {
       keyword,
       title: article.title,
-      text: article.description,
+      text: article.description || "No description available",
       date: article.publishedAt,
       source: article.source.name,
       link: article.url,
-      image: article.urlToImage,
+      image:
+        article.urlToImage ||
+        article.image ||
+        "https://via.placeholder.com/300",
     }).then((savedArticle) => {
       setSavedArticles((prev) => [...prev, savedArticle]);
     });
