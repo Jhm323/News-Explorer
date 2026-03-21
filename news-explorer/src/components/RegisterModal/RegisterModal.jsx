@@ -44,7 +44,7 @@ const RegisterModal = React.memo(({ isOpen, onClose, onSwitchToLogin }) => {
 
   useEffect(() => {
     const emailValid = /\S+@\S+\.\S+/.test(formData.email);
-    const passwordValid = formData.password.length > 0;
+    const passwordValid = formData.password.length >= 8;
     const nameValid = formData.name.length > 0;
     setErrors((prev) => ({
       ...prev,
@@ -52,9 +52,14 @@ const RegisterModal = React.memo(({ isOpen, onClose, onSwitchToLogin }) => {
         formData.email === ""
           ? "Email required"
           : !emailValid
-          ? "Invalid email address"
-          : "",
-      password: formData.password === "" ? "Password required" : "",
+            ? "Invalid email address"
+            : "",
+      password:
+        formData.password === ""
+          ? "Password required"
+          : formData.password.length < 8
+            ? "Password must be at least 8 characters"
+            : "",
       name: formData.name === "" ? "Username required" : "",
     }));
     setIsValid(emailValid && passwordValid && nameValid);
@@ -90,15 +95,16 @@ const RegisterModal = React.memo(({ isOpen, onClose, onSwitchToLogin }) => {
       register: "",
     }));
 
-    try {
-      handleRegister(formData);
-      setShowSuccess(true);
-    } catch (err) {
-      setErrors((prev) => ({
-        ...prev,
-        register: "Registration failed. Please try again.",
-      }));
-    }
+    handleRegister(formData)
+      .then(() => {
+        setShowSuccess(true);
+      })
+      .catch((err) => {
+        setErrors((prev) => ({
+          ...prev,
+          register: err.message || "Registration failed. Please try again.",
+        }));
+      });
   };
 
   const handleSuccessClose = () => {
