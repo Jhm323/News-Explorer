@@ -73,12 +73,17 @@ const SavedNews = React.memo(() => {
           ) : (
             <ul className="saved-news__cards-grid">
               {savedArticles.map((article) => (
-                <li key={article._id || article.url}>
+                <li key={article._id || article.url || article.link}>
                   <NewsCard
-                    article={article}
-                    onDeleteArticle={() =>
-                      deleteArticle(article._id || article.url)
-                    }
+                    article={{
+                      ...article,
+                      url: article.url || article.link,
+                      source:
+                        typeof article.source === "string"
+                          ? { name: article.source }
+                          : article.source,
+                    }}
+                    onDeleteArticle={() => deleteArticle(article._id)}
                     isSaved={true}
                     showDeleteButton={true}
                     keyword={article.keyword}
