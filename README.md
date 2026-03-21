@@ -2,287 +2,84 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/News-Explorer?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/Jhm323/News-Explorer?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/Jhm323/News-Explorer?style=flat-square)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/Jhm323/News-Explorer?style=flat-square)
-![GitHub license](https://img.shields.io/github/license/Jhm323/News-Explorer?style=flat-square)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)
-![GitHub stars](https://img.shields.io/github/stars/Jhm323/News-Explorer?style=flat-square)
-![GitHub forks](https://img.shields.io/github/forks/Jhm323/News-Explorer?style=flat-square)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 
-A React-based web application that allows users to search for recent news articles via **NewsAPI**, explore results in a clean, card-based interface, and save articles for later reading. This project demonstrates production-style frontend architecture, API integration, routing, and responsive UI design.
+A full-stack news aggregation app where users can search for recent news articles, create an account, and save articles to a personal collection backed by a real database.
 
 ---
 
-## Project Objective
+## Live Demo
 
-The objective of **News Explorer** is to design and build a scalable, real-world React application that mirrors the behavior of a modern news aggregation product. The project focuses on integrating third-party APIs, managing asynchronous data flows, implementing authentication-aware UI behavior, and delivering a polished, responsive user experience across devices.
-
-Key goals include:
-
-- Demonstrating professional React architecture using functional components and hooks
-- Implementing robust API interaction with loading and error states
-- Designing a responsive, accessible UI suitable for production deployment
-- Preparing the application for future full-stack expansion
+- **Frontend:** [https://jhm323.github.io/News-Explorer](https://jhm323.github.io/News-Explorer)
+- **Backend API:** [https://news-explorer-41n2.onrender.com](https://news-explorer-41n2.onrender.com)
 
 ---
 
-## Features
+## Monorepo Structure
 
-- **Keyword Search** — Search for news articles from the last 7 days
-- **Article Grid** — Responsive card layout with images, metadata, and external links
-- **Pagination** — Incremental loading with _Show more / Show less_
-- **Save Articles (Stage 1 simulation)** — Save behavior mocked using `localStorage`
-- **Auth Tooltips** — UI prompts for unauthenticated users attempting protected actions
-- **Preloader** — Animated loading indicator during API requests
-- **Error Handling** — Friendly messages for empty results, invalid searches, and API/network errors
-- **Responsive Design** — Optimized for desktop, tablet, and mobile (320px+)
-- **Deployment Ready** — Configured for GitHub Pages
+```
+News-Explorer/
+├── news-explorer/        # React/Vite frontend
+└── news-explorer-api/    # Express/MongoDB backend
+```
 
 ---
 
-## Tech Stack
+## Stack
 
 ### Frontend
 
-- React (functional components)
-- Vite
-- JSX
-- CSS (BEM methodology)
+- React, Vite, React Router, Context API
+- BEM CSS, Normalize.css
+- NewsAPI.org integration
 
-### State & Routing
+### Backend
 
-- React Hooks (`useState`, `useContext`)
-- React Router
-
-### API
-
-- NewsAPI.org
-- Production proxy: `nomoreparties.co`
-
-### Styling & Assets
-
-- Normalize.css
-- Fonts: Roboto, Roboto Slab, Inter
-
-### Deployment
-
-- GitHub Pages
+- Node.js, Express
+- MongoDB + Mongoose, MongoDB Atlas
+- JWT authentication, bcryptjs
+- Celebrate/Joi validation
+- Helmet, express-rate-limit, Winston logging
+- Deployed on Render
 
 ---
 
-## Screenshots
+## Getting Started
 
-### Search Results
-
-![Search Results](./news-explorer/src/vendor/search-results.png)
-
-### Loading State
-
-![Preloader](./news-explorer/src/vendor/preloader.png)
-
-### Saved Articles
-
-![Saved Articles](./news-explorer/src/vendor/saved-articles.png)
-
-### Mobile & Tablet
-
-![Mobile Menu](./news-explorer/src/vendor/mobile-menu.png)
-![Tablet](./news-explorer/src/vendor/tablet.png)
-
-### Register Modal
-
-![Mobile Signup](./news-explorer/src/vendor/mobile-signup.png)
-![Signup](./news-explorer/src/vendor/tablet-signup.png)
-
----
-
-## Installation & Setup
-
-### 1. Clone the repository
+### Clone
 
 ```bash
 git clone https://github.com/Jhm323/News-Explorer.git
 cd News-Explorer
 ```
 
-### 2. Install dependencies
+### Frontend
 
 ```bash
+cd news-explorer
 npm install
-```
-
-### 3. Environment variables
-
-Create a `.env` file in the project root:
-
-```env
-VITE_NEWS_API_KEY=your_api_key_here
-```
-
-> Get a free API key from NewsAPI.org.
-
-### 4. Run locally
-
-```bash
+cp .env.example .env   # add VITE_NEWS_API_KEY and VITE_API_URL
 npm run dev
 ```
 
-Open: [http://localhost:5173](http://localhost:5173)
-
-### 5. Production build
+### Backend
 
 ```bash
-npm run build
-npm run preview
+cd news-explorer-api
+npm install
+cp .env.example .env   # add JWT_SECRET and DB_ADDRESS
+npm run dev
 ```
-
----
-
-## Usage
-
-### Search for News
-
-1. Enter a keyword (e.g., `technology`, `climate`, `sports`)
-2. Click **Search**
-3. Results appear as cards displaying:
-
-   - Title
-   - Description
-   - Publication date
-   - Source and image
-
-### View & Save Articles
-
-- Click **Show more** to load additional articles (3 at a time)
-- Hover over the save icon:
-
-  - If logged out → tooltip: _“Sign in to save articles”_
-
-- Saved articles are stored in `localStorage` (Stage 1 only)
-
-### Navigation
-
-- **Home** → `/`
-- **Saved News** → `/saved-news` (simulated)
-- External article links open in new tabs
-
----
-
-## Architecture Overview
-
-The application uses a component-driven React architecture with a clear separation of concerns. UI components, API logic, and helper utilities are organized into dedicated directories. State is managed locally using React hooks and context, while routing is handled with React Router to support multiple views. This structure improves maintainability, scalability, and readiness for backend integration.
-
----
-
-## API Details
-
-### Endpoint
-
-- Development: `https://newsapi.org/v2/everything`
-- Production: `https://nomoreparties.co/news/v2/everything`
-
-### Parameters
-
-- `q` — Search query
-- `apiKey` — API key
-- `from` / `to` — Date range (last 7 days)
-- `pageSize` — 100 (max free tier)
-
-### Response Fields Used
-
-- `source.name`
-- `title`
-- `description`
-- `publishedAt`
-- `urlToImage`
-
-### Error States
-
-- No results found
-- API or network error
-- Invalid or empty search query
-
----
-
-## Project Structure
-
-```
-src/
-├── components/        # React components
-├── utils/             # API and helper functions
-├── assets/            # Images and static assets
-├── vendor/            # Fonts and third-party files
-├── blocks/            # BEM-based CSS
-├── App.jsx            # Root component
-└── main.jsx           # Vite entry point
-```
-
----
-
-## Browser & Device Support
-
-Tested on Chrome, Firefox, and Safari. Fully responsive across desktop, tablet, and mobile devices (320px+).
-
----
-
-## Conclusion
-
-**News Explorer** successfully demonstrates the ability to design and implement a production-style React application with real-world features such as API integration, routing, loading and error handling, and authentication-aware UI patterns. The project reflects modern frontend best practices and provides a strong foundation for extending into a full-stack product.
-
----
-
-## Future Improvements & Business Impact
-
-- Implement backend authentication and persistent user accounts
-- Replace `localStorage` with a database-backed saved articles system
-- Add article categorization and personalized recommendations
-- Introduce analytics to track user engagement and search behavior
-- Improve SEO and social sharing metadata
-
-From a business perspective, these enhancements could increase user retention, enable personalization, and support monetization through subscriptions or content partnerships.
-
----
-
-## Deployment
-
-Live Demo:
-[https://jhm323.github.io/News-Explorer](https://jhm323.github.io/News-Explorer)
-
-### Deploy to GitHub Pages
-
-```bash
-npm run build
-```
-
-- Push the build to GitHub
-- Enable **GitHub Pages** in repository settings
-- Select the `gh-pages` branch or root directory
-
----
-
-## Contributing & Submission
-
-This is a **TripleTen educational project**.
-
-Guidelines:
-
-- Work in the `stage-1-frontend-and-api` branch
-- Submit a Pull Request to `main`
-- Ensure all rubric criteria are met:
-
-  - Responsive layout
-  - Semantic HTML
-  - BEM class naming
 
 ---
 
 ## License
 
-This project is for educational purposes as part of the **TripleTen curriculum**. No license specified.
+Educational project. No license specified.
 
 ---
 
-Built with React • Styled with BEM • Powered by NewsAPI
+Built with React • Node.js • MongoDB • Deployed on Render + GitHub Pages
