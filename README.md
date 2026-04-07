@@ -2,84 +2,72 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Jhm323/News-Explorer?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/Jhm323/News-Explorer?style=flat-square)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 
-A full-stack news aggregation app where users can search for recent news articles, create an account, and save articles to a personal collection backed by a real database.
+News Explorer is a full-stack app that lets users search for recent news articles, create an account, and save articles to a personal collection.
+
+I built this to go beyond a simple API demo and handle real user flows—things like authentication, persistence, and making sure the UI doesn’t fall apart when the API is slow or returns unexpected data.
 
 ---
 
 ## Live Demo
 
-- **Frontend:** [https://jhm323.github.io/News-Explorer](https://jhm323.github.io/News-Explorer)
-- **Backend API:** [https://news-explorer-41n2.onrender.com](https://news-explorer-41n2.onrender.com)
+- Frontend: https://jhm323.github.io/News-Explorer  
+- Backend API: https://news-explorer-41n2.onrender.com  
 
 ---
 
-## Monorepo Structure
+## How it works
 
-```
-News-Explorer/
-├── news-explorer/        # React/Vite frontend
-└── news-explorer-api/    # Express/MongoDB backend
-```
+- Users can search for articles using a third-party news API  
+- Articles can be saved to a personal account (stored in MongoDB)  
+- Authentication is handled with JWT so users stay logged in across sessions  
+- The UI handles loading states and errors so the experience stays usable even when the API isn’t perfect  
 
 ---
 
 ## Stack
 
 ### Frontend
-
-- React, Vite, React Router, Context API
-- BEM CSS, Normalize.css
-- NewsAPI.org integration
+- React (Vite)
+- React Router
+- Context API for global state
+- BEM CSS
 
 ### Backend
-
-- Node.js, Express
-- MongoDB + Mongoose, MongoDB Atlas
-- JWT authentication, bcryptjs
-- Celebrate/Joi validation
-- Helmet, express-rate-limit, Winston logging
-- Deployed on Render
+- Node.js + Express
+- MongoDB (Mongoose, Atlas)
+- JWT authentication + bcrypt
+- Request validation with Celebrate/Joi
+- Basic security + rate limiting (Helmet, express-rate-limit)
 
 ---
 
-## Getting Started
+## Project structure
 
-### Clone
+
+News-Explorer/
+├── news-explorer/ # React frontend
+└── news-explorer-api/ # Express backend
+
+
+---
+
+## Local setup
+
+Clone the repo:
 
 ```bash
 git clone https://github.com/Jhm323/News-Explorer.git
 cd News-Explorer
-```
-
-### Frontend
-
-```bash
+Frontend
 cd news-explorer
 npm install
-cp .env.example .env   # add VITE_NEWS_API_KEY and VITE_API_URL
+cp .env.example .env
+# add VITE_NEWS_API_KEY and VITE_API_URL
 npm run dev
-```
-
-### Backend
-
-```bash
+Backend
 cd news-explorer-api
 npm install
-cp .env.example .env   # add JWT_SECRET and DB_ADDRESS
+cp .env.example .env
+# add JWT_SECRET and DB_ADDRESS
 npm run dev
-```
-
----
-
-## License
-
-Educational project. No license specified.
-
----
-
-Built with React • Node.js • MongoDB • Deployed on Render + GitHub Pages
